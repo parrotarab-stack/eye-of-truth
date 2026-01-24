@@ -1045,4 +1045,221 @@ body {
         right: 20px;
         top: 20px;
     }
+
+}
+/* نافذة الترجمة */
+.translate-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 2000;
+    animation: fadeIn 0.3s ease;
+}
+
+.modal-content {
+    background: white;
+    margin: 50px auto;
+    padding: 0;
+    width: 90%;
+    max-width: 700px;
+    border-radius: 20px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+    animation: slideUp 0.4s ease;
+}
+
+.modal-header {
+    background: linear-gradient(135deg, #2c3e50, #3498db);
+    color: white;
+    padding: 25px 30px;
+    border-radius: 20px 20px 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-header h3 {
+    margin: 0;
+    font-size: 1.6rem;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.close-modal {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 2.5rem;
+    cursor: pointer;
+    padding: 0;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: background 0.3s ease;
+}
+
+.close-modal:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.languages-grid {
+    padding: 30px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.language-option {
+    background: #f8f9fa;
+    border: 2px solid #e0e0e0;
+    border-radius: 15px;
+    padding: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    position: relative;
+}
+
+.language-option:hover {
+    background: #3498db;
+    color: white;
+    border-color: #3498db;
+    transform: translateY(-5px);
+}
+
+.language-option:hover .flag,
+.language-option:hover .lang-name,
+.language-option:hover .lang-native {
+    color: white;
+}
+
+.flag {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.lang-name {
+    display: block;
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+    color: #2c3e50;
+}
+
+.lang-native {
+    display: block;
+    color: #7f8c8d;
+    font-size: 0.95rem;
+}
+
+.status-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: #f39c12;
+    color: white;
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.auto-translate-box {
+    grid-column: span 2;
+    background: #e3f2fd;
+    border: 2px dashed #3498db;
+    border-radius: 15px;
+    padding: 25px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.auto-translate-box h4 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+    font-size: 1.4rem;
+}
+
+.auto-translate-box p {
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.browser-instructions {
+    text-align: right;
+    margin: 20px 0;
+    padding: 15px;
+    background: white;
+    border-radius: 10px;
+    border-right: 4px solid #27ae60;
+}
+
+.browser-instructions p {
+    margin: 10px 0;
+    color: #444;
+    font-size: 0.95rem;
+}
+
+.btn-translate {
+    background: linear-gradient(135deg, #27ae60, #2ecc71);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 25px;
+    font-weight: bold;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1rem;
+    transition: transform 0.3s ease;
+}
+
+.btn-translate:hover {
+    transform: translateY(-3px);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* زر الترجمة في الشريط */
+#translate-btn {
+    position: relative;
+}
+
+/* للشاشات الصغيرة */
+@media (max-width: 768px) {
+    .modal-content {
+        margin: 20px auto;
+        width: 95%;
+    }
+    
+    .languages-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .auto-translate-box {
+        grid-column: span 1;
+    }
 }
