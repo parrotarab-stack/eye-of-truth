@@ -262,3 +262,74 @@ window.addEventListener('click', function(event) {
         closeTranslateModal();
     }
 });
+// اكتشاف لغة الزائر
+function detectUserLanguage() {
+    const lang = navigator.language || navigator.userLanguage;
+    const nonArabicLangs = ['en', 'fr', 'es', 'zh', 'ru', 'de', 'pt', 'it', 'ja', 'ko'];
+    
+    if (lang && !lang.startsWith('ar')) {
+        // إذا كان الزائر يتحدث لغة غير عربية
+        showWelcomeTranslationMessage(lang);
+        return lang.substring(0, 2); // إرجاع كود اللغة (مثل 'en')
+    }
+    return 'ar';
+}
+
+function showWelcomeTranslationMessage(langCode) {
+    const messages = {
+        'en': 'Welcome! This site is in Arabic. You can translate it using your browser.',
+        'fr': 'Bienvenue ! Ce site est en arabe. Vous pouvez le traduire avec votre navigateur.',
+        'es': '¡Bienvenido! Este sitio está en árabe. Puedes traducirlo con tu navegador.',
+        'zh': '欢迎！本网站为阿拉伯语。您可以使用浏览器进行翻译。'
+    };
+    
+    const message = messages[langCode] || 
+                   'Welcome! This site is in Arabic. You can translate it using browser right-click.';
+    
+    setTimeout(() => {
+        // إشعار لطيف
+        const notification = document.createElement('div');
+        notification.className = 'language-notification';
+        notification.innerHTML = `
+            <div class="notification-content">
+                <i class="fas fa-globe-americas"></i>
+                <span>${message}</span>
+                <button class="close-notification">&times;</button>
+            </div>
+        `;
+        
+        document.body.appendChild(notification);
+        
+        // تنسيق الإشعار
+        notification.style.cssText = `
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            z-index: 1000;
+            animation: slideUp 0.5s ease;
+            max-width: 90%;
+        `;
+        
+        notification.querySelector('.close-notification').onclick = () => {
+            notification.style.animation = 'slideDown 0.5s ease';
+            setTimeout(() => notification.remove(), 500);
+        };
+        
+        // إزالة تلقائية بعد 10 ثوانٍ
+        setTimeout(() => {
+            if (notification.parentNode) {
+                notification.style.animation = 'slideDown 0.5s ease';
+                setTimeout(() => notification.remove(), 500);
+            }
+        }, 10000);
+    }, 2000);
+}
+
+// استدعاء اكتشاف اللغة عند التحميل
+detectUserLanguage();
