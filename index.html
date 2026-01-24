@@ -537,22 +537,69 @@
         </section>
     </main>
 
-    <!-- الترجمة التلقائية -->
-    <div id="google-translate" class="translate-container">
-        <div id="google_translate_element"></div>
-        <p class="translate-note"><i class="fas fa-info-circle"></i> للترجمة الدقيقة، نوصي بالنسخة العربية</p>
+<!-- Google Translate - إصدار محسّن -->
+<div id="google-translate" class="translate-container" style="display: none;">
+    <div class="translate-header">
+        <h4><i class="fas fa-globe-americas"></i> اختر لغتك</h4>
+        <button onclick="closeTranslate()" class="close-btn">
+            <i class="fas fa-times"></i>
+        </button>
     </div>
+    <div id="google_translate_element"></div>
+    <p class="translate-note">
+        <i class="fas fa-info-circle"></i> 
+        الترجمة تلقائية عبر Google. للدقة الكاملة، نعمل على نسخ مترجمة يدويًا.
+    </p>
+</div>
 
-    <!-- JavaScript -->
-    <script src="js/main.js"></script>
-    <script type="text/javascript">
-        function googleTranslateElementInit() {
-            new google.translate.TranslateElement(
-                {pageLanguage: 'ar', includedLanguages: 'en,fr,es,zh,ur,fa,tr,ru'},
-                'google_translate_element'
-            );
+<script type="text/javascript">
+    // دالة تحميل Google Translate بشكل آمن
+    function loadGoogleTranslate() {
+        if (typeof google === 'undefined') {
+            const script = document.createElement('script');
+            script.type = 'text/javascript';
+            script.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+            document.head.appendChild(script);
+        } else {
+            googleTranslateElementInit();
         }
-    </script>
+    }
+    
+    function googleTranslateElementInit() {
+        if (typeof google !== 'undefined' && google.translate) {
+            new google.translate.TranslateElement({
+                pageLanguage: 'ar',
+                includedLanguages: 'en,fr,es,zh,ru,de,pt,it,ja,ko,hi,ur,fa,tr',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+                autoDisplay: false
+            }, 'google_translate_element');
+            
+            // إخفاء شريط Google العلوي
+            setTimeout(() => {
+                const googBar = document.querySelector('.goog-te-banner-frame');
+                if (googBar) googBar.style.display = 'none';
+            }, 500);
+        }
+    }
+    
+    function closeTranslate() {
+        document.getElementById('google-translate').style.display = 'none';
+        document.getElementById('translate-btn').innerHTML = '<i class="fas fa-globe"></i> لغات أخرى';
+    }
+    
+    // تحميل الترجمة عند الضغط على الزر
+    document.getElementById('translate-btn').addEventListener('click', function() {
+        const translateDiv = document.getElementById('google-translate');
+        if (translateDiv.style.display === 'none' || translateDiv.style.display === '') {
+            translateDiv.style.display = 'block';
+            this.innerHTML = '<i class="fas fa-times"></i> إغلاق';
+            loadGoogleTranslate();
+        } else {
+            closeTranslate();
+        }
+    });
+ </script>
     <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
+
 </html>
