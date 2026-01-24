@@ -8,6 +8,31 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+    <!-- بار الترجمة التلقائية -->
+<div class="auto-translate-bar">
+    <div class="container">
+        <div class="translate-bar-content">
+            <p>
+                <i class="fas fa-language"></i>
+                <strong>غير العربي؟</strong> يمكنك ترجمة الموقع كاملاً بلغتك:
+            </p>
+            <div class="translate-actions">
+                <button class="translate-btn" onclick="translateWithChrome()">
+                    <i class="fab fa-chrome"></i> ترجمة في Chrome
+                </button>
+                <button class="translate-btn" onclick="translateWithEdge()">
+                    <i class="fab fa-edge"></i> ترجمة في Edge
+                </button>
+                <button class="translate-btn" onclick="showAllMethods()">
+                    <i class="fas fa-question-circle"></i> طرق أخرى
+                </button>
+                <button class="close-translate-bar" onclick="hideTranslateBar()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
     <!-- شريط التنقل -->
     <nav class="navbar">
         <div class="container">
@@ -596,3 +621,4 @@
     <script src="js/main.js"></script>
 </body>
 </html>
+
