@@ -537,69 +537,62 @@
         </section>
     </main>
 
-<!-- Google Translate - إصدار محسّن -->
-<div id="google-translate" class="translate-container" style="display: none;">
-    <div class="translate-header">
-        <h4><i class="fas fa-globe-americas"></i> اختر لغتك</h4>
-        <button onclick="closeTranslate()" class="close-btn">
-            <i class="fas fa-times"></i>
-        </button>
-    </div>
-    <div id="google_translate_element"></div>
-    <p class="translate-note">
-        <i class="fas fa-info-circle"></i> 
-        الترجمة تلقائية عبر Google. للدقة الكاملة، نعمل على نسخ مترجمة يدويًا.
-    </p>
-</div>
-
-<script type="text/javascript">
-    // دالة تحميل Google Translate بشكل آمن
-    function loadGoogleTranslate() {
-        if (typeof google === 'undefined') {
-            const script = document.createElement('script');
-            script.type = 'text/javascript';
-            script.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
-            document.head.appendChild(script);
-        } else {
-            googleTranslateElementInit();
-        }
-    }
-    
-    function googleTranslateElementInit() {
-        if (typeof google !== 'undefined' && google.translate) {
-            new google.translate.TranslateElement({
-                pageLanguage: 'ar',
-                includedLanguages: 'en,fr,es,zh,ru,de,pt,it,ja,ko,hi,ur,fa,tr',
-                layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-                autoDisplay: false
-            }, 'google_translate_element');
+    <!-- نظام الترجمة المتعدد اللغات -->
+    <div id="translate-modal" class="translate-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-language"></i> اختر لغتك</h3>
+                <button class="close-modal" onclick="closeTranslateModal()">&times;</button>
+            </div>
             
-            // إخفاء شريط Google العلوي
-            setTimeout(() => {
-                const googBar = document.querySelector('.goog-te-banner-frame');
-                if (googBar) googBar.style.display = 'none';
-            }, 500);
-        }
-    }
-    
-    function closeTranslate() {
-        document.getElementById('google-translate').style.display = 'none';
-        document.getElementById('translate-btn').innerHTML = '<i class="fas fa-globe"></i> لغات أخرى';
-    }
-    
-    // تحميل الترجمة عند الضغط على الزر
-    document.getElementById('translate-btn').addEventListener('click', function() {
-        const translateDiv = document.getElementById('google-translate');
-        if (translateDiv.style.display === 'none' || translateDiv.style.display === '') {
-            translateDiv.style.display = 'block';
-            this.innerHTML = '<i class="fas fa-times"></i> إغلاق';
-            loadGoogleTranslate();
-        } else {
-            closeTranslate();
-        }
-    });
- </script>
-    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-</body>
+            <div class="languages-grid">
+                <!-- اللغات المهمة -->
+                <div class="language-option" onclick="showTranslationMessage('الإنجليزية قريبًا')">
+                    <span class="flag">🇬🇧</span>
+                    <span class="lang-name">English</span>
+                    <span class="lang-native">الإنجليزية</span>
+                    <span class="status-badge">قريبًا</span>
+                </div>
+                
+                <div class="language-option" onclick="showTranslationMessage('الفرنسية قريبًا')">
+                    <span class="flag">🇫🇷</span>
+                    <span class="lang-name">Français</span>
+                    <span class="lang-native">الفرنسية</span>
+                    <span class="status-badge">قريبًا</span>
+                </div>
+                
+                <div class="language-option" onclick="showTranslationMessage('الصينية قريبًا')">
+                    <span class="flag">🇨🇳</span>
+                    <span class="lang-name">中文</span>
+                    <span class="lang-native">الصينية</span>
+                    <span class="status-badge">قريبًا</span>
+                </div>
+                
+                <div class="language-option" onclick="showTranslationMessage('الأردية قريبًا')">
+                    <span class="flag">🇵🇰</span>
+                    <span class="lang-name">اردو</span>
+                    <span class="lang-native">الأردية</span>
+                    <span class="status-badge">قريبًا</span>
+                </div>
+                
+                <!-- رسالة الترجمة التلقائية -->
+                <div class="auto-translate-box">
+                    <h4><i class="fas fa-robot"></i> ترجمة تلقائية فورية</h4>
+                    <p>يمكنك استخدام مترجم المتصفح:</p>
+                    <div class="browser-instructions">
+                        <p><strong>Google Chrome:</strong> انقر بزر الماوس الأيمن → "ترجمة إلى"</p>
+                        <p><strong>Microsoft Edge:</strong> انقر بزر الماوس الأيمن → "ترجمة إلى"</p>
+                        <p><strong>متصفحات أخرى:</strong> استخدم إضافة Google Translate</p>
+                    </div>
+                    <button class="btn-translate" onclick="showBrowserTranslationHelp()">
+                        <i class="fas fa-question-circle"></i> طريقة الاستخدام
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
 
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+</body>
 </html>
