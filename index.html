@@ -619,6 +619,49 @@
 
     <!-- JavaScript -->
     <script src="js/main.js"></script>
+    <!-- نظام الترجمة الحقيقي -->
+<div id="real-translation-system" style="display: none;">
+    <!-- سيتم تحميل الترجمات هنا -->
+</div>
+
+<!-- زر الترجمة العائم -->
+<div class="floating-translate-btn" onclick="toggleRealTranslation()">
+    <i class="fas fa-language"></i>
+    <span>Translate</span>
+</div>
+
+<!-- نافذة الترجمة -->
+<div id="translation-window" class="translation-window">
+    <div class="translation-header">
+        <h3><i class="fas fa-globe-americas"></i> ترجمة الموقع</h3>
+        <button onclick="closeTranslationWindow()">&times;</button>
+    </div>
+    <div class="translation-body">
+        <div class="translation-options">
+            <div class="translation-option selected" data-lang="ar" onclick="changeLanguage('ar')">
+                <span class="flag">🇸🇦</span>
+                <span>العربية</span>
+            </div>
+            <div class="translation-option" data-lang="en" onclick="changeLanguage('en')">
+                <span class="flag">🇬🇧</span>
+                <span>English</span>
+            </div>
+            <div class="translation-option" data-lang="fr" onclick="changeLanguage('fr')">
+                <span class="flag">🇫🇷</span>
+                <span>Français</span>
+            </div>
+            <div class="translation-option" data-lang="es" onclick="changeLanguage('es')">
+                <span class="flag">🇪🇸</span>
+                <span>Español</span>
+            </div>
+        </div>
+        
+        <div class="translation-note">
+            <p><i class="fas fa-info-circle"></i> نعمل على إضافة المزيد من اللغات قريبًا.</p>
+        </div>
+    </div>
+</div>
 </body>
 </html>
+
 
