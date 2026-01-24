@@ -207,4 +207,58 @@ function typeWriterEffect() {
 }
 
 // تفعيل تأثير الكتابة إذا أردت
+
 // typeWriterEffect();
+// نظام الترجمة البديل
+function openTranslateModal() {
+    document.getElementById('translate-modal').style.display = 'block';
+    document.getElementById('translate-btn').innerHTML = '<i class="fas fa-times"></i> إغلاق';
+}
+
+function closeTranslateModal() {
+    document.getElementById('translate-modal').style.display = 'none';
+    document.getElementById('translate-btn').innerHTML = '<i class="fas fa-globe"></i> لغات أخرى';
+}
+
+function showTranslationMessage(message) {
+    alert('🚧 ' + message + '\n\nحاليًا: الموقع بالعربية فقط. يمكنك استخدام:\n1. مترجم المتصفح المدمج\n2. إضافة Google Translate\n3. انتظار النسخ المترجمة يدويًا');
+}
+
+function showBrowserTranslationHelp() {
+    const helpText = `
+🎯 طريقة الترجمة الفورية:
+
+1. في متصفح Chrome أو Edge:
+   - انقر بزر الماوس الأيمن على أي مكان في الصفحة
+   - اختر "ترجمة إلى..." أو "Translate to..."
+   - اختر لغتك
+
+2. في متصفح Firefox:
+   - اضغط Ctrl+Shift+Y (أو Cmd+Shift+Y في Mac)
+   - أو نزل إضافة Google Translate
+
+3. في الهاتف:
+   - افتح القائمة ☰
+   - اختر "ترجمة الصفحة"
+   
+✅ بهذه الطريقة يمكنك ترجمة كل المحتوى فورياً!`;
+    
+    alert(helpText);
+}
+
+// تحديث زر الترجمة في الشريط العلوي
+document.getElementById('translate-btn').addEventListener('click', function() {
+    if (document.getElementById('translate-modal').style.display === 'block') {
+        closeTranslateModal();
+    } else {
+        openTranslateModal();
+    }
+});
+
+// إغلاق النافذة عند النقر خارجها
+window.addEventListener('click', function(event) {
+    const modal = document.getElementById('translate-modal');
+    if (event.target === modal) {
+        closeTranslateModal();
+    }
+});
