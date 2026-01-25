@@ -503,4 +503,23 @@ audio {
     border-top: 1px solid rgba(255,255,255,0.1);
     color: #aaa;
     font-size: 0.95rem;
+
+}
+.prayer-times-simple {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 30px;
+    border-right: 4px solid var(--color-accent);
+}
+.prayer-times-simple table {
+    border-collapse: collapse;
+}
+.prayer-times-simple th, .prayer-times-simple td {
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+}
+.prayer-times-simple th {
+    background-color: #f9f9f9;
+    color: var(--color-primary);
 }
