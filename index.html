@@ -6,48 +6,45 @@
     <title>👁️ العين الثالثة لم ترَ جائعًا</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- شريط التنقّل المحدث -->
+    <!-- شريط التنقل -->
     <nav class="navbar">
         <div class="container">
             <div class="nav-content">
-                <div class="logo" onclick="window.location.href='#'">
+                <div class="logo" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
                     <i class="fas fa-eye"></i>
                     <h1>العين الثالثة</h1>
                 </div>
                 
-                <!-- نظام الترجمة البسيط -->
                 <div class="translation-simple">
-                    <button class="translate-simple-btn" onclick="toggleSimpleTranslation()">
+                    <button class="translate-simple-btn" onclick="showTranslationHelp()">
                         <i class="fas fa-language"></i> English
                     </button>
                     <div class="simple-translation-dropdown">
                         <p><strong>How to translate:</strong></p>
-                        <p>Right-click anywhere → "Translate to English"</p>
-                        <p>Or use browser's translation feature</p>
+                        <p>Right-click → "Translate to English"</p>
+                        <p>Or use browser's translation</p>
                     </div>
                 </div>
             </div>
         </div>
     </nav>
 
-    <!-- روابط سريعة ثابتة -->
-    <div class="floating-nav">
+    <!-- روابط سريعة -->
+    <div class="floating-nav" id="floatingNav">
         <a href="#third-eye" class="floating-nav-btn">
             <i class="fas fa-eye"></i>
             <span>العين الثالثة</span>
         </a>
-        <a href="#fitra" class="floating-nav-btn">
-            <i class="fas fa-star"></i>
-            <span>الفِطرة</span>
-        </a>
         <a href="#comparison" class="floating-nav-btn">
             <i class="fas fa-balance-scale"></i>
             <span>المقارنة</span>
+        </a>
+        <a href="#fitra" class="floating-nav-btn">
+            <i class="fas fa-star"></i>
+            <span>الفِطرة</span>
         </a>
         <a href="#start-journey" class="floating-nav-btn">
             <i class="fas fa-flag"></i>
@@ -56,7 +53,7 @@
     </div>
 
     <!-- القسم الرئيسي -->
-    <header class="hero-section">
+    <header class="hero-section" id="home">
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
@@ -77,9 +74,9 @@
                     </p>
                     
                     <div class="hero-buttons">
-                        <a href="#third-eye" class="btn btn-primary">
-                            <i class="fas fa-book-open"></i>
-                            <span>ابدأ الرحلة</span>
+                        <a href="#comparison" class="btn btn-primary">
+                            <i class="fas fa-balance-scale"></i>
+                            <span>مقارنة الأديان</span>
                         </a>
                         <a href="#ask-private" class="btn btn-secondary">
                             <i class="fas fa-question-circle"></i>
@@ -96,72 +93,158 @@
             </div>
         </div>
     </header>
-        <!-- قسم العين الثالثة -->
-    <section id="third-eye" class="section">
+
+    <!-- قسم المقارنة (الأهم) -->
+    <section id="comparison" class="section">
         <div class="container">
             <div class="section-header">
                 <h2>
-                    <i class="fas fa-eye section-icon"></i>
-                    <span>العين الثالثة: معنى العبارة</span>
+                    <i class="fas fa-balance-scale section-icon"></i>
+                    <span>مقارنة واضحة: القرآن والكتب الأخرى</span>
                 </h2>
-                <p class="section-subtitle">مفتاح لفهم أعمق للحياة</p>
+                <p class="section-subtitle">نصوص جنبًا إلى جنب - لتقرر بنفسك</p>
             </div>
             
-            <div class="features-grid">
-                <!-- بطاقة المعنى الروحي -->
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-heart"></i>
+            <div class="comparison-intro">
+                <p>
+                    كل الرسل جاءوا بـ <strong>"الله واحد"</strong>، ولكن البشر حرّفوا بعض الكتب. 
+                    هنا نعرض نفس الموضوع من الكتب الثلاثة، ونترك لك <strong>الحكم بنفسك</strong>.
+                </p>
+            </div>
+            
+            <!-- جدول المقارنة -->
+            <div class="comparison-table-container">
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>النقطة</th>
+                            <th>التوراة الحالية</th>
+                            <th>الإنجيل الحالي</th>
+                            <th>القرآن الكريم</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- الصف 1: وحدانية الله -->
+                        <tr>
+                            <td class="point-title">وحدانية الله</td>
+                            <td>
+                                <p class="text-good">"اسمع يا إسرائيل: الرب إلهنا رب واحد" (تثنية 6:4)</p>
+                                <p class="text-bad">"وسمعا صوت الرب الإله ماشيًا في الجنة" (تكوين 3:8)</p>
+                            </td>
+                            <td>
+                                <p class="text-good">"الرب إلهنا رب واحد" (مرقس 12:29)</p>
+                                <p class="text-bad">"عمدوهم باسم الآب والابن والروح القدس" (متى 28:19)</p>
+                            </td>
+                            <td class="quran-cell">
+                                <p class="quran-text">﴿قُلْ هُوَ اللَّهُ أَحَدٌ * اللَّهُ الصَّمَدُ * لَمْ يَلِدْ وَلَمْ يُولَدْ * وَلَمْ يَكُنْ لَهُ كُفُوًا أَحَدٌ﴾</p>
+                                <span class="verse-reference">[سورة الإخلاص]</span>
+                                <p class="text-good">توحيد خالص، لا تشبيه، لا تعدد</p>
+                            </td>
+                        </tr>
+                        
+                        <!-- الصف 2: حفظ النص -->
+                        <tr>
+                            <td class="point-title">حفظ النص</td>
+                            <td>
+                                <p class="text-bad">آلاف الاختلافات بين مخطوطات البحر الميت</p>
+                                <p class="text-note">علماء النقد يعترفون بالتحريف</p>
+                            </td>
+                            <td>
+                                <p class="text-bad">أربعة أناجيل مختلفة، تناقضات كثيرة</p>
+                                <p class="text-note">مجمع نيقية عام 325م اختار الأناجيل</p>
+                            </td>
+                            <td class="quran-cell">
+                                <p class="quran-text">﴿إِنَّا نَحْنُ نَزَّلْنَا الذِّكْرَ وَإِنَّا لَهُ لَحَافِظُونَ﴾</p>
+                                <span class="verse-reference">[سورة الحجر: ٩]</span>
+                                <p class="text-good">نفس النص في كل العالم منذ 1400 سنة</p>
+                            </td>
+                        </tr>
+                        
+                        <!-- الصف 3: صفات الله -->
+                        <tr>
+                            <td class="point-title">صفات الله</td>
+                            <td>
+                                <p class="text-bad">"وصنع الله الإنسان على صورته" (تكوين 1:27)</p>
+                                <p class="text-bad">"ندم الله أنه خلق الإنسان" (تكوين 6:6)</p>
+                            </td>
+                            <td>
+                                <p class="text-bad">"الله يجهل موعد القيامة" (مرقس 13:32)</p>
+                                <p class="text-bad">"الله روح" (يوحنا 4:24) لكن له جسد في المسيح</p>
+                            </td>
+                            <td class="quran-cell">
+                                <p class="quran-text">﴿لَيْسَ كَمِثْلِهِ شَيْءٌ وَهُوَ السَّمِيعُ الْبَصِيرُ﴾</p>
+                                <span class="verse-reference">[سورة الشورى: ١١]</span>
+                                <p class="text-good">منزه عن التشبيه، كامل العلم والحكمة</p>
+                            </td>
+                        </tr>
+                        
+                        <!-- الصف 4: النبوة الأخيرة -->
+                        <tr>
+                            <td class="point-title">النبوة الأخيرة</td>
+                            <td>
+                                <p class="text-prophet">"أقيم لهم نبيًا من وسط إخوتهم مثلك" (تثنية 18:18)</p>
+                                <p class="text-note">بعض المفسرين يقولون: يشير إلى محمد</p>
+                            </td>
+                            <td>
+                                <p class="text-prophet">"أما المعزي الروح القدس فسيرسله الآب باسمي" (يوحنا 14:26)</p>
+                                <p class="text-note">كلمة "المعزي" في اليوناني: بارقليط = أحمد</p>
+                            </td>
+                            <td class="quran-cell">
+                                <p class="quran-text">﴿مَا كَانَ مُحَمَّدٌ أَبَا أَحَدٍ مِنْ رِجَالِكُمْ وَلَكِنْ رَسُولَ اللَّهِ وَخَاتَمَ النَّبِيِّينَ﴾</p>
+                                <span class="verse-reference">[سورة الأحزاب: ٤٠]</span>
+                                <p class="text-good">خاتم النبيين، جاء مصدقًا لما بين يديه</p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <!-- استنتاج المقارنة -->
+            <div class="conclusion-box">
+                <div class="conclusion-header">
+                    <i class="fas fa-lightbulb"></i>
+                    <h3>ما الذي نستنتجه؟</h3>
+                </div>
+                
+                <div class="conclusion-points">
+                    <div class="conclusion-item">
+                        <div class="conclusion-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <div class="conclusion-text">
+                            <h4>القرآن وحده بقي محفوظًا</h4>
+                            <p>لم يتغير حرف واحد منذ نزوله</p>
+                        </div>
                     </div>
-                    <h3 class="feature-title">المعنى الروحي</h3>
-                    <div class="feature-content">
-                        <p>
-                            العين الثالثة هي <strong>البصيرة الروحية</strong> التي ترى ما وراء المادة. 
-                            من يرى الله بعين قلبه لا يشعر بفقدان شيء، لأن اتصاله بالخالق يشبعه.
-                        </p>
+                    
+                    <div class="conclusion-item">
+                        <div class="conclusion-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <div class="conclusion-text">
+                            <h4>القرآن وحده حافظ على التوحيد الخالص</h4>
+                            <p>لا تشبيه، لا تعدد، لا ولد، لا والد</p>
+                        </div>
+                    </div>
+                    
+                    <div class="conclusion-item">
+                        <div class="conclusion-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <div class="conclusion-text">
+                            <h4>القرآن وحده جاء مهيمنًا</h4>
+                            <p>مصدقًا لما بين يديه من الكتاب ومهيمنًا عليه</p>
+                        </div>
                     </div>
                 </div>
                 
-                <!-- بطاقة المعنى الفطري -->
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-seedling"></i>
-                    </div>
-                    <h3 class="feature-title">المعنى الفطري</h3>
-                    <div class="feature-content">
-                        <p>
-                            الفطرة السليمة لا تجوع للحقيقة لأنها <strong>تعرفها بالفطرة</strong>. 
-                            التساؤل عن الخالق، التوق إلى العدل، اشتياق الروح إلى مصدرها — كل هذه علامات الفطرة.
-                        </p>
-                    </div>
-                </div>
-                
-                <!-- بطاقة المعنى الدعوي -->
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-hands-helping"></i>
-                    </div>
-                    <h3 class="feature-title">المعنى الدعوي</h3>
-                    <div class="feature-content">
-                        <p>
-                            الداعي إلى الله يشبع قلبه بالإيمان فلا يجوع للدنيا. 
-                            "النسيان" هنا ليس محو الذاكرة، بل تحويل الألم إلى <strong>بصيرة ونور</strong>.
-                        </p>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- القصة الرمزية -->
-            <div class="story-box">
-                <div class="story-header">
-                    <i class="fas fa-book-open story-icon"></i>
-                    <h3>قصة رمزية</h3>
-                </div>
-                <div class="story-content">
-                    <p>
-                        كان هناك رجل يبحث عن الماء في الصحراء، وحمل معه قربة ماء لكنه نسى أنها مليئة. 
-                        ظل يجري من مكان إلى آخر وهو يصرخ: "عطش! عطش!" حتى تذكر ففتح القربة وشرب. 
-                        هكذا الإنسان: يبحث عن الله وهو <strong>فيه بالفطرة</strong>، لكنه نسي.
+                <div class="final-note">
+                    <p class="quran-note">
+                        ﴿فَمَاذَا بَعْدَ الْحَقِّ إِلَّا الضَّلَالُ فَأَنَّى تُصْرَفُونَ﴾
+                        <span>[سورة يونس: ٣٢]</span>
+                    </p>
+                    <p class="note-text">
+                        إذا كان القرآن هو الكتاب الوحيد المحفوظ، فهل يعقل أن نبحث عن الحق في غيره؟
                     </p>
                 </div>
             </div>
@@ -319,157 +402,7 @@
             </div>
         </div>
     </section>
-        <!-- قسم ابدأ رحلتك -->
-    <section id="start-journey" class="section">
-        <div class="container">
-            <div class="section-header">
-                <h2>
-                    <i class="fas fa-flag section-icon"></i>
-                    <span>ابدأ رحلتك: خطوات عملية</span>
-                </h2>
-                <p class="section-subtitle">لا تحتاج إلى تعقيد، فقط ابدأ</p>
-            </div>
-            
-            <div class="journey-steps">
-                <!-- الخطوة 1 -->
-                <div class="step-card">
-                    <div class="step-number">١</div>
-                    <div class="step-content">
-                        <h3 class="step-title">الخطوة الأولى: النية الصادقة</h3>
-                        <p class="step-description">
-                            قل بصدق في قلبك: <strong>"الله، إذا كنت موجودًا، فاهدني إلى الحق"</strong>.
-                        </p>
-                        <div class="step-note">
-                            <i class="fas fa-lightbulb"></i>
-                            <span>الله يعلم ما في قلبك ويستجيب للنية الصادقة.</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- الخطوة 2 -->
-                <div class="step-card">
-                    <div class="step-number">٢</div>
-                    <div class="step-content">
-                        <h3 class="step-title">الخطوة الثانية: النطق بالشهادتين</h3>
-                        <p class="step-description">
-                            قل: <strong class="shahadah">"أشهد أن لا إله إلا الله، وأشهد أن محمدًا رسول الله"</strong>.
-                        </p>
-                        <div class="step-note">
-                            <i class="fas fa-link"></i>
-                            <span>هذه هي العقدة التي تربطك بالله. لا تحتاج إلى إمام أو شهود.</span>
-                        </div>
-                        <button class="step-action" onclick="playShahadahAudio()">
-                            <i class="fas fa-volume-up"></i> استمع إلى النطق الصحيح
-                        </button>
-                    </div>
-                </div>
-                
-                <!-- الخطوة 3: تعلم الصلاة مع الرابط الحقيقي -->
-                <div class="step-card">
-                    <div class="step-number">٣</div>
-                    <div class="step-content">
-                        <h3 class="step-title">الخطوة الثالثة: تعلم الصلاة</h3>
-                        <p class="step-description">
-                            الصلاة هي <strong>الصلة المباشرة بينك وبين الله</strong>. هي المحادثة اليومية مع خالقك.
-                        </p>
-                        <div class="step-resources">
-                            <a href="https://www.youtube.com/watch?v=6funBcLgQ5k" 
-                               target="_blank" 
-                               class="resource-link"
-                               onclick="trackResourceClick('prayer_video')">
-                                <i class="fas fa-video"></i>
-                                <div>
-                                    <strong>فيديو عملي: تعلم الصلاة في 10 دقائق</strong>
-                                    <span>شرح مرئي بسيط للصلاة الكاملة</span>
-                                </div>
-                            </a>
-                            
-                            <a href="https://www.youtube.com/watch?v=ILmI5eU5kGQ" 
-                               target="_blank" 
-                               class="resource-link"
-                               onclick="trackResourceClick('wudu_video')">
-                                <i class="fas fa-hands-wash"></i>
-                                <div>
-                                    <strong>تعلم الوضوء الصحيح</strong>
-                                    <span>شرح كيفية الطهارة للصلاة</span>
-                                </div>
-                            </a>
-                            
-                            <a href="https://quran.com/" 
-                               target="_blank" 
-                               class="resource-link"
-                               onclick="trackResourceClick('quran_website')">
-                                <i class="fas fa-book-open"></i>
-                                <div>
-                                    <strong>القرآن الكريم كاملاً</strong>
-                                    <span>اقرأ واسمتع للقرآن بترجمات متعددة</span>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- الخطوة 4 -->
-                <div class="step-card">
-                    <div class="step-number">٤</div>
-                    <div class="step-content">
-                        <h3 class="step-title">الخطوة الرابعة: قراءة القرآن</h3>
-                        <p class="step-description">
-                            ابدأ بـ: <strong>سورة الفاتحة</strong>، ثم <strong>الإخلاص</strong>، 
-                            ثم <strong>الفلق</strong>، ثم <strong>الناس</strong>.
-                        </p>
-                        <div class="step-resources">
-                            <a href="https://app.pdfquran.com/" 
-                               target="_blank" 
-                               class="resource-link"
-                               onclick="trackResourceClick('pdf_quran')">
-                                <i class="fas fa-download"></i>
-                                <div>
-                                    <strong>مصحف إلكتروني مجاني</strong>
-                                    <span>حمل المصحف كاملاً مع التفسير</span>
-                                </div>
-                            </a>
-                            
-                            <a href="https://quran.ksu.edu.sa/" 
-                               target="_blank" 
-                               class="resource-link"
-                               onclick="trackResourceClick('quran_audio')">
-                                <i class="fas fa-headphones"></i>
-                                <div>
-                                    <strong>الاستماع للقرآن</strong>
-                                    <span>استمع لأشهر القراء</span>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- تذكير مهم -->
-            <div class="reminder-box">
-                <div class="reminder-header">
-                    <i class="fas fa-heart reminder-icon"></i>
-                    <h3>تذكير مهم</h3>
-                </div>
-                <div class="reminder-content">
-                    <p>
-                        لا تيأس إذا أخطأت. الله يقول: 
-                        <strong class="quran-reminder">﴿قُلْ يَا عِبَادِيَ الَّذِينَ أَسْرَفُوا عَلَى أَنْفُسِهِمْ لَا تَقْنَطُوا مِنْ رَحْمَةِ اللَّهِ﴾</strong>. 
-                        التدرج مطلوب. ابدأ بالبسيط، وسيزيدك الله توفيقًا.
-                    </p>
-                    <div class="reminder-actions">
-                        <button class="reminder-btn" onclick="showEncouragement()">
-                            <i class="fas fa-hands-helping"></i> أحتاج تشجيعًا
-                        </button>
-                        <button class="reminder-btn" onclick="showCommonMistakes()">
-                            <i class="fas fa-exclamation-circle"></i> أخطاء شائعة للمبتدئين
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-        <!-- قسم اسأل بخفاء - النموذج الحقيقي -->
+        <!-- قسم اسأل بخفاء - النموذج المعدل -->
     <section id="ask-private" class="section section-light">
         <div class="container">
             <div class="section-header">
@@ -480,7 +413,7 @@
                 <p class="section-subtitle">يمكنك السؤال دون ذكر اسمك</p>
             </div>
             
-            <!-- نموذج الاتصال الحقيقي -->
+            <!-- نموذج الاتصال المعدل -->
             <div class="contact-real">
                 <div class="contact-notice">
                     <div class="notice-icon">
@@ -495,15 +428,11 @@
                     </div>
                 </div>
                 
-                <!-- نموذج Formspree الحقيقي -->
+                <!-- نموذج Formspree المعدل -->
                 <form id="real-contact-form" action="https://formspree.io/f/mldovzbr" method="POST">
-                    <!-- حقول مخفية للتخصيص -->
                     <input type="hidden" name="_replyto" value="ilperata@msn.com">
                     <input type="hidden" name="_subject" value="سؤال جديد من موقع العين الثالثة">
-                    <input type="hidden" name="_language" value="ar">
-                    <input type="hidden" name="_format" value="plain">
                     
-                    <!-- حقل السؤال -->
                     <div class="form-group">
                         <label for="real-question">
                             <i class="fas fa-question-circle"></i>
@@ -513,46 +442,24 @@
                                   name="message" 
                                   rows="6" 
                                   placeholder="اكتب سؤالك هنا... يمكن أن يكون عن الله، عن الإسلام، عن الشكوك، عن أي شيء يهمك." 
-                                  required
-                                  oninput="updateCharCount(this)"></textarea>
-                        <div class="char-count">
-                            <span id="char-counter">0</span> / 2000 حرف
-                        </div>
+                                  required></textarea>
                     </div>
                     
-                    <!-- حقل البريد الإلكتروني (اختياري) -->
                     <div class="form-group">
                         <label for="sender-email">
                             <i class="fas fa-envelope"></i>
                             <span>بريدك الإلكتروني (اختياري، إذا أردت الرد):</span>
-                            <span class="optional-label">اختياري</span>
                         </label>
                         <input type="email" 
                                id="sender-email" 
                                name="email" 
-                               placeholder="example@email.com"
-                               oninput="validateEmail(this)">
-                        <div class="email-note">
-                            <i class="fas fa-info-circle"></i>
-                            <span>إذا لم تكتب بريدك، لن نتمكن من الرد عليك مباشرة، لكن سنضع إجابات للأسئلة العامة في الموقع.</span>
-                        </div>
+                               placeholder="example@email.com">
                     </div>
                     
-                    <!-- حقل إضافي للتتبع -->
-                    <div class="form-group hidden">
-                        <label for="page-section">القسم:</label>
-                        <input type="text" id="page-section" name="page_section" value="اسأل بخفاء">
-                    </div>
-                    
-                    <!-- أزرار الإرسال -->
                     <div class="form-actions">
-                        <button type="submit" class="btn btn-submit" id="submit-btn">
+                        <button type="submit" class="btn btn-submit">
                             <i class="fas fa-paper-plane"></i>
                             <span>أرسل سؤالك الآن</span>
-                            <div class="submit-loading" id="submit-loading">
-                                <div class="spinner"></div>
-                                <span>جارٍ الإرسال...</span>
-                            </div>
                         </button>
                         
                         <button type="button" class="btn btn-clear" onclick="clearContactForm()">
@@ -560,44 +467,9 @@
                             <span>مسح النص</span>
                         </button>
                     </div>
-                    
-                    <!-- رسالة التأكيد -->
-                    <div class="form-message" id="form-message">
-                        <div class="message-success" id="success-message">
-                            <i class="fas fa-check-circle"></i>
-                            <div>
-                                <h3>تم إرسال سؤالك بنجاح!</h3>
-                                <p>شكرًا لك. سؤال وصلنا وسنرد عليك قريبًا إذا قدمت بريدك الإلكتروني.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="message-error" id="error-message">
-                            <i class="fas fa-exclamation-circle"></i>
-                            <div>
-                                <h3>حدث خطأ في الإرسال</h3>
-                                <p>يرجى المحاولة مرة أخرى أو مراسلتنا مباشرة على: ilperata@msn.com</p>
-                            </div>
-                        </div>
-                    </div>
                 </form>
                 
-                <!-- ملاحظة حول الردود -->
-                <div class="response-note">
-                    <div class="note-icon">
-                        <i class="fas fa-clock"></i>
-                    </div>
-                    <div class="note-content">
-                        <h3>ماذا بعد الإرسال؟</h3>
-                        <ul>
-                            <li>✅ <strong>سيصلك الرد على بريدك</strong> ilperata@msn.com إذا كتبت بريدك</li>
-                            <li>✅ <strong>مدة الرد:</strong> عادة خلال 24-48 ساعة</li>
-                            <li>✅ <strong>الأسئلة العامة:</strong> قد ننشر إجاباتها (بدون أسماء) لتعم الفائدة</li>
-                            <li>✅ <strong>خصوصية تامة:</strong> لن نشارك سؤالك مع أي طرف ثالث</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <!-- قسم الأسئلة المتكررة -->
+                <!-- الأسئلة المتكررة المعدلة -->
                 <div class="faq-section">
                     <h3 class="faq-title">
                         <i class="fas fa-question-circle"></i>
@@ -605,18 +477,16 @@
                     </h3>
                     
                     <div class="faq-list">
-                        <!-- سؤال 1 -->
-                        <div class="faq-item">
+                        <div class="faq-item active">
                             <button class="faq-question" onclick="toggleFAQ(this)">
                                 <span>كيف أتأكد من وجود الله؟</span>
                                 <i class="fas fa-chevron-down"></i>
                             </button>
-                            <div class="faq-answer">
+                            <div class="faq-answer" style="display: block;">
                                 <p>اسأل نفسك: هل يمكن أن يكون هذا الكون الدقيق صدفة؟ النظام، الجمال، التعقيد... كلها تشير إلى مصمم حكيم.</p>
                             </div>
                         </div>
                         
-                        <!-- سؤال 2 -->
                         <div class="faq-item">
                             <button class="faq-question" onclick="toggleFAQ(this)">
                                 <span>ماذا لو كنت خائفًا من التحول إلى الإسلام؟</span>
@@ -627,7 +497,6 @@
                             </div>
                         </div>
                         
-                        <!-- سؤال 3 -->
                         <div class="faq-item">
                             <button class="faq-question" onclick="toggleFAQ(this)">
                                 <span>كيف أتعلم الإسلام دون ضغط من الآخرين؟</span>
@@ -635,17 +504,6 @@
                             </button>
                             <div class="faq-answer">
                                 <p>هذا الموقع مكان آمن. اقرأ بهدوء، اسأل في الخفاء، تقدم على قدر استطاعتك.</p>
-                            </div>
-                        </div>
-                        
-                        <!-- سؤال 4 -->
-                        <div class="faq-item">
-                            <button class="faq-question" onclick="toggleFAQ(this)">
-                                <span>هل يمكنني أن أبقى مسلمًا في الخفاء؟</span>
-                                <i class="fas fa-chevron-down"></i>
-                            </button>
-                            <div class="faq-answer">
-                                <p>نعم، الله يعلم ما في قلبك. يمكنك البدء سرًا، وعندما تشعر بالأمان، تعلن إسلامك.</p>
                             </div>
                         </div>
                     </div>
@@ -663,39 +521,11 @@
                     <p>منارة لكل باحث عن الحق</p>
                 </div>
                 
-                <div class="footer-links">
-                    <div class="links-group">
-                        <h4>الأقسام</h4>
-                        <a href="#third-eye">العين الثالثة</a>
-                        <a href="#fitra">الفطرة</a>
-                        <a href="#comparison">المقارنة</a>
-                        <a href="#start-journey">ابدأ رحلتك</a>
-                    </div>
-                    
-                    <div class="links-group">
-                        <h4>روابط مفيدة</h4>
-                        <a href="https://quran.com/" target="_blank">القرآن الكريم</a>
-                        <a href="https://sunnah.com/" target="_blank">السنّة النبوية</a>
-                        <a href="#ask-private">اسأل سرًا</a>
-                        <a href="#" onclick="showContactInfo()">اتصل بنا</a>
-                    </div>
-                    
-                    <div class="links-group">
-                        <h4>للزوار غير العرب</h4>
-                        <a href="#" onclick="showTranslationHelp()">كيف تترجم الموقع</a>
-                        <a href="https://www.islamicity.org/" target="_blank">Islamic Resources (English)</a>
-                        <a href="https://www.islamguiden.com/" target="_blank">Islam Guide (Multi-language)</a>
-                    </div>
-                </div>
-                
                 <div class="footer-contact">
                     <h4>للتواصل المباشر</h4>
                     <div class="contact-info">
                         <i class="fas fa-envelope"></i>
                         <span>ilperata@msn.com</span>
-                    </div>
-                    <div class="contact-note">
-                        <p>للأسئلة الخاصة أو الاستفسارات المباشرة</p>
                     </div>
                 </div>
             </div>
@@ -709,30 +539,85 @@
         </div>
     </footer>
 
-    <!-- زر العودة للأعلى -->
-    <button class="back-to-top" onclick="scrollToTop()">
-        <i class="fas fa-arrow-up"></i>
-    </button>
-
-    <!-- JavaScript -->
-    <script src="js/main.js"></script>
-    
-    <!-- Google Analytics (اختياري) -->
+    <!-- JavaScript المضمن مباشرة -->
     <script>
-        // تتبع بسيط للموقع
-        function trackEvent(eventName) {
-            console.log('Event tracked:', eventName);
-            // هنا يمكن إضافة Google Analytics أو أي خدمة تتبع
+        // ===== الأسئلة المتكررة =====
+        function toggleFAQ(button) {
+            const answer = button.nextElementSibling;
+            const icon = button.querySelector('i');
+            const isActive = answer.style.display === 'block';
+            
+            // إغلاق جميع الإجابات الأخرى
+            document.querySelectorAll('.faq-answer').forEach(item => {
+                item.style.display = 'none';
+                item.previousElementSibling.querySelector('i').style.transform = 'rotate(0deg)';
+                item.parentElement.classList.remove('active');
+            });
+            
+            // فتح/إغلاق الإجابة الحالية
+            if (!isActive) {
+                answer.style.display = 'block';
+                icon.style.transform = 'rotate(180deg)';
+                button.parentElement.classList.add('active');
+            }
         }
         
-        // تتبع النقر على روابط الصلاة
-        function trackResourceClick(resourceName) {
-            trackEvent('resource_click_' + resourceName);
+        // ===== النموذج البسيط =====
+        function clearContactForm() {
+            if (confirm('هل تريد مسح النص؟')) {
+                document.getElementById('real-contact-form').reset();
+            }
         }
         
-        // تتبع إرسال النموذج
-        document.getElementById('real-contact-form').addEventListener('submit', function() {
-            trackEvent('contact_form_submitted');
+        // ===== الترجمة =====
+        function showTranslationHelp() {
+            alert('🌐 للترجمة:\n\n1. انقر بزر الماوس الأيمن في أي مكان\n2. اختر "ترجمة إلى..."\n3. اختر لغتك\n\nأو استخدم زر الترجمة في متصفحك.');
+        }
+        
+        // ===== الروابط العائمة =====
+        window.addEventListener('scroll', function() {
+            const floatingNav = document.getElementById('floatingNav');
+            if (window.scrollY > 300) {
+                floatingNav.style.display = 'flex';
+            } else {
+                floatingNav.style.display = 'none';
+            }
+        });
+        
+        // التنقل السلس
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href !== '#') {
+                    e.preventDefault();
+                    const targetElement = document.querySelector(href);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
+        
+        // ===== تهيئة عند التحميل =====
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('موقع العين الثالثة - جاهز');
+            
+            // تفعيل أول سؤال في FAQ
+            const firstFAQ = document.querySelector('.faq-item.active .faq-answer');
+            if (firstFAQ) {
+                firstFAQ.style.display = 'block';
+            }
+            
+            // تتبع نموذج البريد
+            const form = document.getElementById('real-contact-form');
+            if (form) {
+                form.addEventListener('submit', function() {
+                    alert('شكرًا لك! سؤال وصلنا. إذا قدمت بريدك، سنرد عليك خلال 24 ساعة.');
+                });
+            }
         });
     </script>
 </body>
