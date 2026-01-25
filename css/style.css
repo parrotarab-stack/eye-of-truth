@@ -1,19 +1,11 @@
+/* ملف CSS الأساسي - النسخة المبسطة للتجربة */
 :root {
     --primary-dark: #0d3b2a;
     --primary: #1a5c3e;
     --primary-light: #2a7d52;
-    --secondary-dark: #8b4513;
-    --secondary: #a0522d;
     --gold: #d4af37;
     --light-gold: #f4e4a6;
-    --light-green: #e9f5ef;
     --white: #ffffff;
-    --text-dark: #1a2a1e;
-    --text-light: #2d4a3a;
-    --shadow: rgba(10, 46, 29, 0.1);
-    --shadow-hover: rgba(10, 46, 29, 0.2);
-    --danger: #c53030;
-    --success: #38a169;
 }
 
 * {
@@ -23,18 +15,12 @@
 }
 
 body {
-    font-family: 'Cairo', 'Noto Naskh Arabic', sans-serif;
+    font-family: 'Cairo', 'Arial', sans-serif;
     background: linear-gradient(135deg, #f8f9fa 0%, #e9f5ef 100%);
-    color: var(--text-dark);
-    line-height: 1.8;
+    color: #1a2a1e;
+    line-height: 1.6;
     min-height: 100vh;
-    overflow-x: hidden;
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
+    direction: rtl;
 }
 
 /* شريط التنقل */
@@ -44,8 +30,13 @@ body {
     position: sticky;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 4px 20px var(--shadow);
-    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 20px rgba(10, 46, 29, 0.1);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
 .nav-content {
@@ -58,1456 +49,146 @@ body {
     display: flex;
     align-items: center;
     gap: 15px;
-    cursor: pointer;
 }
 
 .logo i {
-    font-size: 2.2rem;
+    font-size: 2rem;
     color: var(--gold);
-    filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.3));
-    animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.8; }
 }
 
 .logo span {
     font-family: 'Amiri', serif;
-    font-size: 2rem;
+    font-size: 1.8rem;
     font-weight: 700;
     color: var(--white);
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-    background: linear-gradient(to right, var(--gold), var(--light-gold));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-/* شريط الأدوات السريع */
-.quick-nav {
-    background: rgba(255, 255, 255, 0.95);
-    padding: 15px 0;
-    margin-bottom: 30px;
-    box-shadow: 0 2px 15px var(--shadow);
-    position: sticky;
-    top: 70px;
-    z-index: 999;
-    backdrop-filter: blur(10px);
-}
-
-.quick-nav-links {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    flex-wrap: wrap;
-}
-
-.quick-nav a {
-    color: var(--primary-dark);
-    text-decoration: none;
-    font-weight: 600;
-    padding: 10px 20px;
-    border-radius: 25px;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    border: 2px solid transparent;
-}
-
-.quick-nav a:hover {
-    background: var(--light-green);
-    color: var(--primary);
-    transform: translateY(-2px);
-    border-color: var(--primary-light);
-}
-
-.quick-nav a i {
-    color: var(--gold);
-}
-
-/* شريط الأدوات العلوي */
-.top-tools {
-    display: flex;
-    gap: 15px;
-    align-items: center;
-    flex-wrap: wrap;
-}
-
-.prayer-time {
-    background: rgba(255,255,255,0.15);
-    padding: 8px 15px;
-    border-radius: 25px;
-    color: var(--white);
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    transition: all 0.3s ease;
-    min-width: 180px;
-    justify-content: center;
-}
-
-.prayer-time:hover {
-    background: rgba(255,255,255,0.25);
-    transform: translateY(-2px);
-}
-
-.prayer-time i {
-    color: var(--light-gold);
-}
-
-.quran-app-btn {
-    background: var(--gold);
-    color: var(--primary-dark);
-    padding: 8px 20px;
-    border-radius: 25px;
-    text-decoration: none;
-    font-weight: 700;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
-}
-
-.quran-app-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
-}
-
-/* مشغل القرآن */
-.audio-player {
-    position: fixed;
-    bottom: 20px;
-    left: 20px;
-    z-index: 1000;
-    background: var(--white);
-    padding: 20px;
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    width: 400px;
-    max-width: calc(100vw - 40px);
-    border: 2px solid var(--gold);
-    animation: slideInUp 0.5s ease;
-}
-
-@keyframes slideInUp {
-    from {
-        transform: translateY(100%);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
-
-.audio-info {
-    flex: 1;
-    min-width: 0;
-}
-
-.audio-info h4 {
-    color: var(--primary-dark);
-    margin-bottom: 5px;
-    font-size: 1.1rem;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.audio-info h4 i {
-    color: var(--primary);
-}
-
-.current-surah {
-    font-size: 0.9rem;
-    color: #666;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-.audio-controls {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    flex: 2;
-    min-width: 0;
-}
-
-.audio-btn {
-    background: var(--primary);
-    color: white;
-    border: none;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-}
-
-.audio-btn:hover {
-    background: var(--primary-light);
-    transform: scale(1.1);
-}
-
-.audio-btn:disabled {
-    background: #ccc;
-    cursor: not-allowed;
-    transform: none;
-}
-
-.progress-container {
-    flex: 1;
-    min-width: 0;
-}
-
-.progress-bar {
-    width: 100%;
-    height: 6px;
-    background: #e0e0e0;
-    border-radius: 3px;
-    overflow: hidden;
-    margin-bottom: 5px;
-    cursor: pointer;
-}
-
-.progress {
-    height: 100%;
-    background: linear-gradient(to right, var(--primary), var(--primary-light));
-    width: 0%;
-    transition: width 0.1s ease;
-}
-
-.time-display {
-    display: flex;
-    justify-content: space-between;
-    font-size: 0.8rem;
-    color: #666;
-}
-
-.volume-control {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    flex-shrink: 0;
-}
-
-.volume-control i {
-    color: var(--primary);
-}
-
-.volume-slider {
-    width: 70px;
-}
-
-.surah-select {
-    padding: 8px 12px;
-    border-radius: 8px;
-    border: 1px solid #ddd;
-    background: white;
-    color: var(--text-dark);
-    font-family: inherit;
-    min-width: 120px;
-}
-
-.close-player {
-    background: none;
-    border: none;
-    color: #999;
-    cursor: pointer;
-    padding: 5px;
-    transition: color 0.3s ease;
-}
-
-.close-player:hover {
-    color: var(--danger);
 }
 
 /* قسم البطل */
 .hero-section {
-    background: linear-gradient(135deg, rgba(26, 92, 62, 0.1) 0%, rgba(212, 175, 55, 0.05) 100%);
-    padding: 100px 0 80px;
-    margin-bottom: 60px;
-    border-radius: 0 0 30px 30px;
-    position: relative;
-    overflow: hidden;
-}
-
-.hero-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 300px;
-    height: 300px;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text x="0" y="50" font-family="Amiri" font-size="14" fill="%231a5c3e" opacity="0.1">ﷲ</text></svg>');
-    background-size: contain;
-    opacity: 0.3;
-}
-
-.hero-section::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 400px;
-    height: 400px;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text x="0" y="60" font-family="Amiri" font-size="12" fill="%23d4af37" opacity="0.05">محمد</text></svg>');
-    background-size: contain;
-    opacity: 0.2;
-}
-
-.hero-content {
-    position: relative;
-    z-index: 2;
+    padding: 100px 0;
     text-align: center;
-    max-width: 900px;
-    margin: 0 auto;
+    background: linear-gradient(135deg, rgba(26, 92, 62, 0.1) 0%, rgba(212, 175, 55, 0.05) 100%);
 }
 
 .hero-title {
     font-family: 'Amiri', serif;
-    font-size: 3.5rem;
+    font-size: 3rem;
     color: var(--primary-dark);
     margin-bottom: 20px;
-    line-height: 1.3;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
-}
-
-.hero-title i {
-    color: var(--gold);
-    margin-left: 15px;
-    animation: spin 20s linear infinite;
-}
-
-@keyframes spin {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
 }
 
 .hero-subtitle {
-    font-size: 1.8rem;
-    color: var(--secondary);
+    font-size: 1.5rem;
+    color: #8b4513;
     margin-bottom: 30px;
-    font-weight: 600;
 }
 
 .hero-description {
     font-size: 1.2rem;
-    color: var(--text-light);
-    margin-bottom: 40px;
-    background: rgba(255,255,255,0.8);
-    padding: 25px;
-    border-radius: 20px;
-    border-right: 5px solid var(--gold);
-    text-align: right;
-    backdrop-filter: blur(5px);
+    color: #2d4a3a;
+    max-width: 800px;
+    margin: 0 auto 40px;
+    background: rgba(255,255,255,0.7);
+    padding: 20px;
+    border-radius: 15px;
 }
 
-.hero-buttons {
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
+/* الأزرار */
 .btn {
-    padding: 16px 35px;
+    display: inline-block;
+    padding: 12px 30px;
+    background: var(--primary);
+    color: white;
     border-radius: 50px;
     text-decoration: none;
-    font-weight: 700;
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
+    font-weight: 600;
+    margin: 10px;
     transition: all 0.3s ease;
-    font-size: 1.1rem;
     border: none;
     cursor: pointer;
-    font-family: 'Cairo', sans-serif;
+}
+
+.btn:hover {
+    background: var(--primary-light);
+    transform: translateY(-3px);
 }
 
 .btn-primary {
     background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-    color: white;
-    box-shadow: 0 6px 20px rgba(26, 92, 62, 0.3);
-    position: relative;
-    overflow: hidden;
-}
-
-.btn-primary::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-    transition: left 0.5s;
-}
-
-.btn-primary:hover::before {
-    left: 100%;
-}
-
-.btn-primary:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 25px rgba(26, 92, 62, 0.4);
 }
 
 .btn-secondary {
     background: white;
     color: var(--primary);
-    border: 2px solid var(--primary-light);
-}
-
-.btn-secondary:hover {
-    background: var(--light-green);
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(26, 92, 62, 0.2);
-}
-
-/* الأقسام العامة */
-.section {
-    padding: 80px 0;
-    position: relative;
-}
-
-.section-header {
-    text-align: center;
-    margin-bottom: 60px;
-}
-
-.section-header h2 {
-    font-family: 'Amiri', serif;
-    font-size: 2.8rem;
-    color: var(--primary-dark);
-    margin-bottom: 15px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 15px;
-    flex-wrap: wrap;
-}
-
-.section-header h2 i {
-    color: var(--gold);
-    font-size: 2.5rem;
-}
-
-.section-subtitle {
-    font-size: 1.4rem;
-    color: var(--secondary);
-    font-weight: 500;
+    border: 2px solid var(--primary);
 }
 
 /* البطاقات */
 .content-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
-    margin-bottom: 60px;
+    padding: 60px 20px;
 }
 
 .card {
     background: white;
-    border-radius: 20px;
-    padding: 35px;
-    box-shadow: 0 8px 30px var(--shadow);
-    transition: all 0.3s ease;
-    border-top: 5px solid var(--gold);
-    position: relative;
-    overflow: hidden;
-    height: 100%;
-}
-
-.card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 100px;
-    height: 100px;
-    background: linear-gradient(135deg, var(--primary-light) 0%, transparent 70%);
-    opacity: 0.1;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
 }
 
 .card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 15px 40px var(--shadow-hover);
 }
 
 .card-icon {
-    width: 70px;
-    height: 70px;
-    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 25px;
-    color: white;
-    font-size: 1.8rem;
-    position: relative;
-    z-index: 1;
-}
-
-.card-title {
-    font-size: 1.8rem;
-    color: var(--primary-dark);
-    margin-bottom: 20px;
-    font-weight: 700;
-    position: relative;
-    z-index: 1;
-}
-
-.card-text {
-    color: var(--text-light);
-    font-size: 1.1rem;
-    line-height: 1.8;
-    position: relative;
-    z-index: 1;
-}
-
-/* قسم الفطرة */
-.fitra-definition {
-    background: white;
-    border-radius: 20px;
-    padding: 30px;
-    margin-bottom: 40px;
-    box-shadow: 0 5px 20px var(--shadow);
-    border-right: 5px solid var(--gold);
-}
-
-.fitra-definition h4 {
-    color: var(--primary-dark);
-    font-size: 1.5rem;
-    margin-bottom: 20px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.fitra-definition h4 i {
-    color: var(--gold);
-}
-
-.fitra-point {
-    display: block;
-    padding: 10px 15px;
-    margin: 10px 0;
-    background: rgba(212, 175, 55, 0.1);
-    border-radius: 10px;
-    border-right: 3px solid var(--gold);
-}
-
-/* الأسئلة */
-.questions-container {
-    display: grid;
-    gap: 25px;
-    margin: 40px 0;
-}
-
-.question-card {
-    background: white;
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 5px 20px var(--shadow);
-    transition: all 0.3s ease;
-}
-
-.question-card:hover {
-    box-shadow: 0 8px 30px var(--shadow-hover);
-    transform: translateY(-5px);
-}
-
-.question-header {
-    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-    padding: 25px;
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    color: white;
-    cursor: pointer;
-    transition: background 0.3s ease;
-}
-
-.question-header:hover {
-    background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
-}
-
-.question-number {
-    background: var(--gold);
-    color: var(--primary-dark);
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.5rem;
-    font-weight: 700;
-    flex-shrink: 0;
-}
-
-.question-text {
-    font-size: 1.6rem;
-    font-weight: 600;
-    flex: 1;
-    text-align: right;
-}
-
-.question-answer {
-    padding: 30px;
-    display: none;
-}
-
-.question-card.active .question-answer {
-    display: block;
-    animation: fadeIn 0.5s ease;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-10px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-.quran-verse {
-    background: rgba(212, 175, 55, 0.1);
-    padding: 25px;
-    border-radius: 15px;
-    margin-bottom: 25px;
-    border-right: 5px solid var(--gold);
-    display: flex;
-    align-items: center;
-    gap: 20px;
-}
-
-.quran-verse i {
-    font-size: 2rem;
-    color: var(--primary);
-    flex-shrink: 0;
-}
-
-.quran-verse p {
-    font-family: 'Amiri', serif;
-    font-size: 1.8rem;
-    color: var(--primary-dark);
-    flex: 1;
-    line-height: 1.6;
-    text-align: right;
-}
-
-.quran-verse span {
-    display: block;
-    font-size: 1rem;
-    color: var(--secondary);
-    margin-top: 10px;
-    font-family: 'Cairo', sans-serif;
-}
-
-.explanation {
-    color: var(--text-light);
-    font-size: 1.1rem;
-    line-height: 1.8;
-    padding: 15px;
-    background: rgba(233, 245, 239, 0.5);
-    border-radius: 10px;
-    border-right: 3px solid var(--primary-light);
-}
-
-/* جدول المقارنة */
-.comparison-table-container {
-    overflow-x: auto;
-    margin: 40px 0;
-    border-radius: 15px;
-    box-shadow: 0 8px 30px var(--shadow);
-    position: relative;
-}
-
-.comparison-table {
-    width: 100%;
-    border-collapse: collapse;
-    background: white;
-    min-width: 800px;
-}
-
-.comparison-table th {
-    background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
-    color: white;
-    padding: 25px;
-    font-size: 1.3rem;
-    font-weight: 600;
-    text-align: center;
-    position: sticky;
-    top: 0;
-    z-index: 10;
-}
-
-.comparison-table td {
-    padding: 25px;
-    border: 1px solid #e0e0e0;
-    vertical-align: top;
-    transition: background 0.3s ease;
-}
-
-.comparison-table tr:hover td {
-    background: rgba(233, 245, 239, 0.3);
-}
-
-.point-title {
-    background: rgba(26, 92, 62, 0.1);
-    font-weight: 700;
-    color: var(--primary-dark);
-    font-size: 1.2rem;
-    text-align: center;
-    min-width: 150px;
-}
-
-.quran-cell {
-    background: rgba(212, 175, 55, 0.08);
-    border-left: 5px solid var(--gold);
-    position: relative;
-}
-
-.quran-cell::before {
-    content: '✓';
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    color: var(--success);
-    font-size: 1.2rem;
-    font-weight: bold;
-}
-
-.quran-text {
-    font-family: 'Amiri', serif;
-    font-size: 1.6rem;
-    color: var(--primary-dark);
-    margin-bottom: 15px;
-    line-height: 1.6;
-    text-align: right;
-}
-
-.text-good {
-    color: var(--primary);
-    background: rgba(26, 92, 62, 0.1);
-    padding: 10px 15px;
-    border-radius: 8px;
-    margin-top: 10px;
-    font-weight: 600;
-}
-
-.text-bad {
-    color: var(--danger);
-    background: rgba(197, 48, 48, 0.1);
-    padding: 10px 15px;
-    border-radius: 8px;
-    margin-top: 10px;
-}
-
-.text-note {
-    color: var(--secondary);
-    background: rgba(160, 82, 45, 0.1);
-    padding: 10px 15px;
-    border-radius: 8px;
-    margin-top: 10px;
-    font-size: 0.9rem;
-}
-
-.text-prophet {
-    color: var(--primary-dark);
-    background: rgba(212, 175, 55, 0.15);
-    padding: 10px 15px;
-    border-radius: 8px;
-    margin-top: 10px;
-    border-right: 3px solid var(--gold);
-}
-
-/* قسم قصص الهداية */
-.stories-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 30px;
-    margin: 40px 0;
-}
-
-.story-card {
-    background: white;
-    border-radius: 20px;
-    padding: 30px;
-    box-shadow: 0 8px 30px var(--shadow);
-    transition: all 0.3s ease;
-    border-top: 5px solid var(--secondary);
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-}
-
-.story-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 40px var(--shadow-hover);
-}
-
-.story-type {
-    background: linear-gradient(135deg, var(--secondary) 0%, var(--secondary-dark) 100%);
-    color: white;
-    padding: 10px 20px;
-    border-radius: 25px;
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 20px;
-    font-weight: 600;
-    align-self: flex-start;
-}
-
-.story-title {
-    font-size: 1.6rem;
-    color: var(--primary-dark);
-    margin-bottom: 20px;
-    font-weight: 700;
-    flex: 1;
-}
-
-.story-text {
-    color: var(--text-light);
-    font-size: 1.1rem;
-    line-height: 1.8;
-    margin-bottom: 25px;
-    flex: 2;
-}
-
-.story-tags {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-    margin-top: auto;
-}
-
-.tag {
-    background: rgba(26, 92, 62, 0.1);
-    color: var(--primary);
-    padding: 5px 15px;
-    border-radius: 15px;
-    font-size: 0.9rem;
-    transition: all 0.3s ease;
-}
-
-.tag:hover {
-    background: rgba(26, 92, 62, 0.2);
-    transform: translateY(-2px);
-}
-
-/* قسم الخطوات */
-.journey-steps {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
-    margin: 40px 0;
-}
-
-.step {
-    background: white;
-    border-radius: 20px;
-    padding: 40px 30px;
-    text-align: center;
-    box-shadow: 0 8px 30px var(--shadow);
-    transition: all 0.3s ease;
-    position: relative;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-}
-
-.step:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 40px var(--shadow-hover);
-}
-
-.step-number {
-    position: absolute;
-    top: -20px;
-    right: -20px;
-    background: var(--gold);
-    color: var(--primary-dark);
     width: 60px;
     height: 60px;
+    background: var(--primary);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 2rem;
-    font-weight: 700;
-    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
-    z-index: 1;
-}
-
-.step h3 {
-    color: var(--primary-dark);
-    margin-bottom: 20px;
+    color: white;
     font-size: 1.5rem;
-    font-weight: 700;
-    flex: 1;
-}
-
-.step p {
-    color: var(--text-light);
-    margin-bottom: 15px;
-    font-size: 1.1rem;
-    flex: 2;
-}
-
-.step-note {
-    font-size: 0.9rem;
-    color: var(--secondary);
-    font-style: italic;
-    margin-top: 10px;
-    flex: 1;
-}
-
-.step-link {
-    color: var(--primary-light);
-    text-decoration: none;
-    font-weight: 600;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    transition: all 0.3s ease;
-    margin-top: 10px;
-}
-
-.step-link:hover {
-    color: var(--primary-dark);
-    transform: translateX(-5px);
+    margin-bottom: 20px;
 }
 
 /* نموذج الاتصال */
 .contact-form {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 30px;
     background: white;
-    border-radius: 20px;
-    padding: 40px;
-    box-shadow: 0 8px 30px var(--shadow);
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.form-note {
-    background: rgba(212, 175, 55, 0.1);
-    padding: 20px;
     border-radius: 15px;
-    margin-bottom: 30px;
-    border-right: 5px solid var(--gold);
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-
-.form-note i {
-    color: var(--gold);
-    font-size: 1.5rem;
-    flex-shrink: 0;
-}
-
-.form-note p {
-    color: var(--text-light);
-    font-size: 1.1rem;
-    margin: 0;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
 .form-group {
-    margin-bottom: 25px;
+    margin-bottom: 20px;
 }
 
 .form-group label {
     display: block;
     margin-bottom: 10px;
-    color: var(--primary-dark);
     font-weight: 600;
-    font-size: 1.2rem;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.form-group label i {
-    color: var(--gold);
-}
-
-.form-group textarea,
-.form-group input {
-    width: 100%;
-    padding: 15px;
-    border: 2px solid #e0e0e0;
-    border-radius: 10px;
-    font-size: 1.1rem;
-    font-family: inherit;
-    transition: all 0.3s ease;
-    background: white;
-}
-
-.form-group textarea:focus,
-.form-group input:focus {
-    outline: none;
-    border-color: var(--primary);
-    box-shadow: 0 0 0 3px rgba(26, 92, 62, 0.1);
 }
 
 .form-group textarea {
-    min-height: 150px;
-    resize: vertical;
-}
-
-.form-actions {
-    display: flex;
-    gap: 15px;
-    justify-content: center;
-    margin-top: 30px;
-    flex-wrap: wrap;
-}
-
-/* الأسئلة المتكررة */
-.faq-box {
-    margin-top: 40px;
-    background: white;
-    border-radius: 20px;
-    padding: 30px;
-    box-shadow: 0 5px 20px var(--shadow);
-}
-
-.faq-box h4 {
-    color: var(--primary-dark);
-    font-size: 1.5rem;
-    margin-bottom: 25px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.faq-box h4 i {
-    color: var(--gold);
-}
-
-.faq-item {
-    margin-bottom: 15px;
-    border: 1px solid #e0e0e0;
-    border-radius: 10px;
-    overflow: hidden;
-}
-
-.faq-question {
     width: 100%;
-    padding: 20px;
-    background: rgba(233, 245, 239, 0.5);
-    border: none;
-    text-align: right;
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: var(--primary-dark);
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    transition: background 0.3s ease;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
     font-family: inherit;
+    font-size: 1rem;
+    min-height: 150px;
 }
 
-.faq-question:hover {
-    background: rgba(233, 245, 239, 0.8);
-}
-
-.faq-question::after {
-    content: '+';
-    font-size: 1.5rem;
-    color: var(--gold);
-    transition: transform 0.3s ease;
-}
-
-.faq-item.active .faq-question::after {
-    content: '−';
-    transform: rotate(180deg);
-}
-
-.faq-answer {
-    padding: 0;
-    max-height: 0;
-    overflow: hidden;
-    transition: all 0.3s ease;
-}
-
-.faq-item.active .faq-answer {
-    padding: 20px;
-    max-height: 500px;
-}
-
-.faq-answer p {
-    color: var(--text-light);
-    line-height: 1.8;
-    margin: 0;
-}
-
-/* تنبيه الصلاة على النبي */
-.salah-alert {
-    position: fixed;
-    bottom: 120px;
-    left: 20px;
-    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-    color: white;
-    padding: 25px;
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-    z-index: 1001;
-    display: none;
-    max-width: 350px;
-    animation: slideInLeft 0.5s ease;
-    border: 2px solid var(--gold);
-}
-
-@keyframes slideInLeft {
-    from {
-        transform: translateX(-100%);
-        opacity: 0;
-    }
-    to {
-        transform: translateX(0);
-        opacity: 1;
-    }
-}
-
-.salah-alert.show {
-    display: block;
-}
-
-.salah-alert h4 {
-    font-size: 1.3rem;
-    margin-bottom: 10px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.salah-alert h4 i {
-    color: var(--light-gold);
-}
-
-.salah-alert p {
-    margin: 10px 0;
-    line-height: 1.6;
-}
-
-.salah-alert button {
-    background: none;
-    border: none;
-    color: var(--light-gold);
-    position: absolute;
-    top: 15px;
-    left: 15px;
-    cursor: pointer;
-    font-size: 1.2rem;
-    transition: color 0.3s ease;
-}
-
-.salah-alert button:hover {
-    color: white;
-}
-
-/* الفوتر */
-.footer {
-    background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
-    color: white;
-    padding: 60px 0 30px;
-    margin-top: 80px;
-    position: relative;
-    overflow: hidden;
-}
-
-.footer::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 5px;
-    background: linear-gradient(to right, var(--gold), var(--light-gold), var(--gold));
-}
-
-.footer-content {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 40px;
-    margin-bottom: 40px;
-    position: relative;
-    z-index: 1;
-}
-
-.footer-section h4 {
-    font-size: 1.5rem;
-    margin-bottom: 25px;
-    color: var(--gold);
-    font-weight: 700;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.footer-links {
-    list-style: none;
-}
-
-.footer-links li {
-    margin-bottom: 15px;
-}
-
-.footer-links a {
-    color: rgba(255, 255, 255, 0.9);
-    text-decoration: none;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 8px 0;
-}
-
-.footer-links a:hover {
-    color: var(--gold);
-    transform: translateX(-5px);
-}
-
-.footer-links a i {
-    width: 20px;
-    text-align: center;
-}
-
-.copyright {
-    text-align: center;
-    padding-top: 30px;
-    border-top: 1px solid rgba(255,255,255,0.1);
-    color: rgba(255,255,255,0.7);
-    position: relative;
-    z-index: 1;
-}
-
-.copyright p {
-    margin: 5px 0;
-}
-
-/* رسالة النجاح */
-.success-message {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    background: var(--success);
-    color: white;
-    padding: 20px 25px;
-    border-radius: 15px;
-    box-shadow: 0 5px 20px rgba(56, 161, 105, 0.3);
-    z-index: 1002;
-    display: none;
-    animation: slideInRight 0.5s ease;
-    max-width: 400px;
-}
-
-@keyframes slideInRight {
-    from {
-        transform: translateX(100%);
-        opacity: 0;
-    }
-    to {
-        transform: translateX(0);
-        opacity: 1;
-    }
-}
-
-.success-message.show {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-
-.success-message i {
-    font-size: 1.5rem;
-    flex-shrink: 0;
-}
-
-/* التكيف مع الشاشات الصغيرة */
+/* التكيف مع الجوال */
 @media (max-width: 768px) {
-    .hero-title {
-        font-size: 2.5rem;
-    }
-    
-    .section-header h2 {
-        font-size: 2rem;
-        flex-direction: column;
-        gap: 10px;
-    }
-    
-    .content-grid,
-    .stories-container,
-    .journey-steps {
-        grid-template-columns: 1fr;
-    }
-    
-    .audio-player {
-        width: calc(100vw - 40px);
-        left: 20px;
-        right: 20px;
-        flex-direction: column;
-        align-items: stretch;
-        gap: 15px;
-    }
-    
-    .audio-controls {
-        flex-direction: column;
-        gap: 15px;
-    }
-    
-    .volume-control {
-        width: 100%;
-        justify-content: center;
-    }
-    
-    .nav-content {
-        flex-direction: column;
-        gap: 20px;
-    }
-    
-    .top-tools {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-    
-    .hero-buttons {
-        flex-direction: column;
-        align-items: stretch;
-    }
-    
-    .btn {
-        justify-content: center;
-        text-align: center;
-    }
-    
-    .form-actions {
-        flex-direction: column;
-    }
-    
-    .form-actions .btn {
-        width: 100%;
-        justify-content: center;
-    }
-    
-    .comparison-table th,
-    .comparison-table td {
-        padding: 15px;
-    }
-    
-    .quran-verse {
-        flex-direction: column;
-        text-align: center;
-        gap: 15px;
-    }
-    
-    .salah-alert {
-        left: 50%;
-        transform: translateX(-50%);
-        bottom: 80px;
-        max-width: calc(100vw - 40px);
-    }
-}
-
-@media (max-width: 480px) {
-    .hero-title {
-        font-size: 2rem;
-    }
-    
-    .section-header h2 {
-        font-size: 1.6rem;
-    }
-    
-    .card,
-    .story-card,
-    .step {
-        padding: 25px 20px;
-    }
-    
-    .contact-form {
-        padding: 25px 20px;
-    }
-    
-    .footer-section h4 {
-        font-size: 1.3rem;
-    }
-}
-
-/* تأثيرات خاصة */
-.glow {
-    animation: glow 2s ease-in-out infinite alternate;
-}
-
-@keyframes glow {
-    from {
-        box-shadow: 0 0 10px var(--gold), 0 0 20px var(--gold);
-    }
-    to {
-        box-shadow: 0 0 20px var(--gold), 0 0 40px var(--gold);
-    }
-}
-
-.floating {
-    animation: floating 3s ease-in-out infinite;
-}
-
-@keyframes floating {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
-}
-
-/* التحميل */
-.loading {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: var(--primary-dark);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-    transition: opacity 0.5s ease;
-}
-
-.loading.hidden {
-    opacity: 0;
-    pointer-events: none;
-}
-
-.loading-content {
-    text-align: center;
-    color: white;
-}
-
-.loading-spinner {
-    width: 80px;
-    height: 80px;
-    border: 5px solid rgba(255,255,255,0.1);
-    border-top: 5px solid var(--gold);
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
-    margin: 0 auto 20px;
-}
-
-.loading-text {
-    font-family: 'Amiri', serif;
-    font-size: 2rem;
-    color: var(--light-gold);
+    .hero-title { font-size: 2rem; }
+    .content-grid { grid-template-columns: 1fr; }
+    .nav-content { flex-direction: column; gap: 15px; }
 }
