@@ -3,366 +3,307 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>👁️ العين الثالثة | دليلك إلى الحق</title>
+    <title>👁️ العين الثالثة لم ترَ جائعًا</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- تحميل الصفحة -->
-    <div class="page-loader" id="pageLoader">
-        <div class="loader-content">
-            <div class="loader-icon">
-                <i class="fas fa-mosque"></i>
-            </div>
-            <p>يُحمّل الموقع... <span class="loader-verse">﴿رَبِّ زِدْنِي عِلْمًا﴾</span></p>
-        </div>
-    </div>
-
-    <!-- شريط التنقل المحسّن -->
-    <nav class="navbar islamic-navbar">
+    <!-- شريط التنقل -->
+    <nav class="navbar">
         <div class="container">
             <div class="nav-content">
                 <div class="logo" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
-                    <div class="logo-icon">
-                        <i class="fas fa-mosque"></i>
-                        <div class="moon-star">
-                            <i class="fas fa-star-and-crescent"></i>
-                        </div>
-                    </div>
-                    <div class="logo-text">
-                        <h1>العين الثالثة</h1>
-                        <p class="logo-sub">نور البصيرة</p>
-                    </div>
+                    <i class="fas fa-eye"></i>
+                    <h1>العين الثالثة</h1>
                 </div>
                 
-                <div class="nav-links">
-                    <a href="#home" class="nav-link active">
-                        <i class="fas fa-home"></i>
-                        <span>الرئيسية</span>
-                    </a>
-                    <a href="#comparison" class="nav-link">
-                        <i class="fas fa-balance-scale"></i>
-                        <span>المقارنة</span>
-                    </a>
-                    <a href="#learning" class="nav-link">
-                        <i class="fas fa-graduation-cap"></i>
-                        <span>التعلم</span>
-                    </a>
-                    <a href="#ask-private" class="nav-link">
-                        <i class="fas fa-user-secret"></i>
-                        <span>اسأل بخفاء</span>
-                    </a>
+                <div class="translation-simple">
+                    <button class="translate-simple-btn" onclick="showTranslationHelp()">
+                        <i class="fas fa-language"></i> English
+                    </button>
+                    <div class="simple-translation-dropdown">
+                        <p><strong>How to translate:</strong></p>
+                        <p>Right-click → "Translate to English"</p>
+                        <p>Or use browser's translation</p>
+                    </div>
                 </div>
-                
-                <button class="translate-btn" onclick="showTranslationHelp()">
-                    <i class="fas fa-globe-asia"></i>
-                    <span>English</span>
-                </button>
             </div>
-        </div>
-        
-        <!-- زخرفة إسلامية -->
-        <div class="nav-decoration">
-            <div class="arabesque-pattern"></div>
         </div>
     </nav>
 
-    <!-- شريط التقدم -->
-    <div class="progress-bar" id="progressBar"></div>
+    <!-- روابط سريعة -->
+    <div class="floating-nav" id="floatingNav">
+        <a href="#home" class="floating-nav-btn">
+            <i class="fas fa-home"></i>
+            <span>الرئيسية</span>
+        </a>
+        <a href="#comparison" class="floating-nav-btn">
+            <i class="fas fa-balance-scale"></i>
+            <span>المقارنة</span>
+        </a>
+        <a href="#learning" class="floating-nav-btn">
+            <i class="fas fa-graduation-cap"></i>
+            <span>التعلم</span>
+        </a>
+        <a href="#fitra" class="floating-nav-btn">
+            <i class="fas fa-star"></i>
+            <span>الفِطرة</span>
+        </a>
+        <a href="#ask-private" class="floating-nav-btn">
+            <i class="fas fa-user-secret"></i>
+            <span>اسأل سرًا</span>
+        </a>
+    </div>
 
-    <!-- القسم الرئيسي المحسّن -->
-    <header class="hero-section islamic-hero" id="home">
+    <!-- القسم الرئيسي -->
+    <header class="hero-section" id="home">
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
-                    <!-- آية قرآنية عائمة -->
-                    <div class="floating-verse">
-                        <i class="fas fa-quote-right"></i>
-                        <p>﴿قُلْ هُوَ اللَّهُ أَحَدٌ﴾</p>
-                    </div>
-                    
                     <h1 class="hero-title">
-                        <span class="title-line">
-                            <span class="title-icon"><i class="fas fa-eye"></i></span>
-                            <span class="title-text">العين الثالثة</span>
-                        </span>
-                        <span class="title-sub">لم ترَ قط جائعًا</span>
+                        <span class="title-icon"><i class="fas fa-eye"></i></span>
+                        <span class="title-text">العين الثالثة لم ترَ قط جائعًا</span>
                     </h1>
                     
+                    <p class="hero-subtitle">
+                        <span class="subtitle-text">لأنها كانت تُطعمه سرًا بذيل النسيان</span>
+                    </p>
+                    
                     <p class="hero-description">
-                        <span class="arabic-decoration">﷽</span>
-                        منارة لكل باحث عن <span class="highlight">الحق</span>، ومرشد لكل طالب <span class="highlight">اليقين</span>،
-                        ورفيق لكل من أراد أن يعرف <span class="highlight">ربه</span> بفطرته السليمة.
+                        هذا المكان ليس للجدال، ولا للفلسفة المعقدة. هنا نبحث عن 
+                        <span class="highlight">الفِطرة النقية</span>، و
+                        <span class="highlight">الكلام الواضح</span>، و
+                        <span class="highlight">الباب المفتوح</span> لمن يريد أن يعرف ربه.
                     </p>
                     
                     <div class="hero-buttons">
-                        <a href="#learning" class="btn btn-primary islamic-btn">
-                            <i class="fas fa-book-open"></i>
-                            <span>ابدأ رحلتك</span>
+                        <a href="#comparison" class="btn btn-primary">
+                            <i class="fas fa-balance-scale"></i>
+                            <span>مقارنة الأديان</span>
                         </a>
-                        <a href="#comparison" class="btn btn-secondary">
-                            <i class="fas fa-scale-balanced"></i>
-                            <span>قارن الأديان</span>
+                        <a href="#learning" class="btn btn-secondary">
+                            <i class="fas fa-graduation-cap"></i>
+                            <span>ابدأ التعلم</span>
                         </a>
-                        <a href="#quran-section" class="btn btn-tertiary">
-                            <i class="fas fa-book-quran"></i>
-                            <span>القرآن الكريم</span>
+                        <a href="#ask-private" class="btn btn-tertiary">
+                            <i class="fas fa-question-circle"></i>
+                            <span>اسأل سرًا</span>
                         </a>
-                    </div>
-                    
-                    <!-- إحصاءات -->
-                    <div class="hero-stats">
-                        <div class="stat-item">
-                            <i class="fas fa-book"></i>
-                            <span class="stat-number">114</span>
-                            <span class="stat-text">سورة قرآنية</span>
-                        </div>
-                        <div class="stat-item">
-                            <i class="fas fa-pray"></i>
-                            <span class="stat-number">5</span>
-                            <span class="stat-text">صلوات يومية</span>
-                        </div>
-                        <div class="stat-item">
-                            <i class="fas fa-hands-praying"></i>
-                            <span class="stat-number">1.9</span>
-                            <span class="stat-text">مليار مسلم</span>
-                        </div>
                     </div>
                 </div>
                 
                 <div class="hero-image">
-                    <div class="islamic-art">
-                        <div class="geometric-pattern"></div>
-                        <div class="quran-illustration">
-                            <i class="fas fa-book-quran"></i>
-                            <div class="light-rays">
-                                <div class="ray"></div>
-                                <div class="ray"></div>
-                                <div class="ray"></div>
-                            </div>
-                        </div>
+                    <div class="quran-symbol">
+                        <i class="fas fa-book-quran"></i>
                     </div>
                 </div>
             </div>
-        </div>
-        
-        <!-- موجات زخرفية -->
-        <div class="wave-decoration">
-            <div class="wave wave1"></div>
-            <div class="wave wave2"></div>
-            <div class="wave wave3"></div>
         </div>
     </header>
 
-    <!-- القسم الجديد: قسم التعلم (الصلاة، الوضوء، القرآن) -->
-    <section id="learning" class="section learning-section">
+    <!-- قسم المقارنة -->
+    <section id="comparison" class="section">
         <div class="container">
-            <div class="section-header islamic-header">
-                <div class="header-decoration">
-                    <i class="fas fa-star-and-crescent left"></i>
-                    <h2>
-                        <i class="fas fa-graduation-cap section-icon"></i>
-                        <span>رحلة التعلم</span>
-                    </h2>
-                    <i class="fas fa-star-and-crescent right"></i>
-                </div>
-                <p class="section-subtitle">خطوات عملية لبداية صحيحة في الإسلام</p>
+            <div class="section-header">
+                <h2>
+                    <i class="fas fa-balance-scale section-icon"></i>
+                    <span>مقارنة واضحة: القرآن والكتب الأخرى</span>
+                </h2>
+                <p class="section-subtitle">نصوص جنبًا إلى جنب - لتقرر بنفسك</p>
             </div>
             
-            <!-- بطاقات التعلم -->
+            <!-- جدول المقارنة (نفسه بدون تغيير) -->
+            <!-- ... الكود الأصلي للمقارنة ... -->
+            
+            <!-- استنتاج المقارنة -->
+            <div class="conclusion-box">
+                <!-- ... الكود الأصلي للاستنتاج ... -->
+            </div>
+        </div>
+    </section>
+
+    <!-- القسم الجديد: قسم التعلم (الصلاة، الوضوء، القرآن) -->
+    <section id="learning" class="section section-light">
+        <div class="container">
+            <div class="section-header">
+                <h2>
+                    <i class="fas fa-graduation-cap section-icon"></i>
+                    <span>ابدأ رحلتك: تعلم الإسلام خطوة بخطوة</span>
+                </h2>
+                <p class="section-subtitle">كل ما تحتاجه للبداية الصحيحة في الإسلام</p>
+            </div>
+            
+            <!-- بطاقات التعلم الثلاث -->
             <div class="learning-cards">
                 <!-- بطاقة الوضوء -->
-                <div class="learning-card wudu-card">
-                    <div class="card-header">
-                        <div class="card-icon">
-                            <i class="fas fa-hands-bubbles"></i>
+                <div class="learning-card">
+                    <div class="card-icon">
+                        <i class="fas fa-hands-bubbles"></i>
+                    </div>
+                    <h3 class="card-title">تعلم الوضوء</h3>
+                    <p class="card-description">الطهارة شرط للصلاة. تعلم وضوء النبي ﷺ</p>
+                    
+                    <div class="card-steps">
+                        <div class="step">
+                            <span class="step-number">١</span>
+                            <span class="step-text">النية في القلب</span>
                         </div>
-                        <h3>تعلم الوضوء</h3>
-                        <span class="card-badge">الطهارة أولاً</span>
+                        <div class="step">
+                            <span class="step-number">٢</span>
+                            <span class="step-text">غسل الكفين ٣ مرات</span>
+                        </div>
+                        <div class="step">
+                            <span class="step-number">٣</span>
+                            <span class="step-text">المضمضة والاستنشاق</span>
+                        </div>
+                        <div class="step">
+                            <span class="step-number">٤</span>
+                            <span class="step-text">غسل الوجه ٣ مرات</span>
+                        </div>
+                        <div class="step">
+                            <span class="step-number">٥</span>
+                            <span class="step-text">غسل اليدين للمرفقين</span>
+                        </div>
+                        <div class="step">
+                            <span class="step-number">٦</span>
+                            <span class="step-text">مسح الرأس والأذنين</span>
+                        </div>
+                        <div class="step">
+                            <span class="step-number">٧</span>
+                            <span class="step-text">غسل الرجلين للكعبين</span>
+                        </div>
                     </div>
                     
-                    <div class="card-body">
-                        <div class="steps-counter">
-                            <span class="step active">1</span>
-                            <span class="step">2</span>
-                            <span class="step">3</span>
-                            <span class="step">4</span>
-                            <span class="step">5</span>
-                            <span class="step">6</span>
-                            <span class="step">7</span>
-                        </div>
-                        
-                        <div class="wudu-steps">
-                            <!-- الخطوة 1 -->
-                            <div class="wudu-step active" data-step="1">
-                                <div class="step-number">١</div>
-                                <div class="step-content">
-                                    <h4>النية</h4>
-                                    <p>تنوي في قلبك الوضوء لأداء الصلاة</p>
-                                    <div class="step-illustration">
-                                        <i class="fas fa-heart"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <!-- الخطوة 2 -->
-                            <div class="wudu-step" data-step="2">
-                                <div class="step-number">٢</div>
-                                <div class="step-content">
-                                    <h4>غسل الكفين</h4>
-                                    <p>تغسل كفيك ثلاث مرات</p>
-                                    <div class="step-illustration">
-                                        <i class="fas fa-hands"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <!-- باقي الخطوات (مختصرة للتوضيح) -->
-                        </div>
-                        
-                        <div class="download-section">
-                            <h4>
-                                <i class="fas fa-download"></i>
-                                تحميل دليل الوضوء الكامل
-                            </h4>
-                            <p>دليل مصور يشرح الوضوء خطوة بخطوة</p>
-                            <button class="btn-download" onclick="downloadFile('wudu-guide.pdf')">
-                                <i class="fas fa-file-pdf"></i>
-                                تحميل PDF
-                            </button>
-                        </div>
+                    <div class="card-actions">
+                        <button class="btn-card" onclick="downloadFile('wudu-guide.pdf')">
+                            <i class="fas fa-download"></i>
+                            تحميل دليل الوضوء
+                        </button>
+                        <button class="btn-card-secondary" onclick="showWuduVideo()">
+                            <i class="fas fa-video"></i>
+                            شاهد الفيديو
+                        </button>
                     </div>
                 </div>
                 
                 <!-- بطاقة الصلاة -->
-                <div class="learning-card prayer-card">
-                    <div class="card-header">
-                        <div class="card-icon">
-                            <i class="fas fa-person-praying"></i>
-                        </div>
-                        <h3>تعلم الصلاة</h3>
-                        <span class="card-badge">عماد الدين</span>
+                <div class="learning-card">
+                    <div class="card-icon">
+                        <i class="fas fa-person-praying"></i>
                     </div>
+                    <h3 class="card-title">تعلم الصلاة</h3>
+                    <p class="card-description">الصلاة عماد الدين. تعلمها كما صلى النبي ﷺ</p>
                     
-                    <div class="card-body">
-                        <div class="prayer-times">
-                            <h4>مواقيت الصلاة</h4>
-                            <div class="times-grid">
-                                <div class="time-item fajr">
-                                    <span class="prayer-name">الفجر</span>
-                                    <span class="prayer-time">4:30</span>
-                                </div>
-                                <div class="time-item dhuhr">
-                                    <span class="prayer-name">الظهر</span>
-                                    <span class="prayer-time">12:15</span>
-                                </div>
-                                <!-- باقي الأوقات -->
+                    <div class="prayer-times">
+                        <h4>مواقيت الصلاة اليوم:</h4>
+                        <div class="times-grid">
+                            <div class="time-item">
+                                <span class="prayer-name">الفجر</span>
+                                <span class="prayer-time">4:30 ص</span>
+                            </div>
+                            <div class="time-item">
+                                <span class="prayer-name">الظهر</span>
+                                <span class="prayer-time">12:15 م</span>
+                            </div>
+                            <div class="time-item">
+                                <span class="prayer-name">العصر</span>
+                                <span class="prayer-time">3:45 م</span>
+                            </div>
+                            <div class="time-item">
+                                <span class="prayer-name">المغرب</span>
+                                <span class="prayer-time">6:20 م</span>
+                            </div>
+                            <div class="time-item">
+                                <span class="prayer-name">العشاء</span>
+                                <span class="prayer-time">7:45 م</span>
                             </div>
                         </div>
-                        
-                        <div class="prayer-steps">
-                            <h4>خطوات الصلاة</h4>
-                            <ol class="steps-list">
-                                <li>الاستقبال للقبلة</li>
-                                <li>تكبيرة الإحرام</li>
-                                <li>قراءة الفاتحة</li>
-                                <li>الركوع</li>
-                                <li>السجود</li>
-                                <li>التشهد</li>
-                                <li>السلام</li>
-                            </ol>
-                        </div>
-                        
-                        <div class="download-section">
-                            <button class="btn-download" onclick="downloadFile('prayer-guide.pdf')">
+                    </div>
+                    
+                    <div class="card-actions">
+                        <button class="btn-card" onclick="downloadFile('prayer-guide.pdf')">
+                            <i class="fas fa-download"></i>
+                            دليل الصلاة الكامل
+                        </button>
+                        <button class="btn-card-secondary" onclick="showPrayerSteps()">
+                            <i class="fas fa-list-ol"></i>
+                            خطوات الصلاة
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- بطاقة القرآن -->
+                <div class="learning-card">
+                    <div class="card-icon">
+                        <i class="fas fa-book-quran"></i>
+                    </div>
+                    <h3 class="card-title">القرآن الكريم</h3>
+                    <p class="card-description">كلام الله المنزل. اقرأه، افهمه، تدبره</p>
+                    
+                    <div class="quran-daily">
+                        <h4>آية اليوم:</h4>
+                        <p class="daily-verse">﴿وَإِنَّكَ لَعَلَىٰ خُلُقٍ عَظِيمٍ﴾</p>
+                        <p class="verse-reference">سورة القلم - الآية 4</p>
+                    </div>
+                    
+                    <div class="download-options">
+                        <h4>تحميل المصحف:</h4>
+                        <div class="option-buttons">
+                            <button class="option-btn" onclick="downloadQuran('pdf')">
                                 <i class="fas fa-file-pdf"></i>
-                                دليل الصلاة الكامل
+                                PDF
                             </button>
-                            <button class="btn-video" onclick="openVideo('prayer')">
-                                <i class="fas fa-video"></i>
-                                شرح بالفيديو
+                            <button class="option-btn" onclick="downloadQuran('audio')">
+                                <i class="fas fa-headphones"></i>
+                                صوت
+                            </button>
+                            <button class="option-btn" onclick="downloadQuran('app')">
+                                <i class="fas fa-mobile-alt"></i>
+                                تطبيق
                             </button>
                         </div>
                     </div>
                 </div>
             </div>
             
-            <!-- قسم القرآن الكريم -->
-            <div class="quran-section" id="quran-section">
-                <div class="quran-header">
-                    <div class="quran-icon">
-                        <i class="fas fa-book-quran"></i>
-                    </div>
-                    <h3>القرآن الكريم</h3>
-                    <p class="quran-subtitle">كلام الله المنزل على محمد ﷺ</p>
-                </div>
+            <!-- قسم إضافي: كيف أبدأ؟ -->
+            <div class="start-guide">
+                <h3 class="guide-title">
+                    <i class="fas fa-flag"></i>
+                    كيف أبدأ رحلتي في الإسلام؟
+                </h3>
                 
-                <div class="quran-content">
-                    <!-- آية اليوم -->
-                    <div class="daily-verse">
-                        <div class="verse-header">
-                            <i class="fas fa-calendar-day"></i>
-                            <span>آية اليوم</span>
-                        </div>
-                        <div class="verse-content">
-                            <p class="verse-text">﴿وَإِنَّكَ لَعَلَىٰ خُلُقٍ عَظِيمٍ﴾</p>
-                            <p class="verse-reference">سورة القلم - الآية 4</p>
+                <div class="guide-steps">
+                    <div class="guide-step">
+                        <div class="step-circle">1</div>
+                        <div class="step-content">
+                            <h4>اشهد أن لا إله إلا الله</h4>
+                            <p>النطق بالشهادة: "أشهد أن لا إله إلا الله وأشهد أن محمداً رسول الله"</p>
                         </div>
                     </div>
                     
-                    <!-- تحميل المصحف -->
-                    <div class="quran-download">
-                        <h4>
-                            <i class="fas fa-download"></i>
-                            تحميل المصحف الشريف
-                        </h4>
-                        <div class="download-options">
-                            <button class="download-option" onclick="downloadQuran('pdf')">
-                                <i class="fas fa-file-pdf"></i>
-                                <span>مصحف PDF</span>
-                                <small>حجم: 15MB</small>
-                            </button>
-                            <button class="download-option" onclick="downloadQuran('audio')">
-                                <i class="fas fa-headphones"></i>
-                                <span>تلاوة كاملة</span>
-                                <small>عبد الباسط</small>
-                            </button>
-                            <button class="download-option" onclick="downloadQuran('app')">
-                                <i class="fas fa-mobile-alt"></i>
-                                <span>تطبيق المصحف</span>
-                                <small>للأندرويد</small>
-                            </button>
+                    <div class="guide-step">
+                        <div class="step-circle">2</div>
+                        <div class="step-content">
+                            <h4>تعلم الوضوء والصلاة</h4>
+                            <p>ابدأ بالفرائض الخمس بعد تعلم الطهارة والصلاة</p>
                         </div>
                     </div>
                     
-                    <!-- تعلم التلاوة -->
-                    <div class="quran-learning">
-                        <h4>
-                            <i class="fas fa-microphone"></i>
-                            تعلم التلاوة الصحيحة
-                        </h4>
-                        <div class="learning-options">
-                            <div class="learning-item" onclick="learnTajweed('nun')">
-                                <div class="item-icon">
-                                    <i class="fas fa-volume-up"></i>
-                                </div>
-                                <span>أحكام النون الساكنة</span>
-                            </div>
-                            <div class="learning-item" onclick="learnTajweed('mim')">
-                                <div class="item-icon">
-                                    <i class="fas fa-wave-square"></i>
-                                </div>
-                                <span>أحكام الميم الساكنة</span>
-                            </div>
-                            <div class="learning-item" onclick="learnTajweed('madd')">
-                                <div class="item-icon">
-                                    <i class="fas fa-long-arrow-alt-right"></i>
-                                </div>
-                                <span>المدود</span>
-                            </div>
+                    <div class="guide-step">
+                        <div class="step-circle">3</div>
+                        <div class="step-content">
+                            <h4>اقرأ القرآن وتدبره</h4>
+                            <p>ابدأ بالسور القصيرة مثل الفاتحة والإخلاص</p>
+                        </div>
+                    </div>
+                    
+                    <div class="guide-step">
+                        <div class="step-circle">4</div>
+                        <div class="step-content">
+                            <h4>تواصل معنا للاستفسار</h4>
+                            <p>استخدم "اسأل سرًا" لأي سؤال أو استفسار</p>
                         </div>
                     </div>
                 </div>
@@ -370,136 +311,185 @@
         </div>
     </section>
 
-    <!-- باقي الأقسام (المقارنة - الفطرة - النموذج) -->
-    <!-- سيتم تضمينها كما هي مع تحسين التصميم -->
-
-    <!-- تذييل الصفحة المحسن -->
-    <footer class="footer islamic-footer">
+    <!-- قسم الفطرة -->
+    <section id="fitra" class="section">
         <div class="container">
-            <!-- زخرفة إسلامية -->
-            <div class="footer-decoration">
-                <div class="arabesque-border"></div>
+            <div class="section-header">
+                <h2>
+                    <i class="fas fa-star section-icon"></i>
+                    <span>الفِطرة: أسئلة عميقة لها إجابات</span>
+                </h2>
+                <p class="section-subtitle">اسأل نفسك... ثم استمع إلى القرآن يجيبك</p>
             </div>
             
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <div class="logo-symbol">
-                        <i class="fas fa-mosque"></i>
-                        <div class="crescent">
-                            <i class="fas fa-moon"></i>
-                        </div>
-                    </div>
-                    <div class="footer-text">
-                        <h3>العين الثالثة</h3>
-                        <p class="footer-sub">نور البصيرة | دليل الباحث عن الحق</p>
-                    </div>
-                </div>
-                
-                <div class="footer-verse">
-                    <p>﴿وَقُلِ الْحَقُّ مِنْ رَبِّكُمْ فَمَنْ شَاءَ فَلْيُؤْمِنْ وَمَنْ شَاءَ فَلْيَكْفُرْ﴾</p>
-                    <span class="verse-ref">الكهف: 29</span>
-                </div>
-                
-                <div class="footer-contact">
-                    <h4>
-                        <i class="fas fa-life-ring"></i>
-                        مساعدة مباشرة
-                    </h4>
-                    <div class="contact-info">
-                        <i class="fas fa-envelope"></i>
-                        <span>support@third-eye.com</span>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <p class="copyright">
-                    © 2024 العين الثالثة. جميع الحقوق محفوظة.
-                    <span class="bismillah">﷽</span>
-                </p>
-                <p class="footer-message">
-                    "العين الثالثة لم ترَ قط جائعًا" — لأن الحق يشبع القلب الذي يبحث عنه.
-                </p>
-            </div>
+            <!-- ... الكود الأصلي للفطرة ... -->
+        </div>
+    </section>
+
+    <!-- قسم اسأل بخفاء -->
+    <section id="ask-private" class="section section-light">
+        <div class="container">
+            <!-- ... الكود الأصلي للنموذج ... -->
+        </div>
+    </section>
+
+    <!-- تذييل الصفحة -->
+    <footer class="footer">
+        <div class="container">
+            <!-- ... الكود الأصلي للفوتر ... -->
         </div>
     </footer>
 
-    <!-- أزرار عائمة -->
-    <div class="floating-buttons">
-        <button class="floating-btn" id="scrollTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
-            <i class="fas fa-arrow-up"></i>
-        </button>
-        <button class="floating-btn" onclick="playAdhan()">
-            <i class="fas fa-volume-up"></i>
-        </button>
-        <button class="floating-btn" onclick="toggleDarkMode()">
-            <i class="fas fa-moon"></i>
-        </button>
-    </div>
-
     <!-- JavaScript -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-    <script src="js/script.js"></script>
-    
-    <!-- JavaScript المضمن -->
     <script>
-        // تهيئة المحتوى الديناميكي
-        document.addEventListener('DOMContentLoaded', function() {
-            // إخفاء شاشة التحميل
-            setTimeout(() => {
-                document.getElementById('pageLoader').style.opacity = '0';
-                setTimeout(() => {
-                    document.getElementById('pageLoader').style.display = 'none';
-                }, 500);
-            }, 1500);
+        // ===== الأسئلة المتكررة =====
+        function toggleFAQ(button) {
+            const answer = button.nextElementSibling;
+            const icon = button.querySelector('i');
+            const isActive = answer.style.display === 'block';
             
-            // تهيئة خطوات الوضوء
-            initLearningSections();
+            // إغلاق جميع الإجابات الأخرى
+            document.querySelectorAll('.faq-answer').forEach(item => {
+                item.style.display = 'none';
+                item.previousElementSibling.querySelector('i').style.transform = 'rotate(0deg)';
+                item.parentElement.classList.remove('active');
+            });
             
-            // تحديث آية اليوم
-            updateDailyVerse();
-            
-            // تهيئة شريط التقدم
-            initProgressBar();
-        });
+            // فتح/إغلاق الإجابة الحالية
+            if (!isActive) {
+                answer.style.display = 'block';
+                icon.style.transform = 'rotate(180deg)';
+                button.parentElement.classList.add('active');
+            }
+        }
         
-        // وظائف التنزيل
+        // ===== وظائف جديدة للتعلم =====
         function downloadFile(filename) {
-            alert(`سيبدأ تحميل الملف: ${filename}\nإذا لم يبدأ التحميل تلقائياً، اضغط على الرابط أدناه.`);
-            // في النسخة الحقيقية، ستكون هنا روابط التحميل الفعلية
-            window.open(`downloads/${filename}`, '_blank');
+            alert(`سيبدأ تحميل "${filename}"\n\nملاحظة: في النسخة النهائية، ستكون هذه رواقع حقيقية للتحميل.`);
+            // رابط حقيقي مثال:
+            // window.open('downloads/' + filename, '_blank');
         }
         
         function downloadQuran(type) {
             const files = {
                 pdf: 'quran-complete.pdf',
-                audio: 'quran-full-audio.zip',
-                app: 'quran-app-android.apk'
+                audio: 'quran-audio.zip',
+                app: 'quran-app.apk'
             };
             downloadFile(files[type]);
         }
         
-        // وظائف الصوت
-        function playAdhan() {
-            const audio = new Audio('https://www.islamicfinder.org/assets/media/athan/fajr.mp3');
-            audio.volume = 0.5;
-            audio.play().catch(e => console.log('خطأ في تشغيل الأذان:', e));
-            
-            // إظهار رسالة
-            showNotification('🔊 يشغل الأذان...', 'info');
+        function showWuduVideo() {
+            window.open('https://www.youtube.com/watch?v=example-wudu', '_blank');
         }
         
-        // وظيفة الوضع الداكن
-        function toggleDarkMode() {
-            document.body.classList.toggle('dark-mode');
-            const icon = document.querySelector('.floating-btn:nth-child(3) i');
-            icon.classList.toggle('fa-moon');
-            icon.classList.toggle('fa-sun');
+        function showPrayerSteps() {
+            const steps = `
+            خطوات الصلاة:
+            1. الاستقبال للقبلة
+            2. تكبيرة الإحرام
+            3. قراءة الفاتحة
+            4. الركوع
+            5. السجود
+            6. التشهد
+            7. السلام
             
-            showNotification('🌙 تم تغيير الوضع', 'success');
+            للتفاصيل الكاملة، حمل دليل الصلاة.`;
+            alert(steps);
         }
         
-        // باقي الوظائف...
+        // ===== وظائف موجودة =====
+        function clearContactForm() {
+            if (confirm('هل تريد مسح النص؟')) {
+                document.getElementById('real-contact-form').reset();
+            }
+        }
+        
+        function showTranslationHelp() {
+            alert('🌐 للترجمة:\n\n1. انقر بزر الماوس الأيمن في أي مكان\n2. اختر "ترجمة إلى..."\n3. اختر لغتك\n\nأو استخدم زر الترجمة في متصفحك.');
+        }
+        
+        // ===== الروابط العائمة =====
+        window.addEventListener('scroll', function() {
+            const floatingNav = document.getElementById('floatingNav');
+            if (window.scrollY > 300) {
+                floatingNav.style.display = 'flex';
+            } else {
+                floatingNav.style.display = 'none';
+            }
+        });
+        
+        // التنقل السلس
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href !== '#') {
+                    e.preventDefault();
+                    const targetElement = document.querySelector(href);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
+        
+        // ===== تهيئة عند التحميل =====
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('موقع العين الثالثة - جاهز');
+            
+            // تفعيل أول سؤال في FAQ
+            const firstFAQ = document.querySelector('.faq-item.active .faq-answer');
+            if (firstFAQ) {
+                firstFAQ.style.display = 'block';
+            }
+            
+            // تحديث وقت الصلاة (مثال بسيط)
+            updatePrayerTimes();
+            
+            // تحديث آية اليوم
+            updateDailyVerse();
+            
+            // تتبع نموذج البريد
+            const form = document.getElementById('real-contact-form');
+            if (form) {
+                form.addEventListener('submit', function() {
+                    alert('شكرًا لك! سؤال وصلنا. إذا قدمت بريدك، سنرد عليك خلال 24 ساعة.');
+                });
+            }
+        });
+        
+        // ===== وظائف مساعدة =====
+        function updatePrayerTimes() {
+            // هنا يمكنك إضافة كود لجلب أوقات الصلاة الحقيقية
+            console.log('أوقات الصلاة محدثة');
+        }
+        
+        function updateDailyVerse() {
+            const verses = [
+                {text: '﴿وَإِنَّكَ لَعَلَىٰ خُلُقٍ عَظِيمٍ﴾', ref: 'سورة القلم - الآية 4'},
+                {text: '﴿قُلْ هُوَ اللَّهُ أَحَدٌ﴾', ref: 'سورة الإخلاص - الآية 1'},
+                {text: '﴿رَبِّ زِدْنِي عِلْمًا﴾', ref: 'سورة طه - الآية 114'},
+                {text: '﴿إِنَّ مَعَ الْعُسْرِ يُسْرًا﴾', ref: 'سورة الشرح - الآية 6'}
+            ];
+            
+            const today = new Date().getDate();
+            const verseIndex = today % verses.length;
+            const verse = verses[verseIndex];
+            
+            // تحديث في صفحة القرآن
+            const verseElement = document.querySelector('.daily-verse');
+            const refElement = document.querySelector('.verse-reference');
+            
+            if (verseElement) {
+                verseElement.textContent = verse.text;
+            }
+            if (refElement) {
+                refElement.textContent = verse.ref;
+            }
+        }
     </script>
 </body>
 </html>
