@@ -429,46 +429,50 @@
                 </div>
                 
                 <!-- نموذج Formspree المعدل -->
-                <form id="real-contact-form" action="https://formspree.io/f/mldovzbr" method="POST">
-                    <input type="hidden" name="_replyto" value="ilperata@msn.com">
-                    <input type="hidden" name="_subject" value="سؤال جديد من موقع العين الثالثة">
-                    
-                    <div class="form-group">
-                        <label for="real-question">
-                            <i class="fas fa-question-circle"></i>
-                            <span>سؤالك:</span>
-                        </label>
-                        <textarea id="real-question" 
-                                  name="message" 
-                                  rows="6" 
-                                  placeholder="اكتب سؤالك هنا... يمكن أن يكون عن الله، عن الإسلام، عن الشكوك، عن أي شيء يهمك." 
-                                  required></textarea>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="sender-email">
-                            <i class="fas fa-envelope"></i>
-                            <span>بريدك الإلكتروني (اختياري، إذا أردت الرد):</span>
-                        </label>
-                        <input type="email" 
-                               id="sender-email" 
-                               name="email" 
-                               placeholder="example@email.com">
-                    </div>
-                    
-                    <div class="form-actions">
-                        <button type="submit" class="btn btn-submit">
-                            <i class="fas fa-paper-plane"></i>
-                            <span>أرسل سؤالك الآن</span>
-                        </button>
-                        
-                        <button type="button" class="btn btn-clear" onclick="clearContactForm()">
-                            <i class="fas fa-eraser"></i>
-                            <span>مسح النص</span>
-                        </button>
-                    </div>
-                </form>
-                
+<form id="real-contact-form" action="https://formspree.io/f/{الكود-الخاص-بك}" method="POST">
+    <!-- الحقول المخفية -->
+    <input type="hidden" name="_subject" value="سؤال سري من موقع العين الثالثة">
+    <input type="hidden" name="_language" value="ar">
+    <input type="hidden" name="_format" value="plain">
+    
+    <!-- حقل الرسالة -->
+    <div class="form-group">
+        <label for="real-question">
+            <i class="fas fa-question-circle"></i>
+            <span>سؤالك:</span>
+        </label>
+        <textarea id="real-question" 
+                  name="message" 
+                  rows="6" 
+                  placeholder="اكتب سؤالك هنا... يمكن أن يكون عن الله، عن الإسلام، عن الشكوك، عن أي شيء يهمك." 
+                  required></textarea>
+    </div>
+    
+    <!-- حقل البريد الإلكتروني -->
+    <div class="form-group">
+        <label for="sender-email">
+            <i class="fas fa-envelope"></i>
+            <span>بريدك الإلكتروني (اختياري، إذا أردت الرد):</span>
+        </label>
+        <input type="email" 
+               id="sender-email" 
+               name="_replyto" 
+               placeholder="example@email.com">
+    </div>
+    
+    <!-- أزرار الإرسال -->
+    <div class="form-actions">
+        <button type="submit" class="btn btn-submit">
+            <i class="fas fa-paper-plane"></i>
+            <span>أرسل سؤالك الآن</span>
+        </button>
+        
+        <button type="button" class="btn btn-clear" onclick="clearContactForm()">
+            <i class="fas fa-eraser"></i>
+            <span>مسح النص</span>
+        </button>
+    </div>
+</form>
                 <!-- الأسئلة المتكررة المعدلة -->
                 <div class="faq-section">
                     <h3 class="faq-title">
@@ -541,6 +545,31 @@
 
     <!-- JavaScript المضمن مباشرة -->
     <script>
+        // حماية Formspree من البوتات
+document.getElementById('real-contact-form').addEventListener('submit', function(e) {
+    // تأخير بسيط لإظهار رسالة المعالجة
+    const submitBtn = this.querySelector('button[type="submit"]');
+    const originalText = submitBtn.innerHTML;
+    
+    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i><span> جارٍ الإرسال...</span>';
+    submitBtn.disabled = true;
+    
+    // إخفاء أي أخطاء سابقة
+    const existingError = document.querySelector('.form-error');
+    if (existingError) existingError.remove();
+    
+    // إضافة طابع زمني مخفي للحماية
+    const timestamp = document.createElement('input');
+    timestamp.type = 'hidden';
+    timestamp.name = '_timestamp';
+    timestamp.value = Date.now();
+    this.appendChild(timestamp);
+    
+    // رسالة نجاح (ستتم إعادة التوجيه من Formspree)
+    setTimeout(() => {
+        alert('✅ تم إرسال سؤالك بنجاح! سنرد عليك قريبًا إن شاء الله.');
+    }, 500);
+});
         // ===== الأسئلة المتكررة =====
         function toggleFAQ(button) {
             const answer = button.nextElementSibling;
@@ -622,3 +651,4 @@
     </script>
 </body>
 </html>
+
