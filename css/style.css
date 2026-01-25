@@ -1,263 +1,6 @@
-/* ملف style.css */
-/* ===== إعدادات عامة ===== */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Tajawal', sans-serif;
-    line-height: 1.6;
-    color: #333;
-    background-color: #f8f9fa;
-    direction: rtl;
-    overflow-x: hidden;
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-/* ===== شريط التنقل ===== */
-.navbar {
-    background: linear-gradient(135deg, #1a5f7a 0%, #2c3e50 100%);
-    color: white;
-    padding: 15px 0;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-}
-
-.nav-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    cursor: pointer;
-}
-
-.logo i {
-    font-size: 28px;
-    color: #57cc99;
-}
-
-.logo h1 {
-    font-size: 24px;
-    font-weight: 700;
-}
-
-.translation-simple {
-    position: relative;
-}
-
-.translate-simple-btn {
-    background: #57cc99;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 30px;
-    font-family: 'Tajawal', sans-serif;
-    font-size: 16px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    transition: all 0.3s;
-}
-
-.translate-simple-btn:hover {
-    background: #38b2ac;
-    transform: translateY(-2px);
-}
-
-.simple-translation-dropdown {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background: white;
-    color: #333;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-    width: 300px;
-    margin-top: 10px;
-    display: none;
-    z-index: 1001;
-}
-
-.translation-simple:hover .simple-translation-dropdown {
-    display: block;
-}
-
-/* ===== القسم الرئيسي ===== */
-.hero-section {
-    background: linear-gradient(rgba(26, 95, 122, 0.9), rgba(44, 62, 80, 0.9)), 
-                url('https://images.unsplash.com/photo-1540206395-68808572332f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
-    background-size: cover;
-    background-position: center;
-    color: white;
-    padding: 100px 0;
-    text-align: center;
-}
-
-.hero-title {
-    font-size: 42px;
-    margin-bottom: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 15px;
-}
-
-.hero-subtitle {
-    font-size: 24px;
-    margin-bottom: 30px;
-    color: #c5e3f6;
-}
-
-.hero-description {
-    font-size: 18px;
-    max-width: 800px;
-    margin: 0 auto 40px;
-    line-height: 1.8;
-}
-
-.highlight {
-    color: #57cc99;
-    font-weight: 700;
-}
-
-.hero-buttons {
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-    margin-top: 40px;
-}
-
-.btn {
-    padding: 15px 30px;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 18px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    transition: all 0.3s;
-}
-
-.btn-primary {
-    background: #57cc99;
-    color: white;
-}
-
-.btn-primary:hover {
-    background: #38b2ac;
-    transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-}
-
-.btn-secondary {
-    background: rgba(255,255,255,0.2);
-    color: white;
-    border: 2px solid white;
-}
-
-.btn-secondary:hover {
-    background: white;
-    color: #1a5f7a;
-    transform: translateY(-3px);
-}
-
-/* ===== جدول المقارنة ===== */
-.comparison-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 40px 0;
-    background: white;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-}
-
-.comparison-table th {
-    background: linear-gradient(135deg, #1a5f7a 0%, #2c3e50 100%);
-    color: white;
-    padding: 20px;
-    font-size: 20px;
-    text-align: center;
-}
-
-.comparison-table td {
-    padding: 20px;
-    border: 1px solid #eee;
-    vertical-align: top;
-}
-
-.point-title {
-    background: #f8f9fa;
-    font-weight: 700;
-    font-size: 18px;
-    color: #1a5f7a;
-}
-
-.quran-cell {
-    background: #f0f7f4;
-    border-right: 4px solid #57cc99 !important;
-}
-
-.quran-text {
-    font-size: 22px;
-    color: #1a5f7a;
-    margin-bottom: 10px;
-    text-align: center;
-    font-weight: 600;
-}
-
-.verse-reference {
-    display: block;
-    text-align: center;
-    color: #666;
-    font-size: 14px;
-    margin-bottom: 15px;
-}
-
-.text-good {
-    color: #2ecc71;
-    font-weight: 600;
-}
-
-.text-bad {
-    color: #e74c3c;
-}
-
-.text-note {
-    color: #7f8c8d;
-    font-size: 14px;
-    margin-top: 8px;
-}
-
-.text-prophet {
-    color: #f39c12;
-    font-weight: 600;
-}
-
-/* ===== باقي التنسيقات ===== */
-.section {
-    padding: 80px 0;
-}
-
-.section-light {
-    background: #f8f9fa;
+/* إضافات للتعلم */
+.learning-section {
+    padding: 60px 0;
 }
 
 .section-header {
@@ -266,7 +9,7 @@ body {
 }
 
 .section-header h2 {
-    font-size: 36px;
+    font-size: 32px;
     color: #1a5f7a;
     margin-bottom: 15px;
     display: flex;
@@ -276,159 +19,51 @@ body {
 }
 
 .section-subtitle {
-    color: #7f8c8d;
+    color: #666;
     font-size: 18px;
+    max-width: 600px;
+    margin: 0 auto;
 }
 
-.conclusion-box {
-    background: white;
-    border-radius: 15px;
-    padding: 40px;
-    margin-top: 50px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-    border-right: 5px solid #57cc99;
-}
-
-.conclusion-points {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    margin: 40px 0;
-}
-
-.conclusion-item {
-    display: flex;
-    gap: 20px;
-    align-items: flex-start;
-}
-
-.conclusion-icon {
-    color: #57cc99;
-    font-size: 28px;
-}
-
-.floating-nav {
+/* تنسيقات القوائم السريعة */
+.quick-nav {
     position: fixed;
-    bottom: 30px;
-    left: 30px;
+    top: 80px;
+    left: 20px;
     background: white;
-    border-radius: 50px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    z-index: 100;
     padding: 15px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-    display: none;
+    display: flex;
     flex-direction: column;
-    gap: 15px;
-    z-index: 999;
+    gap: 12px;
+    display: none; /* يظهر عند التمرير */
 }
 
-.floating-nav-btn {
-    background: #1a5f7a;
-    color: white;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
+.quick-nav a {
     display: flex;
     align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    position: relative;
-    transition: all 0.3s;
-}
-
-.floating-nav-btn:hover {
-    background: #57cc99;
-    transform: scale(1.1);
-}
-
-.floating-nav-btn span {
-    position: absolute;
-    right: 60px;
-    background: white;
-    color: #333;
-    padding: 8px 15px;
+    gap: 10px;
+    padding: 12px 20px;
+    background: #f8f9fa;
     border-radius: 8px;
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+    transition: all 0.3s;
     white-space: nowrap;
-    opacity: 0;
-    transition: opacity 0.3s;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
-.floating-nav-btn:hover span {
-    opacity: 1;
-}
-
-.faq-item {
-    background: white;
-    border-radius: 10px;
-    margin-bottom: 15px;
-    overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-}
-
-.faq-question {
-    width: 100%;
-    padding: 20px;
-    background: none;
-    border: none;
-    text-align: right;
-    font-family: 'Tajawal', sans-serif;
-    font-size: 18px;
-    font-weight: 600;
-    color: #1a5f7a;
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.faq-answer {
-    padding: 0 20px;
-    max-height: 0;
-    overflow: hidden;
-    transition: all 0.3s ease;
-}
-
-.faq-item.active .faq-answer {
-    padding: 0 20px 20px;
-    max-height: 500px;
-}
-
-.footer {
-    background: linear-gradient(135deg, #1a5f7a 0%, #2c3e50 100%);
+.quick-nav a:hover {
+    background: #2c786c;
     color: white;
-    padding: 60px 0 30px;
-    text-align: center;
+    transform: translateX(-5px);
 }
 
-/* ===== تنسيقات للهواتف ===== */
-@media (max-width: 768px) {
-    .hero-title {
-        font-size: 32px;
-        flex-direction: column;
-    }
-    
-    .comparison-table {
-        display: block;
-        overflow-x: auto;
-    }
-    
-    .comparison-points {
-        grid-template-columns: 1fr;
-    }
-    
-    .hero-buttons {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .btn {
-        width: 100%;
-        max-width: 300px;
-        justify-content: center;
-    }
-    
-    .floating-nav {
-        bottom: 20px;
-        left: 20px;
+/* تظهر القائمة عند التمرير */
+@media (min-width: 992px) {
+    .quick-nav {
+        display: flex;
     }
 }
