@@ -6,662 +6,734 @@
     <title>👁️ العين الثالثة لم ترَ جائعًا</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- بار الترجمة التلقائية -->
-<div class="auto-translate-bar">
-    <div class="container">
-        <div class="translate-bar-content">
-            <p>
-                <i class="fas fa-language"></i>
-                <strong>غير العربي؟</strong> يمكنك ترجمة الموقع كاملاً بلغتك:
-            </p>
-            <div class="translate-actions">
-                <button class="translate-btn" onclick="translateWithChrome()">
-                    <i class="fab fa-chrome"></i> ترجمة في Chrome
-                </button>
-                <button class="translate-btn" onclick="translateWithEdge()">
-                    <i class="fab fa-edge"></i> ترجمة في Edge
-                </button>
-                <button class="translate-btn" onclick="showAllMethods()">
-                    <i class="fas fa-question-circle"></i> طرق أخرى
-                </button>
-                <button class="close-translate-bar" onclick="hideTranslateBar()">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-        </div>
-    </div>
-</div>
-    <!-- شريط التنقل -->
+    <!-- شريط التنقّل المحدث -->
     <nav class="navbar">
         <div class="container">
             <div class="nav-content">
-                <div class="logo">
+                <div class="logo" onclick="window.location.href='#'">
                     <i class="fas fa-eye"></i>
-                    <span>العين الثالثة</span>
+                    <h1>العين الثالثة</h1>
                 </div>
-                <div class="languages">
-                    <a href="#" class="lang-btn active">العربية</a>
-                    <a href="#" class="lang-btn">English</a>
-                    <a href="#" class="lang-btn">Français</a>
-                    <a href="#" class="lang-btn">中文</a>
-                    <button id="translate-btn" class="lang-btn">
-                        <i class="fas fa-globe"></i> لغات أخرى
+                
+                <!-- نظام الترجمة البسيط -->
+                <div class="translation-simple">
+                    <button class="translate-simple-btn" onclick="toggleSimpleTranslation()">
+                        <i class="fas fa-language"></i> English
                     </button>
+                    <div class="simple-translation-dropdown">
+                        <p><strong>How to translate:</strong></p>
+                        <p>Right-click anywhere → "Translate to English"</p>
+                        <p>Or use browser's translation feature</p>
+                    </div>
                 </div>
             </div>
         </div>
     </nav>
 
-    <!-- روابط سريعة للتنقل -->
-    <div class="quick-nav">
-        <a href="#third-eye"><i class="fas fa-eye"></i> العين الثالثة</a>
-        <a href="#fitra"><i class="fas fa-star"></i> الفِطرة</a>
-        <a href="#comparison"><i class="fas fa-balance-scale"></i> المقارنة</a>
-        <a href="#stories"><i class="fas fa-book"></i> قصص الهداية</a>
+    <!-- روابط سريعة ثابتة -->
+    <div class="floating-nav">
+        <a href="#third-eye" class="floating-nav-btn">
+            <i class="fas fa-eye"></i>
+            <span>العين الثالثة</span>
+        </a>
+        <a href="#fitra" class="floating-nav-btn">
+            <i class="fas fa-star"></i>
+            <span>الفِطرة</span>
+        </a>
+        <a href="#comparison" class="floating-nav-btn">
+            <i class="fas fa-balance-scale"></i>
+            <span>المقارنة</span>
+        </a>
+        <a href="#start-journey" class="floating-nav-btn">
+            <i class="fas fa-flag"></i>
+            <span>ابدأ الآن</span>
+        </a>
     </div>
 
-    <!-- محتوى الصفحة الرئيسية -->
-    <main class="container">
-        <!-- القسم الرئيسي -->
-        <section class="hero-section">
+    <!-- القسم الرئيسي -->
+    <header class="hero-section">
+        <div class="container">
             <div class="hero-content">
-                <h1 class="hero-title">
-                    <i class="fas fa-eye"></i>
-                    العين الثالثة لم ترَ قط جائعًا
-                </h1>
-                <p class="hero-subtitle">
-                    لأنها كانت تُطعمه سرًا بذيل النسيان
-                </p>
-                <p class="hero-description">
-                    هذا المكان ليس للجدال، ولا للفلسفة المعقدة. هنا نبحث عن <strong>الفِطرة النقية</strong>، 
-                    و<strong>الكلام الواضح</strong>، و<strong>الباب المفتوح</strong> لمن يريد أن يعرف ربه.
-                </p>
-                <div class="hero-buttons">
-                    <a href="#third-eye" class="btn btn-primary">
-                        <i class="fas fa-book-open"></i> ابدأ الرحلة
-                    </a>
-                    <a href="#fitra" class="btn btn-secondary">
-                        <i class="fas fa-question-circle"></i> أسئلة فطرية
-                    </a>
+                <div class="hero-text">
+                    <h1 class="hero-title">
+                        <span class="title-icon"><i class="fas fa-eye"></i></span>
+                        <span class="title-text">العين الثالثة لم ترَ قط جائعًا</span>
+                    </h1>
+                    
+                    <p class="hero-subtitle">
+                        <span class="subtitle-text">لأنها كانت تُطعمه سرًا بذيل النسيان</span>
+                    </p>
+                    
+                    <p class="hero-description">
+                        هذا المكان ليس للجدال، ولا للفلسفة المعقدة. هنا نبحث عن 
+                        <span class="highlight">الفِطرة النقية</span>، و
+                        <span class="highlight">الكلام الواضح</span>، و
+                        <span class="highlight">الباب المفتوح</span> لمن يريد أن يعرف ربه.
+                    </p>
+                    
+                    <div class="hero-buttons">
+                        <a href="#third-eye" class="btn btn-primary">
+                            <i class="fas fa-book-open"></i>
+                            <span>ابدأ الرحلة</span>
+                        </a>
+                        <a href="#ask-private" class="btn btn-secondary">
+                            <i class="fas fa-question-circle"></i>
+                            <span>اسأل سرًا</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="hero-image">
+                    <div class="quran-symbol">
+                        <i class="fas fa-book-quran"></i>
+                    </div>
                 </div>
             </div>
-            <div class="hero-image">
-                <div class="symbol-circle">
-                    <i class="fas fa-book quran-icon"></i>
-                </div>
-            </div>
-        </section>
-
+        </div>
+    </header>
         <!-- قسم العين الثالثة -->
-        <section id="third-eye" class="section">
+    <section id="third-eye" class="section">
+        <div class="container">
             <div class="section-header">
-                <h2><i class="fas fa-eye"></i> العين الثالثة: معنى العبارة</h2>
+                <h2>
+                    <i class="fas fa-eye section-icon"></i>
+                    <span>العين الثالثة: معنى العبارة</span>
+                </h2>
                 <p class="section-subtitle">مفتاح لفهم أعمق للحياة</p>
             </div>
             
-            <div class="content-grid">
-                <div class="card">
-                    <div class="card-icon">
+            <div class="features-grid">
+                <!-- بطاقة المعنى الروحي -->
+                <div class="feature-card">
+                    <div class="feature-icon">
                         <i class="fas fa-heart"></i>
                     </div>
-                    <h3 class="card-title">المعنى الروحي</h3>
-                    <p class="card-text">
-                        العين الثالثة هي <strong>البصيرة الروحية</strong> التي ترى ما وراء المادة. 
-                        من يرى الله بعين قلبه لا يشعر بفقدان شيء، لأن اتصاله بالخالق يشبعه.
-                    </p>
+                    <h3 class="feature-title">المعنى الروحي</h3>
+                    <div class="feature-content">
+                        <p>
+                            العين الثالثة هي <strong>البصيرة الروحية</strong> التي ترى ما وراء المادة. 
+                            من يرى الله بعين قلبه لا يشعر بفقدان شيء، لأن اتصاله بالخالق يشبعه.
+                        </p>
+                    </div>
                 </div>
                 
-                <div class="card">
-                    <div class="card-icon">
+                <!-- بطاقة المعنى الفطري -->
+                <div class="feature-card">
+                    <div class="feature-icon">
                         <i class="fas fa-seedling"></i>
                     </div>
-                    <h3 class="card-title">المعنى الفطري</h3>
-                    <p class="card-text">
-                        الفطرة السليمة لا تجوع للحقيقة لأنها <strong>تعرفها بالفطرة</strong>. 
-                        التساؤل عن الخالق، التوق إلى العدل، اشتياق الروح إلى مصدرها — كل هذه علامات الفطرة.
-                    </p>
+                    <h3 class="feature-title">المعنى الفطري</h3>
+                    <div class="feature-content">
+                        <p>
+                            الفطرة السليمة لا تجوع للحقيقة لأنها <strong>تعرفها بالفطرة</strong>. 
+                            التساؤل عن الخالق، التوق إلى العدل، اشتياق الروح إلى مصدرها — كل هذه علامات الفطرة.
+                        </p>
+                    </div>
                 </div>
                 
-                <div class="card">
-                    <div class="card-icon">
+                <!-- بطاقة المعنى الدعوي -->
+                <div class="feature-card">
+                    <div class="feature-icon">
                         <i class="fas fa-hands-helping"></i>
                     </div>
-                    <h3 class="card-title">المعنى الدعوي</h3>
-                    <p class="card-text">
-                        الداعي إلى الله يشبع قلبه بالإيمان فلا يجوع للدنيا. 
-                        "النسيان" هنا ليس محو الذاكرة، بل تحويل الألم إلى <strong>بصيرة ونور</strong>.
-                    </p>
+                    <h3 class="feature-title">المعنى الدعوي</h3>
+                    <div class="feature-content">
+                        <p>
+                            الداعي إلى الله يشبع قلبه بالإيمان فلا يجوع للدنيا. 
+                            "النسيان" هنا ليس محو الذاكرة، بل تحويل الألم إلى <strong>بصيرة ونور</strong>.
+                        </p>
+                    </div>
                 </div>
             </div>
             
+            <!-- القصة الرمزية -->
             <div class="story-box">
-                <h4><i class="fas fa-book-open"></i> قصة رمزية</h4>
-                <p>
-                    كان هناك رجل يبحث عن الماء في الصحراء، وحمل معه قربة ماء لكنه نسى أنها مليئة. 
-                    ظل يجري من مكان إلى آخر وهو يصرخ: "عطش! عطش!" حتى تذكر ففتح القربة وشرب. 
-                    هكذا الإنسان: يبحث عن الله وهو <strong>فيه بالفطرة</strong>، لكنه نسي.
-                </p>
+                <div class="story-header">
+                    <i class="fas fa-book-open story-icon"></i>
+                    <h3>قصة رمزية</h3>
+                </div>
+                <div class="story-content">
+                    <p>
+                        كان هناك رجل يبحث عن الماء في الصحراء، وحمل معه قربة ماء لكنه نسى أنها مليئة. 
+                        ظل يجري من مكان إلى آخر وهو يصرخ: "عطش! عطش!" حتى تذكر ففتح القربة وشرب. 
+                        هكذا الإنسان: يبحث عن الله وهو <strong>فيه بالفطرة</strong>، لكنه نسي.
+                    </p>
+                </div>
             </div>
-        </section>
-
-        <!-- قسم الفِطرة -->
-        <section id="fitra" class="section" style="background: #f8f9fa;">
+        </div>
+    </section>
+        <!-- قسم الفطرة -->
+    <section id="fitra" class="section section-light">
+        <div class="container">
             <div class="section-header">
-                <h2><i class="fas fa-star"></i> الفِطرة: أسئلة عميقة لها إجابات</h2>
+                <h2>
+                    <i class="fas fa-star section-icon"></i>
+                    <span>الفِطرة: أسئلة عميقة لها إجابات</span>
+                </h2>
                 <p class="section-subtitle">اسأل نفسك... ثم استمع إلى القرآن يجيبك</p>
             </div>
             
-            <div class="fitra-definition">
-                <h4><i class="fas fa-info-circle"></i> ما هي الفِطرة؟</h4>
-                <p>
-                    الفِطرة هي <strong>الجِبِلَّة الأصلية</strong> التي خلق الله الناس عليها. 
-                    هي الاستعداد الفطري لمعرفة الحق والخير. 
-                    يقول رسول الله صلى الله عليه وسلم: 
-                    <em>"كل مولود يولد على الفطرة، فأبواه يهودانه أو ينصرانه أو يمجسانه"</em>.
-                </p>
-                <p>
-                    الفِطرة هي التي تجعلك:
-                    <span class="fitra-point">✓ تشعر بالذنب عندما تظلم</span>
-                    <span class="fitra-point">✓ تفرح عندما تعمل خيرًا</span>
-                    <span class="fitra-point">✓ تبحث عن خالق لهذا الكون</span>
-                </p>
+            <!-- تعريف الفطرة -->
+            <div class="definition-box">
+                <div class="definition-header">
+                    <i class="fas fa-info-circle"></i>
+                    <h3>ما هي الفِطرة؟</h3>
+                </div>
+                <div class="definition-content">
+                    <p>
+                        الفِطرة هي <strong>الجِبِلَّة الأصلية</strong> التي خلق الله الناس عليها. 
+                        هي الاستعداد الفطري لمعرفة الحق والخير. 
+                        يقول رسول الله صلى الله عليه وسلم: 
+                        <em>"كل مولود يولد على الفطرة، فأبواه يهودانه أو ينصرانه أو يمجسانه"</em>.
+                    </p>
+                    <div class="fitra-points">
+                        <span class="fitra-point"><i class="fas fa-check"></i> تشعر بالذنب عندما تظلم</span>
+                        <span class="fitra-point"><i class="fas fa-check"></i> تفرح عندما تعمل خيرًا</span>
+                        <span class="fitra-point"><i class="fas fa-check"></i> تبحث عن خالق لهذا الكون</span>
+                    </div>
+                </div>
             </div>
             
-            <div class="questions-container">
+            <!-- الأسئلة الفطرية -->
+            <div class="questions-wrapper">
                 <!-- السؤال 1 -->
-                <div class="question-card">
-                    <div class="question-header">
-                        <span class="question-number">١</span>
-                        <h3 class="question-text">لماذا أخلق؟ وما هدف حياتي؟</h3>
-                    </div>
-                    <div class="question-answer">
-                        <div class="quran-verse">
-                            <i class="fas fa-book-quran"></i>
-                            <p>﴿وَمَا خَلَقْتُ الْجِنَّ وَالْإِنْسَ إِلَّا لِيَعْبُدُونِ﴾ <span>[الذاريات: ٥٦]</span></p>
+                <div class="question-item">
+                    <div class="question-number">١</div>
+                    <div class="question-content">
+                        <h3 class="question-title">لماذا أخلق؟ وما هدف حياتي؟</h3>
+                        <div class="quran-answer">
+                            <div class="quran-verse">
+                                <i class="fas fa-book-quran"></i>
+                                <p>﴿وَمَا خَلَقْتُ الْجِنَّ وَالْإِنْسَ إِلَّا لِيَعْبُدُونِ﴾</p>
+                                <span class="verse-reference">[الذاريات: ٥٦]</span>
+                            </div>
+                            <div class="answer-explanation">
+                                <p>
+                                    خلقك الله لتعرفه، وتعبده، وتقترب منه. العبادة هنا ليست فقط صلاة وصوم، 
+                                    بل هي <strong>كل عمل يرضي الله</strong>: إحسان إلى الناس، طلب العلم، حفظ الأمانة...
+                                </p>
+                            </div>
                         </div>
-                        <p class="explanation">
-                            خلقك الله لتعرفه، وتعبده، وتقترب منه. العبادة هنا ليست فقط صلاة وصوم، 
-                            بل هي <strong>كل عمل يرضي الله</strong>: إحسان إلى الناس، طلب العلم، حفظ الأمانة...
-                        </p>
                     </div>
                 </div>
                 
                 <!-- السؤال 2 -->
-                <div class="question-card">
-                    <div class="question-header">
-                        <span class="question-number">٢</span>
-                        <h3 class="question-text">لماذا الموت؟ ولماذا نُبعث مرة أخرى؟</h3>
-                    </div>
-                    <div class="question-answer">
-                        <div class="quran-verse">
-                            <i class="fas fa-book-quran"></i>
-                            <p>﴿كُلُّ نَفْسٍ ذَائِقَةُ الْمَوْتِ ثُمَّ إِلَيْنَا تُرْجَعُونَ﴾ <span>[العنكبوت: ٥٧]</span></p>
+                <div class="question-item">
+                    <div class="question-number">٢</div>
+                    <div class="question-content">
+                        <h3 class="question-title">لماذا الموت؟ ولماذا نُبعث مرة أخرى؟</h3>
+                        <div class="quran-answer">
+                            <div class="quran-verse">
+                                <i class="fas fa-book-quran"></i>
+                                <p>﴿كُلُّ نَفْسٍ ذَائِقَةُ الْمَوْتِ ثُمَّ إِلَيْنَا تُرْجَعُونَ﴾</p>
+                                <span class="verse-reference">[العنكبوت: ٥٧]</span>
+                            </div>
+                            <div class="answer-explanation">
+                                <p>
+                                    الموت ليس نهاية، بل هو <strong>انتقال من دار الاختبار إلى دار الجزاء</strong>. 
+                                    لو كانت الحياة تنتهي بالموت، لكان الظلم قد انتصر. ولكن البعث يعني أن كل شيء سيُحاسب، 
+                                    والعدل الحقيقي سيُقام.
+                                </p>
+                            </div>
                         </div>
-                        <p class="explanation">
-                            الموت ليس نهاية، بل هو <strong>انتقال من دار الاختبار إلى دار الجزاء</strong>. 
-                            لو كانت الحياة تنتهي بالموت، لكان الظلم قد انتصر. ولكن البعث يعني أن كل شيء سيُحاسب، 
-                            والعدل الحقيقي سيُقام.
-                        </p>
                     </div>
                 </div>
                 
                 <!-- السؤال 3 -->
-                <div class="question-card">
-                    <div class="question-header">
-                        <span class="question-number">٣</span>
-                        <h3 class="question-text">لماذا أشعر بالذنب عندما أخطئ؟</h3>
-                    </div>
-                    <div class="question-answer">
-                        <div class="quran-verse">
-                            <i class="fas fa-book-quran"></i>
-                            <p>﴿وَنَفْسٍ وَمَا سَوَّاهَا * فَأَلْهَمَهَا فُجُورَهَا وَتَقْوَاهَا﴾ <span>[الشمس: ٧-٨]</span></p>
+                <div class="question-item">
+                    <div class="question-number">٣</div>
+                    <div class="question-content">
+                        <h3 class="question-title">لماذا أشعر بالذنب عندما أخطئ؟</h3>
+                        <div class="quran-answer">
+                            <div class="quran-verse">
+                                <i class="fas fa-book-quran"></i>
+                                <p>﴿وَنَفْسٍ وَمَا سَوَّاهَا * فَأَلْهَمَهَا فُجُورَهَا وَتَقْوَاهَا﴾</p>
+                                <span class="verse-reference">[الشمس: ٧-٨]</span>
+                            </div>
+                            <div class="answer-explanation">
+                                <p>
+                                    هذا الشعور هو <strong>الفِطرة التي ألهمك الله إياها</strong>. كأنّ فيك بوصلة داخلية 
+                                    تميّز الخير من الشر. الذنب دليل على أن روحك حية، وأن ضميرك يعمل. 
+                                    وهذا من رحمة الله بك.
+                                </p>
+                            </div>
                         </div>
-                        <p class="explanation">
-                            هذا الشعور هو <strong>الفِطرة التي ألهمك الله إياها</strong>. كأنّ فيك بوصلة داخلية 
-                            تميّز الخير من الشر. الذنب دليل على أن روحك حية، وأن ضميرك يعمل. 
-                            وهذا من رحمة الله بك.
-                        </p>
                     </div>
                 </div>
                 
                 <!-- السؤال 4 -->
-                <div class="question-card">
-                    <div class="question-header">
-                        <span class="question-number">٤</span>
-                        <h3 class="question-text">كيف أعرف ربي؟</h3>
-                    </div>
-                    <div class="question-answer">
-                        <div class="quran-verse">
-                            <i class="fas fa-book-quran"></i>
-                            <p>﴿وَفِي أَنْفُسِكُمْ أَفَلَا تُبْصِرُونَ﴾ <span>[الذاريات: ٢١]</span></p>
+                <div class="question-item">
+                    <div class="question-number">٤</div>
+                    <div class="question-content">
+                        <h3 class="question-title">كيف أعرف ربي؟</h3>
+                        <div class="quran-answer">
+                            <div class="quran-verse">
+                                <i class="fas fa-book-quran"></i>
+                                <p>﴿وَفِي أَنْفُسِكُمْ أَفَلَا تُبْصِرُونَ﴾</p>
+                                <span class="verse-reference">[الذاريات: ٢١]</span>
+                            </div>
+                            <div class="answer-explanation">
+                                <p>
+                                    انظر إلى نفسك: كيف ينبض قلبك دون أن تأمره؟ كيف تتنفس وأنت نائم؟ 
+                                    كيف يتجدد جسمك؟ هذا <strong>النظام المعجز</strong> لا يمكن أن يكون صدفة. 
+                                    خالق هذا النظام هو الله.
+                                </p>
+                            </div>
                         </div>
-                        <p class="explanation">
-                            انظر إلى نفسك: كيف ينبض قلبك دون أن تأمره؟ كيف تتنفس وأنت نائم؟ 
-                            كيف يتجدد جسمك؟ هذا <strong>النظام المعجز</strong> لا يمكن أن يكون صدفة. 
-                            خالق هذا النظام هو الله.
-                        </p>
                     </div>
                 </div>
             </div>
             
+            <!-- اختبار فطري -->
             <div class="test-box">
-                <h4><i class="fas fa-clipboard-check"></i> اختبار فطري بسيط</h4>
-                <p class="test-question">✧ هل تفرح عندما تساعد غيرك؟</p>
-                <p class="test-question">✧ هل تشعر بالذنب عندما تؤذي أحدًا؟</p>
-                <p class="test-question">✧ هل تبحث عن معنى للحياة؟</p>
-                <p class="test-note">
-                    <strong>إذا أجبتَ "نعم" على أي سؤال:</strong> فهذه هي الفِطرة تناديك. 
-                    الفِطرة ليست دينًا معينًا، بل هي <strong>الميل الفطري إلى الخير والحقيقة</strong>. 
-                    والإسلام هو النظام الذي يحافظ على هذه الفِطرة ويُنمّيها.
-                </p>
-            </div>
-        </section>
-
-        <!-- قسم المقارنة -->
-        <section id="comparison" class="section">
-            <div class="section-header">
-                <h2><i class="fas fa-balance-scale"></i> مقارنة واضحة: القرآن والكتب الأخرى</h2>
-                <p class="section-subtitle">نصوص جنبًا إلى جنب - لتقرر بنفسك</p>
-            </div>
-            
-            <div class="comparison-intro">
-                <p>
-                    كل الرسل جاءوا بـ <strong>"الله واحد"</strong>، ولكن البشر حرّفوا بعض الكتب. 
-                    هنا نعرض نفس الموضوع من الكتب الثلاثة، ونترك لك <strong>الحكم بنفسك</strong>.
-                </p>
-            </div>
-            
-            <!-- جدول المقارنة -->
-            <div class="comparison-table-container">
-                <table class="comparison-table">
-                    <thead>
-                        <tr>
-                            <th>النقطة</th>
-                            <th>التوراة الحالية</th>
-                            <th>الإنجيل الحالي</th>
-                            <th>القرآن الكريم</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!-- الصف 1: وحدانية الله -->
-                        <tr>
-                            <td class="point-title">وحدانية الله</td>
-                            <td>
-                                <p class="text-good">"اسمع يا إسرائيل: الرب إلهنا رب واحد" (تثنية 6:4)</p>
-                                <p class="text-bad">"وسمعا صوت الرب الإله ماشيًا في الجنة" (تكوين 3:8)</p>
-                            </td>
-                            <td>
-                                <p class="text-good">"الرب إلهنا رب واحد" (مرقس 12:29)</p>
-                                <p class="text-bad">"عمدوهم باسم الآب والابن والروح القدس" (متى 28:19)</p>
-                            </td>
-                            <td class="quran-cell">
-                                <p class="quran-text">﴿قُلْ هُوَ اللَّهُ أَحَدٌ * اللَّهُ الصَّمَدُ * لَمْ يَلِدْ وَلَمْ يُولَدْ * وَلَمْ يَكُنْ لَهُ كُفُوًا أَحَدٌ﴾ <span>[الإخلاص]</span></p>
-                                <p class="text-good">توحيد خالص، لا تشبيه، لا تعدد</p>
-                            </td>
-                        </tr>
-                        
-                        <!-- الصف 2: حفظ النص -->
-                        <tr>
-                            <td class="point-title">حفظ النص</td>
-                            <td>
-                                <p class="text-bad">آلاف الاختلافات بين مخطوطات البحر الميت</p>
-                                <p class="text-note">علماء النقد يعترفون بالتحريف</p>
-                            </td>
-                            <td>
-                                <p class="text-bad">أربعة أناجيل مختلفة، تناقضات كثيرة</p>
-                                <p class="text-note">مجمع نيقية عام 325م اختار الأناجيل</p>
-                            </td>
-                            <td class="quran-cell">
-                                <p class="quran-text">﴿إِنَّا نَحْنُ نَزَّلْنَا الذِّكْرَ وَإِنَّا لَهُ لَحَافِظُونَ﴾ <span>[الحجر: ٩]</span></p>
-                                <p class="text-good">نفس النص في كل العالم منذ 1400 سنة</p>
-                            </td>
-                        </tr>
-                        
-                        <!-- الصف 3: صفات الله -->
-                        <tr>
-                            <td class="point-title">صفات الله</td>
-                            <td>
-                                <p class="text-bad">"وصنع الله الإنسان على صورته" (تكوين 1:27)</p>
-                                <p class="text-bad">"ندم الله أنه خلق الإنسان" (تكوين 6:6)</p>
-                            </td>
-                            <td>
-                                <p class="text-bad">الله يجهل موعد القيامة (مرقس 13:32)</p>
-                                <p class="text-bad">"الله روح" (يوحنا 4:24) لكن له جسد في المسيح</p>
-                            </td>
-                            <td class="quran-cell">
-                                <p class="quran-text">﴿لَيْسَ كَمِثْلِهِ شَيْءٌ﴾ <span>[الشمس: ١١]</span></p>
-                                <p class="quran-text">﴿وَهُوَ الْعَلِيمُ الْحَكِيمُ﴾ <span>[يوسف: ١٠٠]</span></p>
-                                <p class="text-good">منزه عن التشبيه، كامل العلم والحكمة</p>
-                            </td>
-                        </tr>
-                        
-                        <!-- الصف 4: النبوة الأخيرة -->
-                        <tr>
-                            <td class="point-title">النبوة الأخيرة</td>
-                            <td>
-                                <p class="text-prophet">"أقيم لهم نبيًا من وسط إخوتهم مثلك" (تثنية 18:18)</p>
-                                <p class="text-note">بعض المفسرين يقولون: يشير إلى محمد</p>
-                            </td>
-                            <td>
-                                <p class="text-prophet">"أما المعزي الروح القدس فسيرسله الآب باسمي" (يوحنا 14:26)</p>
-                                <p class="text-note">كلمة "المعزي" في اليوناني: بارقليط = أحمد</p>
-                            </td>
-                            <td class="quran-cell">
-                                <p class="quran-text">﴿وَمَا مُحَمَّدٌ إِلَّا رَسُولٌ قَدْ خَلَتْ مِنْ قَبْلِهِ الرُّسُلُ﴾ <span>[آل عمران: ١٤٤]</span></p>
-                                <p class="text-good">خاتم النبيين، جاء مصدقًا لما بين يديه</p>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            
-            <!-- استنتاج -->
-            <div class="conclusion-box">
-                <h4><i class="fas fa-lightbulb"></i> ما الذي نستنتجه؟</h4>
-                <div class="conclusion-points">
-                    <div class="conclusion-item">
-                        <i class="fas fa-check-circle"></i>
-                        <p><strong>القرآن وحده</strong> بقي محفوظًا كما نزل.</p>
+                <div class="test-header">
+                    <i class="fas fa-clipboard-check"></i>
+                    <h3>اختبار فطري بسيط</h3>
+                </div>
+                <div class="test-questions">
+                    <div class="test-question">
+                        <i class="fas fa-heart"></i>
+                        <span>هل تفرح عندما تساعد غيرك؟</span>
                     </div>
-                    <div class="conclusion-item">
-                        <i class="fas fa-check-circle"></i>
-                        <p><strong>القرآن وحده</strong> حافظ على التوحيد الخالص.</p>
+                    <div class="test-question">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <span>هل تشعر بالذنب عندما تؤذي أحدًا؟</span>
                     </div>
-                    <div class="conclusion-item">
-                        <i class="fas fa-check-circle"></i>
-                        <p><strong>القرآن وحده</strong> جاء مصدقًا للكتب السابقة ومهيمنًا عليها.</p>
+                    <div class="test-question">
+                        <i class="fas fa-search"></i>
+                        <span>هل تبحث عن معنى للحياة؟</span>
                     </div>
                 </div>
-                <p class="final-note">
-                    الله يقول: ﴿فَمَاذَا بَعْدَ الْحَقِّ إِلَّا الضَّلَالُ﴾ [يونس: ٣٢]. 
-                    إذا كان القرآن هو الكتاب الوحيد المحفوظ، فهل يعقل أن نبحث عن الحق في غيره؟
-                </p>
-            </div>
-        </section>
-
-        <!-- قسم قصص الهداية -->
-        <section id="stories" class="section" style="background: #f8f9fa;">
-            <div class="section-header">
-                <h2><i class="fas fa-book"></i> قصص الهداية: نور على نور</h2>
-                <p class="section-subtitle">تجارب حقيقية لأناس وجدوا طريقهم إلى الله</p>
-            </div>
-            
-            <div class="stories-container">
-                <!-- القصة 1 -->
-                <div class="story-card">
-                    <div class="story-type">
-                        <i class="fas fa-atheism"></i> من ملحد إلى مؤمن
-                    </div>
-                    <h3 class="story-title">"كنت أعتقد أن الكون صدفة..."</h3>
-                    <p class="story-text">
-                        "درستُ العلوم الطبيعية، وكنت أؤمن أن كل شيء جاء بالصدفة. 
-                        لكنني كنت أشعر بفراغ رهيب. في إحدى الليالي، بينما أبحث على الإنترنت، 
-                        وجدتُ حديثًا عن الإعجاز العلمي في القرآن. قرأت عن تطور الجنين، 
-                        عن الجبال كأوتاد، عن اتساع الكون... <strong>كيف عرف هذا النبي أمي قبل 1400 سنة؟</strong> 
-                        كانت هذه هي الشرارة التي أشعلت إيماني."
+                <div class="test-result">
+                    <p>
+                        <strong>إذا أجبتَ "نعم" على أي سؤال:</strong> فهذه هي الفِطرة تناديك. 
+                        الفِطرة ليست دينًا معينًا، بل هي <strong>الميل الفطري إلى الخير والحقيقة</strong>. 
+                        والإسلام هو النظام الذي يحافظ على هذه الفِطرة ويُنمّيها.
                     </p>
-                    <div class="story-tags">
-                        <span class="tag">الإعجاز العلمي</span>
-                        <span class="tag">المنطق</span>
-                    </div>
-                </div>
-                
-                <!-- القصة 2 -->
-                <div class="story-card">
-                    <div class="story-type">
-                        <i class="fas fa-cross"></i> من مسيحي إلى مسلم
-                    </div>
-                    <h3 class="story-title">"كنت أبحث عن التوحيد الخالص..."</h3>
-                    <p class="story-text">
-                        "تربيتُ في أسرة مسيحية ملتزمة، لكنني دائمًا كنت أتساءل: 
-                        <strong>كيف يكون الله واحدًا وفي نفس الوقت ثلاثة؟</strong> 
-                        عندما قرأت القرآن لأول مرة، وقعت على سورة الإخلاص: 
-                        'قل هو الله أحد، الله الصمد، لم يلد ولم يولد'. 
-                        بكيتُ لأنني وجدتُ أخيرًا التوحيد الذي كنت أبحث عنه. 
-                        وجدتُ الله كما هو، لا كما تصوره البشر."
-                    </p>
-                    <div class="story-tags">
-                        <span class="tag">التوحيد</span>
-                        <span class="tag">المقارنة</span>
-                    </div>
-                </div>
-                
-                <!-- القصة 3 -->
-                <div class="story-card">
-                    <div class="story-type">
-                        <i class="fas fa-search"></i> من لا أدري إلى طالب علم
-                    </div>
-                    <h3 class="story-title">"لم أكن أعرف ماذا أؤمن..."</h3>
-                    <p class="story-text">
-                        "كنت أقول: أنا لا أدري، ولا أهتم. الحياة صعبة وأنا مشغول بالعمل. 
-                        لكن مرض والدي جعلني أتساءل عن الموت. ماذا بعده؟ 
-                        بدأت أقرأ عن الأديان، وكلما قرأت عن الإسلام <strong>وجدتُه يتوافق مع فطرتي</strong>. 
-                        العدل، الرحمة، التسامح، العفة... كل هذه القيم كانت في قلبي، 
-                        ووجدتها منظمة في الإسلام. الآن أدرس الإسلام وأشعر أنني ولدتُ من جديد."
-                    </p>
-                    <div class="story-tags">
-                        <span class="tag">الفِطرة</span>
-                        <span class="tag">القيم</span>
-                    </div>
                 </div>
             </div>
-            
-            <div class="stories-note">
-                <p>
-                    <i class="fas fa-info-circle"></i>
-                    <strong>ملاحظة:</strong> هذه قصص حقيقية، لكننا حذفنا الأسماء تفاديًا للإحراج أو الأذى. 
-                    الهدف هو أن تعرف أنك <strong>لست وحدك</strong> في رحلة البحث، وأن كثيرين وجدوا ما تبحث عنه.
-                </p>
-            </div>
-        </section>
-
-        <!-- قسم "ابدأ رحلتك" -->
-        <section id="start-journey" class="section">
+        </div>
+    </section>
+        <!-- قسم ابدأ رحلتك -->
+    <section id="start-journey" class="section">
+        <div class="container">
             <div class="section-header">
-                <h2><i class="fas fa-flag"></i> ابدأ رحلتك: خطوات عملية</h2>
+                <h2>
+                    <i class="fas fa-flag section-icon"></i>
+                    <span>ابدأ رحلتك: خطوات عملية</span>
+                </h2>
                 <p class="section-subtitle">لا تحتاج إلى تعقيد، فقط ابدأ</p>
             </div>
             
             <div class="journey-steps">
-                <div class="step">
+                <!-- الخطوة 1 -->
+                <div class="step-card">
                     <div class="step-number">١</div>
-                    <h3>الخطوة الأولى: النية الصادقة</h3>
-                    <p>قل بصدق في قلبك: "الله، إذا كنت موجودًا، فاهدني إلى الحق".</p>
+                    <div class="step-content">
+                        <h3 class="step-title">الخطوة الأولى: النية الصادقة</h3>
+                        <p class="step-description">
+                            قل بصدق في قلبك: <strong>"الله، إذا كنت موجودًا، فاهدني إلى الحق"</strong>.
+                        </p>
+                        <div class="step-note">
+                            <i class="fas fa-lightbulb"></i>
+                            <span>الله يعلم ما في قلبك ويستجيب للنية الصادقة.</span>
+                        </div>
+                    </div>
                 </div>
                 
-                <div class="step">
+                <!-- الخطوة 2 -->
+                <div class="step-card">
                     <div class="step-number">٢</div>
-                    <h3>الخطوة الثانية: النطق بالشهادتين</h3>
-                    <p>قل: <strong>"أشهد أن لا إله إلا الله، وأشهد أن محمدًا رسول الله"</strong>.</p>
-                    <p class="step-note">هذه هي العقدة التي تربطك بالله. لا تحتاج إلى إمام أو شهود.</p>
+                    <div class="step-content">
+                        <h3 class="step-title">الخطوة الثانية: النطق بالشهادتين</h3>
+                        <p class="step-description">
+                            قل: <strong class="shahadah">"أشهد أن لا إله إلا الله، وأشهد أن محمدًا رسول الله"</strong>.
+                        </p>
+                        <div class="step-note">
+                            <i class="fas fa-link"></i>
+                            <span>هذه هي العقدة التي تربطك بالله. لا تحتاج إلى إمام أو شهود.</span>
+                        </div>
+                        <button class="step-action" onclick="playShahadahAudio()">
+                            <i class="fas fa-volume-up"></i> استمع إلى النطق الصحيح
+                        </button>
+                    </div>
                 </div>
                 
-                <div class="step">
+                <!-- الخطوة 3: تعلم الصلاة مع الرابط الحقيقي -->
+                <div class="step-card">
                     <div class="step-number">٣</div>
-                    <h3>الخطوة الثالثة: تعلم الصلاة</h3>
-                    <p>الصلاة هي الصلة المباشرة بينك وبين الله.</p>
-                    <p><a href="#" class="step-link"><i class="fas fa-video"></i> شاهد فيديو تعليم الصلاة في 10 دقائق</a></p>
+                    <div class="step-content">
+                        <h3 class="step-title">الخطوة الثالثة: تعلم الصلاة</h3>
+                        <p class="step-description">
+                            الصلاة هي <strong>الصلة المباشرة بينك وبين الله</strong>. هي المحادثة اليومية مع خالقك.
+                        </p>
+                        <div class="step-resources">
+                            <a href="https://www.youtube.com/watch?v=6funBcLgQ5k" 
+                               target="_blank" 
+                               class="resource-link"
+                               onclick="trackResourceClick('prayer_video')">
+                                <i class="fas fa-video"></i>
+                                <div>
+                                    <strong>فيديو عملي: تعلم الصلاة في 10 دقائق</strong>
+                                    <span>شرح مرئي بسيط للصلاة الكاملة</span>
+                                </div>
+                            </a>
+                            
+                            <a href="https://www.youtube.com/watch?v=ILmI5eU5kGQ" 
+                               target="_blank" 
+                               class="resource-link"
+                               onclick="trackResourceClick('wudu_video')">
+                                <i class="fas fa-hands-wash"></i>
+                                <div>
+                                    <strong>تعلم الوضوء الصحيح</strong>
+                                    <span>شرح كيفية الطهارة للصلاة</span>
+                                </div>
+                            </a>
+                            
+                            <a href="https://quran.com/" 
+                               target="_blank" 
+                               class="resource-link"
+                               onclick="trackResourceClick('quran_website')">
+                                <i class="fas fa-book-open"></i>
+                                <div>
+                                    <strong>القرآن الكريم كاملاً</strong>
+                                    <span>اقرأ واسمتع للقرآن بترجمات متعددة</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
                 </div>
                 
-                <div class="step">
+                <!-- الخطوة 4 -->
+                <div class="step-card">
                     <div class="step-number">٤</div>
-                    <h3>الخطوة الرابعة: قراءة القرآن</h3>
-                    <p>ابدأ بـ: سورة الفاتحة، ثم الإخلاص، ثم الفلق، ثم الناس.</p>
-                    <p><a href="#" class="step-link"><i class="fas fa-download"></i> حمل مصحف إلكتروني مجاني</a></p>
+                    <div class="step-content">
+                        <h3 class="step-title">الخطوة الرابعة: قراءة القرآن</h3>
+                        <p class="step-description">
+                            ابدأ بـ: <strong>سورة الفاتحة</strong>، ثم <strong>الإخلاص</strong>، 
+                            ثم <strong>الفلق</strong>، ثم <strong>الناس</strong>.
+                        </p>
+                        <div class="step-resources">
+                            <a href="https://app.pdfquran.com/" 
+                               target="_blank" 
+                               class="resource-link"
+                               onclick="trackResourceClick('pdf_quran')">
+                                <i class="fas fa-download"></i>
+                                <div>
+                                    <strong>مصحف إلكتروني مجاني</strong>
+                                    <span>حمل المصحف كاملاً مع التفسير</span>
+                                </div>
+                            </a>
+                            
+                            <a href="https://quran.ksu.edu.sa/" 
+                               target="_blank" 
+                               class="resource-link"
+                               onclick="trackResourceClick('quran_audio')">
+                                <i class="fas fa-headphones"></i>
+                                <div>
+                                    <strong>الاستماع للقرآن</strong>
+                                    <span>استمع لأشهر القراء</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
             
-            <div class="journey-note">
-                <h4><i class="fas fa-heart"></i> تذكير مهم</h4>
-                <p>
-                    لا تيأس إذا أخطأت. الله يقول: ﴿قُلْ يَا عِبَادِيَ الَّذِينَ أَسْرَفُوا عَلَى أَنْفُسِهِمْ لَا تَقْنَطُوا مِنْ رَحْمَةِ اللَّهِ﴾. 
-                    التدرج مطلوب. ابدأ بالبسيط، وسيزيدك الله توفيقًا.
-                </p>
+            <!-- تذكير مهم -->
+            <div class="reminder-box">
+                <div class="reminder-header">
+                    <i class="fas fa-heart reminder-icon"></i>
+                    <h3>تذكير مهم</h3>
+                </div>
+                <div class="reminder-content">
+                    <p>
+                        لا تيأس إذا أخطأت. الله يقول: 
+                        <strong class="quran-reminder">﴿قُلْ يَا عِبَادِيَ الَّذِينَ أَسْرَفُوا عَلَى أَنْفُسِهِمْ لَا تَقْنَطُوا مِنْ رَحْمَةِ اللَّهِ﴾</strong>. 
+                        التدرج مطلوب. ابدأ بالبسيط، وسيزيدك الله توفيقًا.
+                    </p>
+                    <div class="reminder-actions">
+                        <button class="reminder-btn" onclick="showEncouragement()">
+                            <i class="fas fa-hands-helping"></i> أحتاج تشجيعًا
+                        </button>
+                        <button class="reminder-btn" onclick="showCommonMistakes()">
+                            <i class="fas fa-exclamation-circle"></i> أخطاء شائعة للمبتدئين
+                        </button>
+                    </div>
+                </div>
             </div>
-        </section>
-
-        <!-- قسم "اسأل بخفاء" -->
-        <section id="ask-private" class="section" style="background: #f8f9fa;">
+        </div>
+    </section>
+        <!-- قسم اسأل بخفاء - النموذج الحقيقي -->
+    <section id="ask-private" class="section section-light">
+        <div class="container">
             <div class="section-header">
-                <h2><i class="fas fa-user-secret"></i> اسأل بخفاء: نحترم خصوصيتك</h2>
+                <h2>
+                    <i class="fas fa-user-secret section-icon"></i>
+                    <span>اسأل بخفاء: نحترم خصوصيتك</span>
+                </h2>
                 <p class="section-subtitle">يمكنك السؤال دون ذكر اسمك</p>
             </div>
             
-            <div class="contact-form">
-                <div class="form-note">
-                    <p><i class="fas fa-lock"></i> رسالتك سريّة. لا نطلب اسمك الحقيقي، ولا عنوانك، ولا أي بيانات شخصية.</p>
+            <!-- نموذج الاتصال الحقيقي -->
+            <div class="contact-real">
+                <div class="contact-notice">
+                    <div class="notice-icon">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <div class="notice-content">
+                        <h3>خصوصيتك محفوظة 100%</h3>
+                        <p>
+                            <strong>رسالتك سريّة:</strong> لا نطلب اسمك الحقيقي، ولا عنوانك، ولا أي بيانات شخصية. 
+                            البريد الإلكتروني اختياري فقط إذا أردت الرد عليك مباشرة.
+                        </p>
+                    </div>
                 </div>
                 
-                <form id="private-question-form">
+                <!-- نموذج Formspree الحقيقي -->
+                <form id="real-contact-form" action="https://formspree.io/f/mldovzbr" method="POST">
+                    <!-- حقول مخفية للتخصيص -->
+                    <input type="hidden" name="_replyto" value="ilperata@msn.com">
+                    <input type="hidden" name="_subject" value="سؤال جديد من موقع العين الثالثة">
+                    <input type="hidden" name="_language" value="ar">
+                    <input type="hidden" name="_format" value="plain">
+                    
+                    <!-- حقل السؤال -->
                     <div class="form-group">
-                        <label for="question">سؤالك:</label>
-                        <textarea id="question" rows="6" placeholder="اكتب سؤالك هنا... يمكن أن يكون عن الله، عن الإسلام، عن الشكوك، عن أي شيء يهمك." required></textarea>
+                        <label for="real-question">
+                            <i class="fas fa-question-circle"></i>
+                            <span>سؤالك:</span>
+                        </label>
+                        <textarea id="real-question" 
+                                  name="message" 
+                                  rows="6" 
+                                  placeholder="اكتب سؤالك هنا... يمكن أن يكون عن الله، عن الإسلام، عن الشكوك، عن أي شيء يهمك." 
+                                  required
+                                  oninput="updateCharCount(this)"></textarea>
+                        <div class="char-count">
+                            <span id="char-counter">0</span> / 2000 حرف
+                        </div>
                     </div>
                     
+                    <!-- حقل البريد الإلكتروني (اختياري) -->
                     <div class="form-group">
-                        <label for="email">البريد الإلكتروني (اختياري، إذا أردت الرد):</label>
-                        <input type="email" id="email" placeholder="example@email.com">
+                        <label for="sender-email">
+                            <i class="fas fa-envelope"></i>
+                            <span>بريدك الإلكتروني (اختياري، إذا أردت الرد):</span>
+                            <span class="optional-label">اختياري</span>
+                        </label>
+                        <input type="email" 
+                               id="sender-email" 
+                               name="email" 
+                               placeholder="example@email.com"
+                               oninput="validateEmail(this)">
+                        <div class="email-note">
+                            <i class="fas fa-info-circle"></i>
+                            <span>إذا لم تكتب بريدك، لن نتمكن من الرد عليك مباشرة، لكن سنضع إجابات للأسئلة العامة في الموقع.</span>
+                        </div>
                     </div>
                     
+                    <!-- حقل إضافي للتتبع -->
+                    <div class="form-group hidden">
+                        <label for="page-section">القسم:</label>
+                        <input type="text" id="page-section" name="page_section" value="اسأل بخفاء">
+                    </div>
+                    
+                    <!-- أزرار الإرسال -->
                     <div class="form-actions">
-                        <button type="submit" class="btn btn-primary">
-                            <i class="fas fa-paper-plane"></i> أرسل سؤالك
+                        <button type="submit" class="btn btn-submit" id="submit-btn">
+                            <i class="fas fa-paper-plane"></i>
+                            <span>أرسل سؤالك الآن</span>
+                            <div class="submit-loading" id="submit-loading">
+                                <div class="spinner"></div>
+                                <span>جارٍ الإرسال...</span>
+                            </div>
                         </button>
-                        <button type="button" id="clear-form" class="btn btn-secondary">
-                            <i class="fas fa-eraser"></i> مسح النص
+                        
+                        <button type="button" class="btn btn-clear" onclick="clearContactForm()">
+                            <i class="fas fa-eraser"></i>
+                            <span>مسح النص</span>
                         </button>
+                    </div>
+                    
+                    <!-- رسالة التأكيد -->
+                    <div class="form-message" id="form-message">
+                        <div class="message-success" id="success-message">
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <h3>تم إرسال سؤالك بنجاح!</h3>
+                                <p>شكرًا لك. سؤال وصلنا وسنرد عليك قريبًا إذا قدمت بريدك الإلكتروني.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="message-error" id="error-message">
+                            <i class="fas fa-exclamation-circle"></i>
+                            <div>
+                                <h3>حدث خطأ في الإرسال</h3>
+                                <p>يرجى المحاولة مرة أخرى أو مراسلتنا مباشرة على: ilperata@msn.com</p>
+                            </div>
+                        </div>
                     </div>
                 </form>
                 
-                <div class="faq-box">
-                    <h4><i class="fas fa-question-circle"></i> أسئلة متكررة</h4>
-                    <div class="faq-item">
-                        <button class="faq-question">كيف أتأكد من وجود الله؟</button>
-                        <div class="faq-answer">
-                            <p>اسأل نفسك: هل يمكن أن يكون هذا الكون الدقيق صدفة؟ النظام، الجمال، التعقيد... كلها تشير إلى مصمم حكيم.</p>
-                        </div>
+                <!-- ملاحظة حول الردود -->
+                <div class="response-note">
+                    <div class="note-icon">
+                        <i class="fas fa-clock"></i>
                     </div>
+                    <div class="note-content">
+                        <h3>ماذا بعد الإرسال؟</h3>
+                        <ul>
+                            <li>✅ <strong>سيصلك الرد على بريدك</strong> ilperata@msn.com إذا كتبت بريدك</li>
+                            <li>✅ <strong>مدة الرد:</strong> عادة خلال 24-48 ساعة</li>
+                            <li>✅ <strong>الأسئلة العامة:</strong> قد ننشر إجاباتها (بدون أسماء) لتعم الفائدة</li>
+                            <li>✅ <strong>خصوصية تامة:</strong> لن نشارك سؤالك مع أي طرف ثالث</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- قسم الأسئلة المتكررة -->
+                <div class="faq-section">
+                    <h3 class="faq-title">
+                        <i class="fas fa-question-circle"></i>
+                        أسئلة متكررة
+                    </h3>
                     
-                    <div class="faq-item">
-                        <button class="faq-question">ماذا لو كنت خائفًا من التحول إلى الإسلام؟</button>
-                        <div class="faq-answer">
-                            <p>الخوف طبيعي. ابدأ بالتعلم أولاً، لا تتسرع. الله يهدي القلوب المتأنية الصادقة في البحث.</p>
+                    <div class="faq-list">
+                        <!-- سؤال 1 -->
+                        <div class="faq-item">
+                            <button class="faq-question" onclick="toggleFAQ(this)">
+                                <span>كيف أتأكد من وجود الله؟</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="faq-answer">
+                                <p>اسأل نفسك: هل يمكن أن يكون هذا الكون الدقيق صدفة؟ النظام، الجمال، التعقيد... كلها تشير إلى مصمم حكيم.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- سؤال 2 -->
+                        <div class="faq-item">
+                            <button class="faq-question" onclick="toggleFAQ(this)">
+                                <span>ماذا لو كنت خائفًا من التحول إلى الإسلام؟</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="faq-answer">
+                                <p>الخوف طبيعي. ابدأ بالتعلم أولاً، لا تتسرع. الله يهدي القلوب المتأنية الصادقة في البحث.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- سؤال 3 -->
+                        <div class="faq-item">
+                            <button class="faq-question" onclick="toggleFAQ(this)">
+                                <span>كيف أتعلم الإسلام دون ضغط من الآخرين؟</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="faq-answer">
+                                <p>هذا الموقع مكان آمن. اقرأ بهدوء، اسأل في الخفاء، تقدم على قدر استطاعتك.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- سؤال 4 -->
+                        <div class="faq-item">
+                            <button class="faq-question" onclick="toggleFAQ(this)">
+                                <span>هل يمكنني أن أبقى مسلمًا في الخفاء؟</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="faq-answer">
+                                <p>نعم، الله يعلم ما في قلبك. يمكنك البدء سرًا، وعندما تشعر بالأمان، تعلن إسلامك.</p>
+                            </div>
                         </div>
                     </div>
-                    
-                    <div class="faq-item">
-                        <button class="faq-question">كيف أتعلم الإسلام دون ضغط من الآخرين؟</button>
-                        <div class="faq-answer">
-                            <p>هذا الموقع مكان آمن. اقرأ بهدوء، اسأل في الخفاء، تقدم على قدر استطاعتك.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- نظام الترجمة المتعدد اللغات -->
-    <div id="translate-modal" class="translate-modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3><i class="fas fa-language"></i> اختر لغتك</h3>
-                <button class="close-modal" onclick="closeTranslateModal()">&times;</button>
-            </div>
-            
-            <div class="languages-grid">
-                <!-- اللغات المهمة -->
-                <div class="language-option" onclick="showTranslationMessage('الإنجليزية قريبًا')">
-                    <span class="flag">🇬🇧</span>
-                    <span class="lang-name">English</span>
-                    <span class="lang-native">الإنجليزية</span>
-                    <span class="status-badge">قريبًا</span>
-                </div>
-                
-                <div class="language-option" onclick="showTranslationMessage('الفرنسية قريبًا')">
-                    <span class="flag">🇫🇷</span>
-                    <span class="lang-name">Français</span>
-                    <span class="lang-native">الفرنسية</span>
-                    <span class="status-badge">قريبًا</span>
-                </div>
-                
-                <div class="language-option" onclick="showTranslationMessage('الصينية قريبًا')">
-                    <span class="flag">🇨🇳</span>
-                    <span class="lang-name">中文</span>
-                    <span class="lang-native">الصينية</span>
-                    <span class="status-badge">قريبًا</span>
-                </div>
-                
-                <div class="language-option" onclick="showTranslationMessage('الأردية قريبًا')">
-                    <span class="flag">🇵🇰</span>
-                    <span class="lang-name">اردو</span>
-                    <span class="lang-native">الأردية</span>
-                    <span class="status-badge">قريبًا</span>
-                </div>
-                
-                <!-- رسالة الترجمة التلقائية -->
-                <div class="auto-translate-box">
-                    <h4><i class="fas fa-robot"></i> ترجمة تلقائية فورية</h4>
-                    <p>يمكنك استخدام مترجم المتصفح:</p>
-                    <div class="browser-instructions">
-                        <p><strong>Google Chrome:</strong> انقر بزر الماوس الأيمن → "ترجمة إلى"</p>
-                        <p><strong>Microsoft Edge:</strong> انقر بزر الماوس الأيمن → "ترجمة إلى"</p>
-                        <p><strong>متصفحات أخرى:</strong> استخدم إضافة Google Translate</p>
-                    </div>
-                    <button class="btn-translate" onclick="showBrowserTranslationHelp()">
-                        <i class="fas fa-question-circle"></i> طريقة الاستخدام
-                    </button>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
+        <!-- تذييل الصفحة -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <i class="fas fa-eye"></i>
+                    <h3>العين الثالثة</h3>
+                    <p>منارة لكل باحث عن الحق</p>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="links-group">
+                        <h4>الأقسام</h4>
+                        <a href="#third-eye">العين الثالثة</a>
+                        <a href="#fitra">الفطرة</a>
+                        <a href="#comparison">المقارنة</a>
+                        <a href="#start-journey">ابدأ رحلتك</a>
+                    </div>
+                    
+                    <div class="links-group">
+                        <h4>روابط مفيدة</h4>
+                        <a href="https://quran.com/" target="_blank">القرآن الكريم</a>
+                        <a href="https://sunnah.com/" target="_blank">السنّة النبوية</a>
+                        <a href="#ask-private">اسأل سرًا</a>
+                        <a href="#" onclick="showContactInfo()">اتصل بنا</a>
+                    </div>
+                    
+                    <div class="links-group">
+                        <h4>للزوار غير العرب</h4>
+                        <a href="#" onclick="showTranslationHelp()">كيف تترجم الموقع</a>
+                        <a href="https://www.islamicity.org/" target="_blank">Islamic Resources (English)</a>
+                        <a href="https://www.islamguiden.com/" target="_blank">Islam Guide (Multi-language)</a>
+                    </div>
+                </div>
+                
+                <div class="footer-contact">
+                    <h4>للتواصل المباشر</h4>
+                    <div class="contact-info">
+                        <i class="fas fa-envelope"></i>
+                        <span>ilperata@msn.com</span>
+                    </div>
+                    <div class="contact-note">
+                        <p>للأسئلة الخاصة أو الاستفسارات المباشرة</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>© 2024 موقع العين الثالثة. جميع الحقوق محفوظة.</p>
+                <p class="footer-message">
+                    "العين الثالثة لم ترَ قط جائعًا" — لأن الحق يشبع القلب الذي يبحث عنه.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- زر العودة للأعلى -->
+    <button class="back-to-top" onclick="scrollToTop()">
+        <i class="fas fa-arrow-up"></i>
+    </button>
 
     <!-- JavaScript -->
     <script src="js/main.js"></script>
-    <!-- نظام الترجمة الحقيقي -->
-<div id="real-translation-system" style="display: none;">
-    <!-- سيتم تحميل الترجمات هنا -->
-</div>
-
-<!-- زر الترجمة العائم -->
-<div class="floating-translate-btn" onclick="toggleRealTranslation()">
-    <i class="fas fa-language"></i>
-    <span>Translate</span>
-</div>
-
-<!-- نافذة الترجمة -->
-<div id="translation-window" class="translation-window">
-    <div class="translation-header">
-        <h3><i class="fas fa-globe-americas"></i> ترجمة الموقع</h3>
-        <button onclick="closeTranslationWindow()">&times;</button>
-    </div>
-    <div class="translation-body">
-        <div class="translation-options">
-            <div class="translation-option selected" data-lang="ar" onclick="changeLanguage('ar')">
-                <span class="flag">🇸🇦</span>
-                <span>العربية</span>
-            </div>
-            <div class="translation-option" data-lang="en" onclick="changeLanguage('en')">
-                <span class="flag">🇬🇧</span>
-                <span>English</span>
-            </div>
-            <div class="translation-option" data-lang="fr" onclick="changeLanguage('fr')">
-                <span class="flag">🇫🇷</span>
-                <span>Français</span>
-            </div>
-            <div class="translation-option" data-lang="es" onclick="changeLanguage('es')">
-                <span class="flag">🇪🇸</span>
-                <span>Español</span>
-            </div>
-        </div>
+    
+    <!-- Google Analytics (اختياري) -->
+    <script>
+        // تتبع بسيط للموقع
+        function trackEvent(eventName) {
+            console.log('Event tracked:', eventName);
+            // هنا يمكن إضافة Google Analytics أو أي خدمة تتبع
+        }
         
-        <div class="translation-note">
-            <p><i class="fas fa-info-circle"></i> نعمل على إضافة المزيد من اللغات قريبًا.</p>
-        </div>
-    </div>
-</div>
+        // تتبع النقر على روابط الصلاة
+        function trackResourceClick(resourceName) {
+            trackEvent('resource_click_' + resourceName);
+        }
+        
+        // تتبع إرسال النموذج
+        document.getElementById('real-contact-form').addEventListener('submit', function() {
+            trackEvent('contact_form_submitted');
+        });
+    </script>
 </body>
 </html>
-
-
