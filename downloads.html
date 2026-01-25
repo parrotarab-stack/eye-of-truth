@@ -1,1 +1,185 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>التنزيلات - العين الثالثة</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .downloads-container {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
 
+        .download-category {
+            margin-bottom: 60px;
+        }
+
+        .download-category h2 {
+            color: var(--primary-dark);
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid var(--gold);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .download-category h2 i {
+            color: var(--gold);
+        }
+
+        .download-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .download-item {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 5px 20px var(--shadow);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .download-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px var(--shadow-hover);
+            border-color: var(--gold);
+        }
+
+        .download-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .download-title {
+            font-size: 1.3rem;
+            color: var(--primary-dark);
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .download-description {
+            color: var(--text-light);
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .download-meta {
+            display: flex;
+            justify-content: space-between;
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--primary);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            width: 100%;
+            justify-content: center;
+        }
+
+        .download-btn:hover {
+            background: var(--primary-light);
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <!-- نفس شريط التنقل الرئيسي -->
+    
+    <div class="downloads-container">
+        <h1 style="text-align: center; margin-bottom: 50px; color: var(--primary-dark);">
+            <i class="fas fa-download"></i> مركز التنزيلات
+        </h1>
+
+        <!-- القرآن الكريم -->
+        <div class="download-category">
+            <h2><i class="fas fa-quran"></i> القرآن الكريم</h2>
+            <div class="download-grid">
+                <div class="download-item">
+                    <div class="download-icon">
+                        <i class="fas fa-file-audio"></i>
+                    </div>
+                    <h3 class="download-title">القرآن كامل بصوت عبد الباسط</h3>
+                    <p class="download-description">تسجيلات كاملة بصوت الشيخ عبد الباسط عبد الصمد - جودة عالية MP3</p>
+                    <div class="download-meta">
+                        <span><i class="fas fa-file"></i> 600 ميجابايت</span>
+                        <span><i class="fas fa-clock"></i> 114 سورة</span>
+                    </div>
+                    <a href="https://download.quranicaudio.com/quran/abdul_basit_murattal/" class="download-btn" target="_blank">
+                        <i class="fas fa-download"></i> تحميل
+                    </a>
+                </div>
+
+                <div class="download-item">
+                    <div class="download-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3 class="download-title">تطبيق المصحف الإلكتروني</h3>
+                    <p class="download-description">تطبيق شامل للقرآن مع التفسير والتلاوة - لأندرويد وآيفون</p>
+                    <div class="download-meta">
+                        <span><i class="fab fa-android"></i> أندرويد</span>
+                        <span><i class="fab fa-apple"></i> آيفون</span>
+                    </div>
+                    <a href="https://play.google.com/store/apps/details?id=com.quran.labs.androidquran" class="download-btn" target="_blank">
+                        <i class="fas fa-external-link-alt"></i> التحميل
+                    </a>
+                </div>
+
+                <div class="download-item">
+                    <div class="download-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <h3 class="download-title">مصحف المدينة المنورة PDF</h3>
+                    <p class="download-description">نسخة PDF عالية الجودة من مصحف المدينة المنورة - طبعة مجمع الملك فهد</p>
+                    <div class="download-meta">
+                        <span><i class="fas fa-file-pdf"></i> PDF</span>
+                        <span><i class="fas fa-file"></i> 50 ميجابايت</span>
+                    </div>
+                    <a href="https://www.pdfquran.com/" class="download-btn" target="_blank">
+                        <i class="fas fa-download"></i> تحميل
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- الكتب الإسلامية -->
+        <div class="download-category">
+            <h2><i class="fas fa-books"></i> المكتبة الإسلامية</h2>
+            <div class="download-grid">
+                <!-- ... كتب متنوعة -->
+            </div>
+        </div>
+
+        <!-- الوسائط المتعددة -->
+        <div class="download-category">
+            <h2><i class="fas fa-video"></i> وسائط تعليمية</h2>
+            <div class="download-grid">
+                <!-- ... فيديوهات وتسجيلات -->
+            </div>
+        </div>
+    </div>
+</body>
+</html>
