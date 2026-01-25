@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>العين الثالثة: منارة الباحث عن الحق | 2026</title>
+    <meta name="description" content="موقع للدعوة إلى الله عبر الفطرة السليمة. تعلم الصلاة والوضوء، استمع للقرآن، اقرأ قصص الهداية، وأسأل بخفاء.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Scheherazade+New:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- تذكير الصلاة على النبي (سيظهر كل 5 دقائق) -->
+    <div id="prophet-reminder" class="reminder-box">
+        <span>ﷺ لا تنس الصلاة على النبي محمد</span>
+        <button onclick="closeReminder()"><i class="fas fa-times"></i></button>
+    </div>
+
+    <!-- ودجت مواقيت الصلاة (سيتم ملؤه بجافاسكريبت) -->
+    <aside id="prayer-times-widget" class="prayer-widget">
+        <h3><i class="fas fa-clock"></i> مواقيت الصلاة</h3>
+        <div id="prayer-times-list">
+            <p>جاري جلب البيانات...</p>
+        </div>
+        <p><small>تم ضبطها لـ: <span id="city-name">القاهرة</span></small></p>
+    </aside>
+
+    <!-- الهيدر الرئيسي -->
+    <header class="main-header">
+        <div class="container">
+            <h1 class="site-title"><i class="fas fa-eye"></i> العين الثالثة</h1>
+            <p class="site-subtitle">منارة الباحث عن الحق - 2026</p>
+            <nav class="main-nav">
+                <a href="#fatrah" class="nav-link"><i class="fas fa-seedling"></i> الأسئلة الفطرية</a>
+                <a href="#stories" class="nav-link"><i class="fas fa-book-open"></i> قصص الهداية</a>
+                <a href="pages/library.html" class="nav-link"><i class="fas fa-graduation-cap"></i> مكتبة التعلم</a>
+                <a href="#quran" class="nav-link"><i class="fas fa-quran"></i> المصحف الشريف</a>
+                <a href="#ask" class="nav-link highlight"><i class="fas fa-user-secret"></i> اسأل بخفاء</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- القسم البطاني الرئيسي -->
+    <section class="hero-section">
+        <div class="hero-overlay">
+            <div class="container">
+                <h2 class="hero-title">لأن <span class="highlight-text">الفطرة</span> لا تجوع</h2>
+                <p class="hero-description">هذا المكان هو رفيق رحلتك نحو الخالق. هنا ستجد إجابات عن أسئلة روحك، وتتعلم دينك ببساطة، وتستمع لكلام ربك، وتقرأ لقصص من كانوا مثلك ثم اهتدوا.</p>
+                <div class="hero-buttons">
+                    <a href="#fatrah" class="btn btn-primary">ابدأ رحلتك الآن</a>
+                    <a href="pages/stories.html" class="btn btn-secondary">اقرأ قصص الهداية</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم الأسئلة الفطرية -->
+    <section id="fatrah" class="section">
+        <div class="container">
+            <h2 class="section-title"><i class="fas fa-question-circle"></i> أسئلة الفطرة العميقة</h2>
+            <div class="questions-grid">
+                <div class="question-card">
+                    <h3>من خلقني؟ وما هدفي؟</h3>
+                    <p>"وَمَا خَلَقْتُ الْجِنَّ وَالْإِنْسَ إِلَّا لِيَعْبُدُونِ" [الذاريات: 56]. أنت هنا لتعرف خالقك، وتعبده، وتكون عبداً شكوراً.</p>
+                </div>
+                <div class="question-card">
+                    <h3>لماذا الموت؟ وما بعد الموت؟</h3>
+                    <p>"كُلُّ نَفْسٍ ذَائِقَةُ الْمَوْتِ ثُمَّ إِلَيْنَا تُرْجَعُونَ" [العنكبوت: 57]. الموت باب، وليس نهاية. هو بداية الحساب والجزاء.</p>
+                </div>
+                <div class="question-card">
+                    <h3>كيف أعرف أن الإسلام هو الحق؟</h3>
+                    <p>اسأل نفسك: أي دين يحفظ الفطرة ولا يحاربها؟ أي كتاب بقي محفوظاً كاملاً؟ أي رسالة جاءت خاتمة لكل الرسالات؟</p>
+                    <a href="pages/questions.html" class="card-link">المزيد من الأسئلة والأجوبة <i class="fas fa-arrow-left"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم القرآن والاستماع -->
+    <section id="quran" class="section dark-section">
+        <div class="container">
+            <h2 class="section-title"><i class="fas fa-quran"></i> المصحف الشريف</h2>
+            <div class="quran-container">
+                <div class="quran-player">
+                    <h3><i class="fas fa-headphones"></i> استمع إلى تلاوة عطرة</h3>
+                    <p>للشيخ عبد الباسط عبد الصمد (رحمه الله)</p>
+                    <audio id="quran-audio" controls controlsList="nodownload">
+                        <!-- ستضع هنا رابط ملف صوتي حقيقي -->
+                        <source src="https://server8.mp3quran.net/basit/Almusshaf-Al-Mojawwad/001.mp3" type="audio/mpeg">
+                        متصفحك لا يدعم مشغل الصوت.
+                    </audio>
+                    <div class="audio-links">
+                        <a href="https://quran.com/" class="btn btn-outline" target="_blank"><i class="fas fa-book-open"></i> اقرأ القرآن كاملاً</a>
+                        <a href="https://app.tarteel.ai/" class="btn btn-outline" target="_blank"><i class="fas fa-mobile-alt"></i> تحميل تطبيق القرآن (تارتييل)</a>
+                    </div>
+                </div>
+                <div class="quran-info">
+                    <h3>كيف تبدأ بقراءة القرآن؟</h3>
+                    <p>لا تتعجل. ابدأ بالسور القصيرة في الجزء الثلاثين (عم). استمع ثم اقرأ. دع المعاني تلامس قلبك قبل عقلك.</p>
+                    <ul>
+                        <li><strong>سورة الفاتحة:</strong> أم الكتاب، وحوار بينك وبين الله.</li>
+                        <li><strong>سورة الإخلاص:</strong> توحيد خالص.</li>
+                        <li><strong>سورة يس:</strong> قلب القرآن.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم قصص الهداية -->
+    <section id="stories" class="section">
+        <div class="container">
+            <h2 class="section-title"><i class="fas fa-star-and-crescent"></i> قصص الهداية: نور على نور</h2>
+            <p class="section-subtitle">أناس كانوا في ظلام الشك، فمنَّ الله عليهم بنور اليقين.</p>
+            <div class="stories-grid">
+                <div class="story-card">
+                    <h3>من الإلحاد إلى السجود</h3>
+                    <p>"كنت أرى الكون مادة صماء... حتى قرأت عن الإعجاز العلمي في خلق الجنين في القرآن. كيف لرجل أمي قبل 1400 عام أن يصف هذا؟ كانت الصفعة التي أيقظت فطرتي."</p>
+                    <span class="story-tag">#العلم_يدعو_للايمان</span>
+                </div>
+                <div class="story-card">
+                    <h3>من المسيحية إلى الإسلام</h3>
+                    <p>"حيرني عقيدة التثليث طوال عمري. عندما سمعت سورة الإخلاص لأول مرة بكيت: 'لم يلد ولم يولد'. وجدت الله الواحد الأحد الذي كنت أبحث عنه في أعماقي."</p>
+                    <span class="story-tag">#الفطرة_والتوحيد</span>
+                </div>
+                <!-- ستضيف المزيد من القصص هنا -->
+            </div>
+            <div class="text-center">
+                <a href="pages/stories.html" class="btn btn-primary">اقرأ المزيد من القصص الملهمة</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم "اسأل بخفاء" -->
+    <section id="ask" class="section dark-section">
+        <div class="container">
+            <h2 class="section-title"><i class="fas fa-user-secret"></i> اسأل بخفاء</h2>
+            <p class="section-subtitle">لا تخف. اسأل أي سؤال في قلبك، وسنجيبك بكل صدق وخصوصية تامة. لا نطلب اسمك.</p>
+            <div class="ask-container">
+                <form id="secret-question-form" class="ask-form">
+                    <textarea id="question-input" placeholder="اكتب سؤالك هنا بكل أمان... مثلاً: كيف أتأكد من وجود الله؟ ماذا عن الإسلام والإرهاب؟ كيف أصلي؟" required rows="5"></textarea>
+                    <div class="form-info">
+                        <p><i class="fas fa-lock"></i> سري تماماً. سيتم إرسال الرد إلى بريدك الإلكتروني فقط.</p>
+                    </div>
+                    <input type="email" id="user-email" placeholder="بريدك الإلكتروني (لنرسل لك الرد)" required>
+                    <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i> أرسل سؤالي سراً</button>
+                </form>
+                <div class="ask-info">
+                    <h3><i class="fas fa-hands-helping"></i> لماذا هذا القسم؟</h3>
+                    <p>لأن بعض الأسئلة تكون حساسة جداً في القلب. هنا مساحتك الآمنة. نحن نعدك بالرد بكل حب واحترام، ودون أي حكم. الهدف هو إزالة الحواجز بينك وبين الحق.</p>
+                    <div class="faq-preview">
+                        <h4>أسئلة متكررة:</h4>
+                        <ul>
+                            <li><a href="#">هل الإسلام يحترم المرأة حقاً؟</a></li>
+                            <li><a href="#">كيف أتخلص من الذنوب الكبيرة وأبدأ من جديد؟</a></li>
+                            <li><a href="#">أشعر بفراغ روحي، ماذا أفعل؟</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- الفوتر -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <h3><i class="fas fa-eye"></i> العين الثالثة</h3>
+                    <p>منارة رقمية تهدف إلى إيصال نور الإسلام عبر الفطرة السليمة والحكمة، لكل باحث عن الحق في زمن الضباب.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>روابط سريعة</h4>
+                    <a href="pages/library.html"><i class="fas fa-video"></i> فيديوهات تعليم الصلاة</a>
+                    <a href="https://quran.com/" target="_blank"><i class="fas fa-book"></i> القرآن كاملاً</a>
+                    <a href="pages/questions.html"><i class="fas fa-question"></i> الأسئلة الشائعة</a>
+                </div>
+                <div class="footer-contact">
+                    <h4>تذكير</h4>
+                    <p>"مَنْ دَلَّ عَلَى خَيْرٍ فَلَهُ مِثْلُ أَجْرِ فَاعِلِهِ"<br>– رواه مسلم –</p>
+                    <p>شارك الموقع. قد تكون سبباً في هداية إنسان.</p>
+                </div>
+            </div>
+            <p class="copyright">© 2026 - مشروع العين الثالثة. كل الحقوق محفوظة. صنع بقلوب محبة.</p>
+        </div>
+    </footer>
+
+    <!-- ملفات الجافاسكريبت -->
+    <script src="script.js"></script>
+    <!-- سكريبت مواقيت الصلاة (سيتم شرحه بعد CSS) -->
+    <script src="https://cdn.jsdelivr.net/gh/muhammederdem/leaflet@1.0.3/dist/leaflet.js"></script>
+</body>
+</html>
