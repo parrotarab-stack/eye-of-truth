@@ -75,44 +75,48 @@ async function fetchPrayerTimes(location = currentCity) {
             prayerTimesData = data.data;
             updatePrayerTimesUI();
             updateNextPrayer();
-            startCountdown();
-            return true;
-        } else {
-            throw new Error('استجابة غير صحيحة من API');
-        }
-    } catch (error) {
-        console.error("خطأ في جلب مواقيت الصلاة:", error);
-        showPrayerError();
-        return false;
+           function startCountdown() {
+    // إيقاف أي عد تنازلي سابق
+    if (window.prayerCountdownInterval) {
+        clearInterval(window.prayerCountdownInterval);
     }
-}
-
-// دالة تحديث واجهة المواقيت
-function updatePrayerTimesUI() {
-    if (!prayerTimesData) return;
     
-    const timings = prayerTimesData.timings;
-    const prayers = [
-        { key: "Fajr", name: "الفجر" },
-        { key: "Sunrise", name: "الشروق" },
-        { key: "Dhuhr", name: "الظهر" },
-        { key: "Asr", name: "العصر" },
-        { key: "Maghrib", name: "المغرب" },
-        { key: "Isha", name: "العشاء" }
-    ];
-    
-    const now = new Date();
-    const currentHour = now.getHours();
-    const currentMinute = now.getMinutes();
-    let currentPrayerIndex = -1;
-    
-    // تحديد الصلاة الحالية
-    prayers.forEach((prayer, index) => {
-        const [prayerHour, prayerMinute] = timings[prayer.key].split(':').map(Number);
-        if (currentHour > prayerHour || (currentHour === prayerHour && currentMinute >= prayerMinute)) {
-            currentPrayerIndex = index;
+    window.prayerCountdownInterval = setInterval(() => {
+        if (!prayerTimesData) return;
+        
+        const nextPrayer = updateNextPrayer();
+        if (!nextPrayer) return;
+        
+        const now = new Date();
+        const [nextHour, nextMinute] = prayerTimesData.timings[nextPrayer.key].split(':').map(Number);
+        
+        let nextPrayerTime = new Date();
+        nextPrayerTime.setHours(nextHour, nextMinute, 0);
+        
+        // إذا كانت الصلاة التالية هي فجر الغد (بعد منتصف الليل)
+        if (nextPrayer.key === "Fajr" && now.getHours() >= 18) {
+            nextPrayerTime.setDate(nextPrayerTime.getDate() + 1);
         }
-    });
+        
+        const diffMs = nextPrayerTime - now;
+        
+        if (diffMs > 0) {
+            const diffHours = Math.floor(diffMs / (1000 * 60 * 60));
+            const diffMinutes = Math.floor((diffMs % (1000 * 60 * 60)) / (1000 * 60));
+            const diffSeconds = Math.floor((diffMs % (1000 * 60)) / 1000);
+            
+            document.getElementById('next-countdown').textContent = 
+                `${diffHours.toString().padStart(2, '0')}:${diffMinutes.toString().padStart(2, '0')}:${diffSeconds.toString().padStart(2, '0')}`;
+        } else {
+            document.getElementById('next-countdown').textContent = 'الآن!';
+            
+            // تحديث تلقائي عند دخول وقت الصلاة
+            if (diffMs < -60000) { // بعد دقيقة من دخول الوقت
+                fetchPrayerTimes(currentCity);
+            }
+        }
+    }, 1000);
+}
     
     const nextPrayerIndex = (currentPrayerIndex + 1) % prayers.length;
     
@@ -391,5 +395,6 @@ if (showMoreBtn) {
         }
     });
 }
+
 
 
