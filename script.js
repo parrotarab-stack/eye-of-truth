@@ -467,6 +467,55 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+// تذكير قبل الأذان
+function setupPrayerReminders() {
+    setInterval(() => {
+        if (!prayerTimesData) return;
+        
+        const now = new Date();
+        const prayers = ["Fajr", "Dhuhr", "Asr", "Maghrib", "Isha"];
+        
+        prayers.forEach(prayer => {
+            const [prayerHour, prayerMinute] = prayerTimesData.timings[prayer].split(':').map(Number);
+            const prayerTime = new Date();
+            prayerTime.setHours(prayerHour, prayerMinute, 0);
+            
+            // قبل 5 دقائق
+            const reminderTime = new Date(prayerTime.getTime() - 5 * 60000);
+            
+            if (now >= reminderTime && now < prayerTime) {
+                // إذا لم ننبه بعد عن هذه الصلاة
+                if (!localStorage.getItem(`reminded_${prayer}_${prayerTime.toDateString()}`)) {
+                    const prayerNames = {
+                        "Fajr": "الفجر",
+                        "Dhuhr": "الظهر", 
+                        "Asr": "العصر",
+                        "Maghrib": "المغرب",
+                        "Isha": "العشاء"
+                    };
+                    
+                    // إشعار على الشاشة
+                    if (Notification.permission === "granted") {
+                        new Notification("⏰ تذكير بصلاة " + prayerNames[prayer], {
+                            body: "تبقى 5 دقائق على الأذان. استعد للصلاة.",
+                            icon: "https://cdn-icons-png.flaticon.com/512/201/201623.png"
+                        });
+                    }
+                    
+                    // علامة أننا أنبّهنا
+                    localStorage.setItem(`reminded_${prayer}_${prayerTime.toDateString()}`, "true");
+                }
+            }
+        });
+    }, 60000); // كل دقيقة
+}
+
+// طلب إذن الإشعارات
+if ("Notification" in window) {
+    if (Notification.permission === "default") {
+        Notification.requestPermission();
+    }
+}
 
 
 
