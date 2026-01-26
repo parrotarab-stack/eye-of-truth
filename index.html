@@ -18,121 +18,16 @@
         <button onclick="closeReminder()"><i class="fas fa-times"></i></button>
     </div>
 
-<!-- مواقيت الصلاة المصرية مع الأذان -->
-<div id="prayer-section" class="prayer-section">
-    <div class="container">
-        <div class="prayer-card">
-            <div class="prayer-header">
-                <h3><i class="fas fa-mosque"></i> مواقيت الصلاة - مصر</h3>
-                <div class="prayer-date">
-                    <span id="hijri-date">-- -- ---- هـ</span>
-                    <span id="gregorian-date">--/--/----</span>
-                </div>
-            </div>
-            
-            <div class="prayer-grid">
-                <div class="prayer-time-card" data-prayer="fajr">
-                    <div class="prayer-icon">
-                        <i class="fas fa-sun"></i>
-                    </div>
-                    <div class="prayer-info">
-                        <h4>الفجر</h4>
-                        <div class="time" id="fajr-time">--:--</div>
-                        <div class="status" id="fajr-status">قادمة</div>
-                    </div>
-                </div>
-                
-                <div class="prayer-time-card" data-prayer="dhuhr">
-                    <div class="prayer-icon">
-                        <i class="fas fa-sun"></i>
-                    </div>
-                    <div class="prayer-info">
-                        <h4>الظهر</h4>
-                        <div class="time" id="dhuhr-time">--:--</div>
-                        <div class="status" id="dhuhr-status">قادمة</div>
-                    </div>
-                </div>
-                
-                <div class="prayer-time-card" data-prayer="asr">
-                    <div class="prayer-icon">
-                        <i class="fas fa-sun"></i>
-                    </div>
-                    <div class="prayer-info">
-                        <h4>العصر</h4>
-                        <div class="time" id="asr-time">--:--</div>
-                        <div class="status" id="asr-status">قادمة</div>
-                    </div>
-                </div>
-                
-                <div class="prayer-time-card" data-prayer="maghrib">
-                    <div class="prayer-icon">
-                        <i class="fas fa-moon"></i>
-                    </div>
-                    <div class="prayer-info">
-                        <h4>المغرب</h4>
-                        <div class="time" id="maghrib-time">--:--</div>
-                        <div class="status" id="maghrib-status">قادمة</div>
-                    </div>
-                </div>
-                
-                <div class="prayer-time-card" data-prayer="isha">
-                    <div class="prayer-icon">
-                        <i class="fas fa-moon"></i>
-                    </div>
-                    <div class="prayer-info">
-                        <h4>العشاء</h4>
-                        <div class="time" id="isha-time">--:--</div>
-                        <div class="status" id="isha-status">قادمة</div>
-                    </div>
-                </div>
-                
-                <div class="prayer-time-card next-prayer">
-                    <div class="prayer-icon">
-                        <i class="fas fa-bell"></i>
-                    </div>
-                    <div class="prayer-info">
-                        <h4>الصلاة القادمة</h4>
-                        <div class="time" id="next-prayer-name">--</div>
-                        <div class="countdown" id="next-prayer-countdown">--:--:--</div>
-                        <button id="azan-test" class="btn-small">🔊 تجربة الأذان</button>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="prayer-footer">
-                <div class="azan-controls">
-                    <button id="toggle-azan" class="btn-azan">
-                        <i class="fas fa-volume-up"></i> تفعيل الأذان التلقائي
-                    </button>
-                    <div class="volume-control">
-                        <span>🔈</span>
-                        <input type="range" id="azan-volume" min="0" max="100" value="50">
-                        <span>🔊</span>
-                    </div>
-                </div>
-                <p class="note">
-                    <i class="fas fa-info-circle"></i> يتم تحديث المواقيت يومياً تلقائياً. الأذان يعمل عند دخول وقت كل صلاة.
-                </p>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- مشغل الأذان المخفي -->
-<audio id="azan-audio" preload="auto">
-    <source src="https://www.islamcan.com/audio/adhan/abdul_basit_abdus_samad/azan1.mp3" type="audio/mpeg">
-</audio>
-
-    <!-- الهيدر الرئيسي -->
+    <!-- الهيدر الرئيسي المصغر -->
     <header class="main-header">
         <div class="container">
             <h1 class="site-title"><i class="fas fa-eye"></i> العين الثالثة</h1>
             <p class="site-subtitle">منارة الباحث عن الحق - 2026</p>
             <nav class="main-nav">
-                <a href="#fatrah" class="nav-link"><i class="fas fa-seedling"></i> الأسئلة الفطرية</a>
+                <a href="#comparisons" class="nav-link"><i class="fas fa-balance-scale"></i> المقارنات</a>
                 <a href="#stories" class="nav-link"><i class="fas fa-book-open"></i> قصص الهداية</a>
                 <a href="pages/library.html" class="nav-link"><i class="fas fa-graduation-cap"></i> مكتبة التعلم</a>
-                <a href="#quran" class="nav-link"><i class="fas fa-quran"></i> المصحف الشريف</a>
+                <a href="#quran" class="nav-link"><i class="fas fa-quran"></i> القرآن الكريم</a>
                 <a href="#ask" class="nav-link highlight"><i class="fas fa-user-secret"></i> اسأل بخفاء</a>
             </nav>
         </div>
@@ -145,264 +40,225 @@
                 <h2 class="hero-title">لأن <span class="highlight-text">الفطرة</span> لا تجوع</h2>
                 <p class="hero-description">هذا المكان هو رفيق رحلتك نحو الخالق. هنا ستجد إجابات عن أسئلة روحك، وتتعلم دينك ببساطة، وتستمع لكلام ربك، وتقرأ لقصص من كانوا مثلك ثم اهتدوا.</p>
                 <div class="hero-buttons">
-                    <a href="#fatrah" class="btn btn-primary">ابدأ رحلتك الآن</a>
+                    <a href="#comparisons" class="btn btn-primary">اكتشف الحقيقة</a>
                     <a href="pages/stories.html" class="btn btn-secondary">اقرأ قصص الهداية</a>
                 </div>
             </div>
         </div>
     </section>
 
-<!-- قسم المقارنات الموسعة -->
-<section id="comparisons" class="section">
-    <div class="container">
-        <h2 class="section-title"><i class="fas fa-balance-scale"></i> مقارنة واضحة: القرآن والكتب الأخرى</h2>
-        <p class="section-subtitle">نعرض نفس الموضوع من الكتب الثلاثة، ونترك لك الحكم بنفسك. "فماذا بعد الحق إلا الضلال" [يونس: 32]</p>
-
-        <!-- فلاتر التصنيف -->
-        <div class="comparison-filters">
-            <button class="filter-btn active" data-category="all">الكل</button>
-            <button class="filter-btn" data-category="god">صفات الله</button>
-            <button class="filter-btn" data-category="prophecy">النبوة</button>
-            <button class="filter-btn" data-category="text">حفظ النص</button>
-            <button class="filter-btn" data-category="afterlife">الآخرة</button>
-        </div>
-
-        <!-- جدول المقارنات -->
-        <div class="comparison-table-container">
-            <table class="comparison-table">
-                <thead>
-                    <tr>
-                        <th width="20%">النقطة</th>
-                        <th width="26%">التوراة الحالية</th>
-                        <th width="26%">الإنجيل الحالي</th>
-                        <th width="28%">القرآن الكريم</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- صفات الله -->
-                    <tr class="comparison-row" data-category="god">
-                        <td class="point-title">
-                            <strong>وحدانية الله</strong>
-                            <div class="point-desc">هل الله واحد أم متعدد؟</div>
-                        </td>
-                        <td>
-                            <div class="text-box torah">
-                                <p>"اسمع يا إسرائيل: الرب إلهنا رب واحد" (تثنية 6:4)</p>
-                                <p class="verse-ref">ولكن أيضاً: "ونادوا باسم البعل" (قضاة 6:32)</p>
-                                <div class="analysis">نظرية "الآلهة المتعددة" موجودة في النص.</div>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="text-box gospel">
-                                <p>"الرب إلهنا رب واحد" (مرقس 12:29)</p>
-                                <p class="verse-ref">ولكن أيضاً: "عمدوهم باسم الآب والابن والروح القدس" (متى 28:19)</p>
-                                <div class="analysis">التوحيد يختلط بعقيدة التثليث.</div>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="text-box quran highlight">
-                                <p>﴿قُلْ هُوَ اللَّهُ أَحَدٌ * اللَّهُ الصَّمَدُ * لَمْ يَلِدْ وَلَمْ يُولَدْ * وَلَمْ يَكُنْ لَهُ كُفُوًا أَحَدٌ﴾ [الإخلاص]</p>
-                                <div class="analysis">توحيد خالص مطلق، لا شريك ولا ولد ولا شبيه.</div>
-                                <span class="verdict">الأكثر وضوحاً</span>
-                            </div>
-                        </td>
-                    </tr>
-
-                    <!-- حفظ النص -->
-                    <tr class="comparison-row" data-category="text">
-                        <td class="point-title">
-                            <strong>حفظ النص</strong>
-                            <div class="point-desc">هل النص محفوظ من التحريف؟</div>
-                        </td>
-                        <td>
-                            <div class="text-box torah">
-                                <p>آلاف الاختلافات بين مخطوطات البحر الميت والنسخ الحالية.</p>
-                                <div class="analysis">علماء النقد النصي يعترفون بتحريفات عبر القرون.</div>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="text-box gospel">
-                                <p>أربعة أناجيل مختلفة، تناقضات في التفاصيل.</p>
-                                <p class="verse-ref">مجمع نيقية عام 325م اختار الأناجيل القانونية.</p>
-                                <div class="analysis">نصوص كتبت بعد المسيح بعقود، واختيرت بمجامع بشرية.</div>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="text-box quran highlight">
-                                <p>﴿إِنَّا نَحْنُ نَزَّلْنَا الذِّكْرَ وَإِنَّا لَهُ لَحَافِظُونَ﴾ [الحجر: ٩]</p>
-                                <div class="analysis">نفس النص في كل العالم منذ 1400 سنة، محفوظ بالحفظ والكتابة.</div>
-                                <span class="verdict">الوحيد المحفوظ</span>
-                            </div>
-                        </td>
-                    </tr>
-
-                    <!-- النبوة الأخيرة -->
-                    <tr class="comparison-row" data-category="prophecy">
-                        <td class="point-title">
-                            <strong>النبوة الأخيرة</strong>
-                            <div class="point-desc">هل بشرت الكتب بنبي آخر؟</div>
-                        </td>
-                        <td>
-                            <div class="text-box torah">
-                                <p>"أقيم لهم نبيًا من وسط إخوتهم مثلك" (تثنية 18:18)</p>
-                                <div class="analysis">مفسرون يهود يقولون: يشير إلى يشوع، مسيحيون يقولون: يسوع، مسلمون يقولون: محمد.</div>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="text-box gospel">
-                                <p>"أما المعزي الروح القدس فسيرسله الآب باسمي" (يوحنا 14:26)</p>
-                                <div class="analysis">كلمة "المعزي" في اليوناني: بارقليط (Paraklētos). في مخطوطات قديمة: بيريكليتوس (Periklētos) = أحمد.</div>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="text-box quran highlight">
-                                <p>﴿وَمَا مُحَمَّدٌ إِلَّا رَسُولٌ قَدْ خَلَتْ مِنْ قَبْلِهِ الرُّسُلُ﴾ [آل عمران: ١٤٤]</p>
-                                <p>﴿وَخَاتَمَ النَّبِيِّينَ﴾ [الأحزاب: ٤٠]</p>
-                                <div class="analysis">تصريح واضح بأن محمداً خاتم النبيين، جاء مصدقاً لما بين يديه.</div>
-                                <span class="verdict">تحقيق النبوة</span>
-                            </div>
-                        </td>
-                    </tr>
-
-                    <!-- صفات الله التفصيلية -->
-                    <tr class="comparison-row" data-category="god">
-                        <td class="point-title">
-                            <strong>صفات الله الكاملة</strong>
-                            <div class="point-desc">كيف يوصف الله؟</div>
-                        </td>
-                        <td>
-                            <div class="text-box torah">
-                                <p>"وصنع الله الإنسان على صورته" (تكوين 1:27)</p>
-                                <p>"ندم الله أنه خلق الإنسان" (تكوين 6:6)</p>
-                                <div class="analysis">تشبيه الله بالإنسان، وصفات بشرية (ندم، جهل، تعب).</div>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="text-box gospel">
-                                <p>"الله روح" (يوحنا 4:24)</p>
-                                <p>"الله لا يجرَّب بالشرور" (يعقوب 1:13) ولكن المسيح جُرِّب.</p>
-                                <div class="analysis">تناقض بين الروحانية والتجسيد في المسيح.</div>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="text-box quran highlight">
-                                <p>﴿لَيْسَ كَمِثْلِهِ شَيْءٌ﴾ [الشورى: ١١]</p>
-                                <p>﴿وَهُوَ الْعَلِيمُ الْحَكِيمُ﴾ [يوسف: ١٠٠]</p>
-                                <div class="analysis">تنزيه مطلق عن التشبيه، مع إثبات صفات الكمال دون تمثيل.</div>
-                                <span class="verdict">الأكمل تنزيهاً</span>
-                            </div>
-                        </td>
-                    </tr>
-
-                    <!-- الحياة بعد الموت -->
-                    <tr class="comparison-row" data-category="afterlife">
-                        <td class="point-title">
-                            <strong>مصير الإنسان بعد الموت</strong>
-                            <div class="point-desc">ماذا يحدث بعد الموت؟</div>
-                        </td>
-                        <td>
-                            <div class="text-box torah">
-                                <p>"الموت نهاية، والجنة غير واضحة" (سفر الجامعة)</p>
-                                <p>"تنام في التراب" (تكوين 3:19)</p>
-                                <div class="analysis">فكرة الآخرة ضعيفة، تركيز على الدنيا والبركات المادية.</div>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="text-box gospel">
-                                <p>"السماء ملكوت الله" (مرقس 1:15) لكن تفاصيل القيامة قليلة.</p>
-                                <p>التركيز على الفداء والخلاص بالإيمان.</p>
-                                <div class="analysis">الآخرة موجودة ولكن التفاصيل قليلة وغير منظَّمة.</div>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="text-box quran highlight">
-                                <p>﴿كُلُّ نَفْسٍ ذَائِقَةُ الْمَوْتِ ثُمَّ إِلَيْنَا تُرْجَعُونَ﴾ [العنكبوت: ٥٧]</p>
-                                <p>وصف تفصيلي للجنة (56 آية) والنار (138 آية) والحساب والصراط.</p>
-                                <div class="analysis">تصوير كامل متوازن للآخرة يلبي فطرة العدل والخلود.</div>
-                                <span class="verdict">الأكثر اكتمالاً</span>
-                            </div>
-                        </td>
-                    </tr>
-
-                    <!-- المزيد من الصفوف ستضاف هنا -->
-                </tbody>
-            </table>
-        </div>
-
-        <!-- زر إضافة المزيد من المقارنات -->
-        <div class="text-center" style="margin-top: 40px;">
-            <button id="showMoreComparisons" class="btn btn-outline">
-                <i class="fas fa-plus-circle"></i> إظهار المزيد من المقارنات (العقيدة، المرأة، العلم...)
-            </button>
-            <p style="margin-top: 15px; font-size: 0.9rem; color: #666;">
-                <i class="fas fa-lightbulb"></i> يمكنك اقتراح مقارنة جديدة عبر <a href="#ask" style="color: var(--color-secondary);">"اسأل بخفاء"</a>
-            </p>
-        </div>
-
-        <!-- قسم الاستنتاج -->
-        <div class="conclusion-box">
-            <h3><i class="fas fa-clipboard-check"></i> ما الذي نستنتجه من هذه المقارنة؟</h3>
-            <div class="conclusion-points">
-                <div class="conclusion-item">
-                    <i class="fas fa-check-circle"></i>
-                    <span><strong>القرآن وحده</strong> بقي محفوظاً كما نزل، دون زيادة أو نقصان.</span>
-                </div>
-                <div class="conclusion-item">
-                    <i class="fas fa-check-circle"></i>
-                    <span><strong>القرآن وحده</strong> حافظ على التوحيد الخالص من أي تشبيه أو تعدد.</span>
-                </div>
-                <div class="conclusion-item">
-                    <i class="fas fa-check-circle"></i>
-                    <span><strong>القرآن وحده</strong> جاء مصدقاً للكتب السابقة ومهيمناً عليها، وخاتماً للرسالات.</span>
-                </div>
-            </div>
-            <div class="conclusion-verse">
-                <p>﴿فَمَاذَا بَعْدَ الْحَقِّ إِلَّا الضَّلَالُ﴾ [يونس: ٣٢]</p>
-                <p>إذا كان القرآن هو الكتاب الوحيد المحفوظ، فهل يعقل أن نبحث عن الحق في غيره؟</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-    <!-- قسم القرآن والاستماع -->
+    <!-- قسم القرآن والاستماع (معدل) -->
     <section id="quran" class="section dark-section">
         <div class="container">
-            <h2 class="section-title"><i class="fas fa-quran"></i> المصحف الشريف</h2>
+            <h2 class="section-title"><i class="fas fa-quran"></i> القرآن الكريم</h2>
             <div class="quran-container">
                 <div class="quran-player">
                     <h3><i class="fas fa-headphones"></i> استمع إلى تلاوة عطرة</h3>
-                    <p>للشيخ عبد الباسط عبد الصمد (رحمه الله)</p>
-                    <audio id="quran-audio" controls controlsList="nodownload">
-                        <!-- ستضع هنا رابط ملف صوتي حقيقي -->
-                       <source src="https://server8.mp3quran.net/basit/Rewayat-Hafs-A-n-Assem/001.mp3" type="audio/mpeg">
-                        متصفحك لا يدعم مشغل الصوت.
-                        <!-- أضف هذا الكود داخل قسم القرآن (قبل أو بعد مشغل الصوت) -->
-<div class="prayer-times-simple">
-    <h4><i class="fas fa-clock"></i> مواقيت الصلاة التقريبية (القاهرة)</h4>
-    <table style="width:100%; margin-top:15px; text-align:center;">
-        <tr><th>الصلاة</th><th>الوقت</th></tr>
-        <tr><td>الفجر</td><td>٤:٣٠ ص</td></tr>
-        <tr><td>الظهر</td><td>١٢:٠٠ م</td></tr>
-        <tr><td>العصر</td><td>٣:١٥ م</td></tr>
-        <tr><td>المغرب</td><td>٦:٠٠ م</td></tr>
-        <tr><td>العشاء</td><td>٧:٣٠ م</td></tr>
-    </table>
-    <p style="font-size:0.8em; color:#666; margin-top:10px;">يتم تحديث المواقيت شهرياً. للدقة استخدم تطبيق مواقيت على جوالك.</p>
-</div>
-                    </audio>
+                    <p>تلاوة الشيخ محمد صديق المنشاوي (رحمه الله) - سورة الفاتحة والبقرة</p>
+                    
+                    <!-- مشغل صوتي حقيقي -->
+                    <div class="audio-player">
+                        <audio id="quran-audio" controls controlsList="nodownload">
+                            <source src="https://server8.mp3quran.net/minsh/001.mp3" type="audio/mpeg">
+                            متصفحك لا يدعم مشغل الصوت.
+                        </audio>
+                        <div class="player-controls">
+                            <button onclick="playSurah('001')" class="surah-btn">الفاتحة</button>
+                            <button onclick="playSurah('002')" class="surah-btn">البقرة (مقطع)</button>
+                            <button onclick="playSurah('036')" class="surah-btn">يس</button>
+                            <button onclick="playSurah('067')" class="surah-btn">الملك</button>
+                        </div>
+                    </div>
+                    
                     <div class="audio-links">
                         <a href="https://quran.com/" class="btn btn-outline" target="_blank"><i class="fas fa-book-open"></i> اقرأ القرآن كاملاً</a>
-                        <a href="https://app.tarteel.ai/" class="btn btn-outline" target="_blank"><i class="fas fa-mobile-alt"></i> تحميل تطبيق القرآن (تارتييل)</a>
+                        <a href="https://app.tarteel.ai/" class="btn btn-outline" target="_blank"><i class="fas fa-mobile-alt"></i> تطبيق القرآن (تارتييل)</a>
+                        <a href="https://quran.ksu.edu.sa/" class="btn btn-outline" target="_blank"><i class="fas fa-university"></i> مصحف المدينة</a>
                     </div>
                 </div>
                 <div class="quran-info">
-                    <h3>كيف تبدأ بقراءة القرآن؟</h3>
-                    <p>لا تتعجل. ابدأ بالسور القصيرة في الجزء الثلاثين (عم). استمع ثم اقرأ. دع المعاني تلامس قلبك قبل عقلك.</p>
+                    <h3>كيف تبدأ مع القرآن؟</h3>
+                    <p>ابدأ بـ 5 دقائق يومياً، واستمع إلى التلاوة وأنت تقرأ:</p>
                     <ul>
-                        <li><strong>سورة الفاتحة:</strong> أم الكتاب، وحوار بينك وبين الله.</li>
-                        <li><strong>سورة الإخلاص:</strong> توحيد خالص.</li>
-                        <li><strong>سورة يس:</strong> قلب القرآن.</li>
+                        <li><strong>الفاتحة:</strong> أم الكتاب، وحوار بينك وبين الله.</li>
+                        <li><strong>الإخلاص:</strong> التوحيد الخالص (ثلث القرآن).</li>
+                        <li><strong>المعوذتان:</strong> سورتي الفلق والناس للتحصين.</li>
+                        <li><strong>يس:</strong> قلب القرآن، فيها عظات كثيرة.</li>
+                        <li><strong>الملك:</strong> المنجية من عذاب القبر.</li>
                     </ul>
+                    <div class="quran-tip">
+                        <i class="fas fa-lightbulb"></i>
+                        <p><strong>نصيحة:</strong> ابدأ بالاستماع قبل القراءة، لتتعود على النطق الصحيح.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم المقارنات الموسعة -->
+    <section id="comparisons" class="section">
+        <div class="container">
+            <h2 class="section-title"><i class="fas fa-balance-scale"></i> مقارنة واضحة: القرآن والكتب الأخرى</h2>
+            <p class="section-subtitle">نعرض نفس الموضوع من الكتب الثلاثة، ونترك لك الحكم بنفسك. "فماذا بعد الحق إلا الضلال" [يونس: 32]</p>
+
+            <!-- فلاتر التصنيف -->
+            <div class="comparison-filters">
+                <button class="filter-btn active" data-category="all">الكل</button>
+                <button class="filter-btn" data-category="god">صفات الله</button>
+                <button class="filter-btn" data-category="prophecy">النبوة</button>
+                <button class="filter-btn" data-category="text">حفظ النص</button>
+            </div>
+
+            <!-- جدول المقارنات -->
+            <div class="comparison-table-container">
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th width="20%">النقطة</th>
+                            <th width="26%">التوراة الحالية</th>
+                            <th width="26%">الإنجيل الحالي</th>
+                            <th width="28%">القرآن الكريم</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- صفات الله -->
+                        <tr class="comparison-row" data-category="god">
+                            <td class="point-title">
+                                <strong>وحدانية الله</strong>
+                                <div class="point-desc">هل الله واحد أم متعدد؟</div>
+                            </td>
+                            <td>
+                                <div class="text-box torah">
+                                    <p>"اسمع يا إسرائيل: الرب إلهنا رب واحد" (تثنية 6:4)</p>
+                                    <p class="verse-ref">ولكن أيضاً: "ونادوا باسم البعل" (قضاة 6:32)</p>
+                                    <div class="analysis">نظرية "الآلهة المتعددة" موجودة في النص.</div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="text-box gospel">
+                                    <p>"الرب إلهنا رب واحد" (مرقس 12:29)</p>
+                                    <p class="verse-ref">ولكن أيضاً: "عمدوهم باسم الآب والابن والروح القدس" (متى 28:19)</p>
+                                    <div class="analysis">التوحيد يختلط بعقيدة التثليث.</div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="text-box quran highlight">
+                                    <p>﴿قُلْ هُوَ اللَّهُ أَحَدٌ * اللَّهُ الصَّمَدُ * لَمْ يَلِدْ وَلَمْ يُولَدْ * وَلَمْ يَكُنْ لَهُ كُفُوًا أَحَدٌ﴾ [الإخلاص]</p>
+                                    <div class="analysis">توحيد خالص مطلق، لا شريك ولا ولد ولا شبيه.</div>
+                                    <span class="verdict">الأكثر وضوحاً</span>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <!-- حفظ النص -->
+                        <tr class="comparison-row" data-category="text">
+                            <td class="point-title">
+                                <strong>حفظ النص</strong>
+                                <div class="point-desc">هل النص محفوظ من التحريف؟</div>
+                            </td>
+                            <td>
+                                <div class="text-box torah">
+                                    <p>آلاف الاختلافات بين مخطوطات البحر الميت والنسخ الحالية.</p>
+                                    <div class="analysis">علماء النقد النصي يعترفون بتحريفات عبر القرون.</div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="text-box gospel">
+                                    <p>أربعة أناجيل مختلفة، تناقضات في التفاصيل.</p>
+                                    <p class="verse-ref">مجمع نيقية عام 325م اختار الأناجيل القانونية.</p>
+                                    <div class="analysis">نصوص كتبت بعد المسيح بعقود، واختيرت بمجامع بشرية.</div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="text-box quran highlight">
+                                    <p>﴿إِنَّا نَحْنُ نَزَّلْنَا الذِّكْرَ وَإِنَّا لَهُ لَحَافِظُونَ﴾ [الحجر: ٩]</p>
+                                    <div class="analysis">نفس النص في كل العالم منذ 1400 سنة، محفوظ بالحفظ والكتابة.</div>
+                                    <span class="verdict">الوحيد المحفوظ</span>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <!-- النبوة الأخيرة -->
+                        <tr class="comparison-row" data-category="prophecy">
+                            <td class="point-title">
+                                <strong>النبوة الأخيرة</strong>
+                                <div class="point-desc">هل بشرت الكتب بنبي آخر؟</div>
+                            </td>
+                            <td>
+                                <div class="text-box torah">
+                                    <p>"أقيم لهم نبيًا من وسط إخوتهم مثلك" (تثنية 18:18)</p>
+                                    <div class="analysis">مفسرون يهود يقولون: يشوع، مسيحيون يقولون: يسوع، مسلمون يقولون: محمد.</div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="text-box gospel">
+                                    <p>"أما المعزي الروح القدس فسيرسله الآب باسمي" (يوحنا 14:26)</p>
+                                    <div class="analysis">كلمة "المعزي" في اليوناني: بارقليط (Paraklētos). في مخطوطات قديمة: بيريكليتوس (Periklētos) = أحمد.</div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="text-box quran highlight">
+                                    <p>﴿وَمَا مُحَمَّدٌ إِلَّا رَسُولٌ قَدْ خَلَتْ مِنْ قَبْلِهِ الرُّسُلُ﴾ [آل عمران: ١٤٤]</p>
+                                    <p>﴿وَخَاتَمَ النَّبِيِّينَ﴾ [الأحزاب: ٤٠]</p>
+                                    <div class="analysis">تصريح واضح بأن محمداً خاتم النبيين، جاء مصدقاً لما بين يديه.</div>
+                                    <span class="verdict">تحقيق النبوة</span>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <!-- صفات الله التفصيلية -->
+                        <tr class="comparison-row" data-category="god">
+                            <td class="point-title">
+                                <strong>صفات الله الكاملة</strong>
+                                <div class="point-desc">كيف يوصف الله؟</div>
+                            </td>
+                            <td>
+                                <div class="text-box torah">
+                                    <p>"وصنع الله الإنسان على صورته" (تكوين 1:27)</p>
+                                    <p>"ندم الله أنه خلق الإنسان" (تكوين 6:6)</p>
+                                    <div class="analysis">تشبيه الله بالإنسان، وصفات بشرية (ندم، جهل، تعب).</div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="text-box gospel">
+                                    <p>"الله روح" (يوحنا 4:24)</p>
+                                    <p>"الله لا يجرَّب بالشرور" (يعقوب 1:13) ولكن المسيح جُرِّب.</p>
+                                    <div class="analysis">تناقض بين الروحانية والتجسيد في المسيح.</div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="text-box quran highlight">
+                                    <p>﴿لَيْسَ كَمِثْلِهِ شَيْءٌ﴾ [الشورى: ١١]</p>
+                                    <p>﴿وَهُوَ الْعَلِيمُ الْحَكِيمُ﴾ [يوسف: ١٠٠]</p>
+                                    <div class="analysis">تنزيه مطلق عن التشبيه، مع إثبات صفات الكمال دون تمثيل.</div>
+                                    <span class="verdict">الأكمل تنزيهاً</span>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- قسم الاستنتاج -->
+            <div class="conclusion-box">
+                <h3><i class="fas fa-clipboard-check"></i> ما الذي نستنتجه من هذه المقارنة؟</h3>
+                <div class="conclusion-points">
+                    <div class="conclusion-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span><strong>القرآن وحده</strong> بقي محفوظاً كما نزل، دون زيادة أو نقصان.</span>
+                    </div>
+                    <div class="conclusion-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span><strong>القرآن وحده</strong> حافظ على التوحيد الخالص من أي تشبيه أو تعدد.</span>
+                    </div>
+                    <div class="conclusion-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span><strong>القرآن وحده</strong> جاء مصدقاً للكتب السابقة ومهيمناً عليها، وخاتماً للرسالات.</span>
+                    </div>
+                </div>
+                <div class="conclusion-verse">
+                    <p>﴿فَمَاذَا بَعْدَ الْحَقِّ إِلَّا الضَّلَالُ﴾ [يونس: ٣٢]</p>
+                    <p>إذا كان القرآن هو الكتاب الوحيد المحفوظ، فهل يعقل أن نبحث عن الحق في غيره؟</p>
                 </div>
             </div>
         </div>
@@ -424,7 +280,11 @@
                     <p>"حيرني عقيدة التثليث طوال عمري. عندما سمعت سورة الإخلاص لأول مرة بكيت: 'لم يلد ولم يولد'. وجدت الله الواحد الأحد الذي كنت أبحث عنه في أعماقي."</p>
                     <span class="story-tag">#الفطرة_والتوحيد</span>
                 </div>
-                <!-- ستضيف المزيد من القصص هنا -->
+                <div class="story-card">
+                    <h3>من الشك إلى اليقين</h3>
+                    <p>"كنت أقول 'لا أدري'.. حتى مرض والدي ورأيت الموت بعيني. بدأت أبحث عن معنى للحياة، فوجدت الإسلام يتوافق مع كل أسئلتي الفطرية."</p>
+                    <span class="story-tag">#البحث_عن_المعنى</span>
+                </div>
             </div>
             <div class="text-center">
                 <a href="pages/stories.html" class="btn btn-primary">اقرأ المزيد من القصص الملهمة</a>
@@ -438,12 +298,14 @@
             <h2 class="section-title"><i class="fas fa-user-secret"></i> اسأل بخفاء</h2>
             <p class="section-subtitle">لا تخف. اسأل أي سؤال في قلبك، وسنجيبك بكل صدق وخصوصية تامة. لا نطلب اسمك.</p>
             <div class="ask-container">
-                <form id="secret-question-form" class="ask-form">
-                    <textarea id="question-input" placeholder="اكتب سؤالك هنا بكل أمان... مثلاً: كيف أتأكد من وجود الله؟ ماذا عن الإسلام والإرهاب؟ كيف أصلي؟" required rows="5"></textarea>
+                <form id="secret-question-form" class="ask-form" action="https://formspree.io/f/your-form-id-here" method="POST">
+                    <textarea name="question" id="question-input" placeholder="اكتب سؤالك هنا بكل أمان... مثلاً: كيف أتأكد من وجود الله؟ ماذا عن الإسلام والإرهاب؟ كيف أصلي؟" required rows="5"></textarea>
                     <div class="form-info">
                         <p><i class="fas fa-lock"></i> سري تماماً. سيتم إرسال الرد إلى بريدك الإلكتروني فقط.</p>
                     </div>
-                    <input type="email" id="user-email" placeholder="بريدك الإلكتروني (لنرسل لك الرد)" required>
+                    <input type="email" name="email" id="user-email" placeholder="بريدك الإلكتروني (لنرسل لك الرد)" required>
+                    <input type="hidden" name="_subject" value="سؤال جديد من موقع العين الثالثة">
+                    <input type="hidden" name="_language" value="ar">
                     <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i> أرسل سؤالي سراً</button>
                 </form>
                 <div class="ask-info">
@@ -452,9 +314,9 @@
                     <div class="faq-preview">
                         <h4>أسئلة متكررة:</h4>
                         <ul>
-                            <li><a href="#">هل الإسلام يحترم المرأة حقاً؟</a></li>
-                            <li><a href="#">كيف أتخلص من الذنوب الكبيرة وأبدأ من جديد؟</a></li>
-                            <li><a href="#">أشعر بفراغ روحي، ماذا أفعل؟</a></li>
+                            <li><a href="pages/questions.html#aqeeda">هل الإسلام يحترم المرأة حقاً؟</a></li>
+                            <li><a href="pages/questions.html#sharia">كيف أتخلص من الذنوب الكبيرة وأبدأ من جديد؟</a></li>
+                            <li><a href="pages/questions.html#responses">أشعر بفراغ روحي، ماذا أفعل؟</a></li>
                         </ul>
                     </div>
                 </div>
@@ -488,13 +350,5 @@
 
     <!-- ملفات الجافاسكريبت -->
     <script src="script.js"></script>
-    <!-- سكريبت مواقيت الصلاة (سيتم شرحه بعد CSS) -->
-    <script src="https://cdn.jsdelivr.net/gh/muhammederdem/leaflet@1.0.3/dist/leaflet.js"></script>
 </body>
-
 </html>
-
-
-
-
-
