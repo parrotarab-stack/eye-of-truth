@@ -24,45 +24,216 @@ setTimeout(showReminder, 300000);
 // ثم كل 5 دقائق بعد ذلك
 setInterval(showReminder, 300000);
 
-// ===== 2. جلب مواقيت الصلاة (باستخدام API) =====
-async function fetchPrayerTimes() {
-    const city = "Cairo"; // يمكنك تغييرها
-    const country = "Egypt";
-    const url = `https://api.aladhan.com/v1/timingsByCity?city=${city}&country=${country}&method=5`;
+// ===== 2. نظام مواقيت الصلاة الكامل =====
+let currentCity = "Cairo,Egypt";
+let prayerTimesData = null;
 
+async function fetchPrayerTimes(city = currentCity) {
+    const [cityName, country] = city.split(',');
+    const url = `https://api.aladhan.com/v1/timingsByCity?city=${cityName.trim()}&country=${country.trim()}&method=5&school=0`;
+    
     try {
         const response = await fetch(url);
         const data = await response.json();
-        const timings = data.data.timings;
-
-        document.getElementById('city-name').textContent = "القاهرة";
-
-        const prayerList = document.getElementById('prayer-times-list');
-        prayerList.innerHTML = ''; // مسح المحتوى القديم
-
-        const prayersToShow = {
-            "Fajr": "الفجر",
-            "Dhuhr": "الظهر",
-            "Asr": "العصر",
-            "Maghrib": "المغرب",
-            "Isha": "العشاء"
-        };
-
-        for (const [key, arName] of Object.entries(prayersToShow)) {
-            const p = document.createElement('p');
-            p.innerHTML = `<span class="prayer-name">${arName}</span> <span>${timings[key]}</span>`;
-            prayerList.appendChild(p);
+        
+        if (data.code === 200) {
+            prayerTimesData = data.data;
+            updatePrayerTimesUI();
+            updateNextPrayer();
+            startCountdown();
+            return true;
+        } else {
+            throw new Error('استجابة غير صحيحة من API');
         }
     } catch (error) {
         console.error("خطأ في جلب مواقيت الصلاة:", error);
-        document.getElementById('prayer-times-list').innerHTML = '<p>عذراً، تعذر تحميل المواقيت الآن.</p>';
+        document.getElementById('prayer-times-list').innerHTML = `
+            <div class="prayer-item">
+                <span class="prayer-name">خطأ</span>
+                <span class="prayer-time">تحديث</span>
+            </div>
+        `;
+        return false;
     }
 }
 
-// جلب المواقيت عند تحميل الصفحة وتحديثها كل ساعة
-fetchPrayerTimes();
-setInterval(fetchPrayerTimes, 3600000); // 3600000 ميلي ثانية = ساعة
+function updatePrayerTimesUI() {
+    if (!prayerTimesData) return;
+    
+    const timings = prayerTimesData.timings;
+    const prayers = [
+        { key: "Fajr", name: "الفجر" },
+        { key: "Dhuhr", name: "الظهر" },
+        { key: "Asr", name: "العصر" },
+        { key: "Maghrib", name: "المغرب" },
+        { key: "Isha", name: "العشاء" }
+    ];
+    
+    const now = new Date();
+    const currentHour = now.getHours();
+    const currentMinute = now.getMinutes();
+    let currentPrayerIndex = -1;
+    
+    // تحديد الصلاة الحالية
+    prayers.forEach((prayer, index) => {
+        const [prayerHour, prayerMinute] = timings[prayer.key].split(':').map(Number);
+        if (currentHour > prayerHour || (currentHour === prayerHour && currentMinute >= prayerMinute)) {
+            currentPrayerIndex = index;
+        }
+    });
+    
+    const nextPrayerIndex = (currentPrayerIndex + 1) % prayers.length;
+    
+    // تحديث القائمة
+    const prayerList = document.getElementById('prayer-times-list');
+    prayerList.innerHTML = '';
+    
+    prayers.forEach((prayer, index) => {
+        const prayerItem = document.createElement('div');
+        prayerItem.className = 'prayer-item';
+        
+        if (index === nextPrayerIndex) {
+            prayerItem.classList.add('current-next');
+        }
+        
+        prayerItem.innerHTML = `
+            <span class="prayer-name">${prayer.name}</span>
+            <span class="prayer-time">${timings[prayer.key]}</span>
+        `;
+        
+        prayerList.appendChild(prayerItem);
+    });
+    
+    // تحديث التاريخ الهجري
+    const hijri = prayerTimesData.date.hijri;
+    document.getElementById('hijri-date').textContent = 
+        `${hijri.day} ${hijri.month.ar} ${hijri.year} هـ`;
+}
 
+function updateNextPrayer() {
+    if (!prayerTimesData) return;
+    
+    const timings = prayerTimesData.timings;
+    const prayers = [
+        { key: "Fajr", name: "الفجر" },
+        { key: "Dhuhr", name: "الظهر" },
+        { key: "Asr", name: "العصر" },
+        { key: "Maghrib", name: "المغرب" },
+        { key: "Isha", name: "العشاء" }
+    ];
+    
+    const now = new Date();
+    const currentHour = now.getHours();
+    const currentMinute = now.getMinutes();
+    let nextPrayer = prayers[1]; // افتراضي الظهر
+    let found = false;
+    
+    for (const prayer of prayers) {
+        const [prayerHour, prayerMinute] = timings[prayer.key].split(':').map(Number);
+        if (currentHour < prayerHour || (currentHour === prayerHour && currentMinute < prayerMinute)) {
+            nextPrayer = prayer;
+            found = true;
+            break;
+        }
+    }
+    
+    if (!found) {
+        // إذا كانت كل الصلوات مضت، التالية هي فجر اليوم التالي
+        nextPrayer = prayers[0];
+    }
+    
+    document.getElementById('next-name').textContent = nextPrayer.name;
+    document.getElementById('next-countdown').textContent = 'حساب...';
+    
+    return nextPrayer;
+}
+
+function startCountdown() {
+    setInterval(() => {
+        if (!prayerTimesData) return;
+        
+        const nextPrayer = updateNextPrayer();
+        const now = new Date();
+        const [nextHour, nextMinute] = prayerTimesData.timings[nextPrayer.key].split(':').map(Number);
+        
+        let nextPrayerTime = new Date();
+        nextPrayerTime.setHours(nextHour, nextMinute, 0);
+        
+        // إذا كانت الصلاة التالية هي فجر الغد
+        if (nextPrayer.key === "Fajr" && now.getHours() > 12) {
+            nextPrayerTime.setDate(nextPrayerTime.getDate() + 1);
+        }
+        
+        const diffMs = nextPrayerTime - now;
+        
+        if (diffMs > 0) {
+            const diffHours = Math.floor(diffMs / (1000 * 60 * 60));
+            const diffMinutes = Math.floor((diffMs % (1000 * 60 * 60)) / (1000 * 60));
+            
+            document.getElementById('next-countdown').textContent = 
+                `${diffHours.toString().padStart(2, '0')}:${diffMinutes.toString().padStart(2, '0')}`;
+        } else {
+            document.getElementById('next-countdown').textContent = 'الآن!';
+        }
+    }, 1000);
+}
+
+// تفعيل عناصر التحكم
+document.addEventListener('DOMContentLoaded', function() {
+    // تحديث عند تغيير المدينة
+    const citySelect = document.getElementById('city-select');
+    if (citySelect) {
+        citySelect.addEventListener('change', function() {
+            currentCity = this.value;
+            fetchPrayerTimes(currentCity);
+        });
+    }
+    
+    // زر تحديث
+    const refreshBtn = document.getElementById('refresh-prayer');
+    if (refreshBtn) {
+        refreshBtn.addEventListener('click', function() {
+            this.classList.add('loading');
+            fetchPrayerTimes().then(() => {
+                setTimeout(() => {
+                    this.classList.remove('loading');
+                }, 500);
+            });
+        });
+    }
+    
+    // زر تصغير
+    const minimizeBtn = document.getElementById('minimize-prayer');
+    if (minimizeBtn) {
+        minimizeBtn.addEventListener('click', function() {
+            const widget = document.getElementById('prayer-times-widget');
+            widget.classList.toggle('minimized');
+            this.innerHTML = widget.classList.contains('minimized') ? 
+                '<i class="fas fa-plus"></i>' : '<i class="fas fa-minus"></i>';
+        });
+    }
+    
+    // زر الموقع الحالي
+    const detectBtn = document.getElementById('detect-location');
+    if (detectBtn) {
+        detectBtn.addEventListener('click', function() {
+            if (navigator.geolocation) {
+                this.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
+                navigator.geolocation.getCurrentPosition(async (position) => {
+                    const { latitude, longitude } = position.coords;
+                    // يمكن إضافة API للعكس الجغرافي هنا
+                    this.innerHTML = '<i class="fas fa-location-crosshairs"></i>';
+                    alert('تم تحديد موقعك! سيتم إضافة هذه الميزة قريباً.');
+                });
+            } else {
+                alert('المتصفح لا يدعم تحديد الموقع');
+            }
+        });
+    }
+    
+    // التحميل الأولي
+    fetchPrayerTimes();
+});
 // ===== 3. معالجة نموذج "اسأل بخفاء" =====
 const questionForm = document.getElementById('secret-question-form');
 if (questionForm) {
@@ -213,3 +384,4 @@ if (showMoreBtn) {
         }
     });
 }
+
