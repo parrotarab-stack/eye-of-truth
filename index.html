@@ -18,14 +18,63 @@
         <button onclick="closeReminder()"><i class="fas fa-times"></i></button>
     </div>
 
-    <!-- ودجت مواقيت الصلاة (سيتم ملؤه بجافاسكريبت) -->
-    <aside id="prayer-times-widget" class="prayer-widget">
+<!-- ودجت مواقيت الصلاة (مفعّل بالكامل) -->
+<aside id="prayer-times-widget" class="prayer-widget">
+    <div class="prayer-header">
         <h3><i class="fas fa-clock"></i> مواقيت الصلاة</h3>
-        <div id="prayer-times-list">
-            <p>جاري جلب البيانات...</p>
+        <div class="prayer-actions">
+            <button id="refresh-prayer" title="تحديث"><i class="fas fa-redo"></i></button>
+            <button id="minimize-prayer" title="تصغير"><i class="fas fa-minus"></i></button>
         </div>
-        <p><small>تم ضبطها لـ: <span id="city-name">القاهرة</span></small></p>
-    </aside>
+    </div>
+    
+    <div class="prayer-body">
+        <div class="location-selector">
+            <select id="city-select">
+                <option value="Cairo,Egypt">القاهرة، مصر</option>
+                <option value="Riyadh,Saudi Arabia">الرياض، السعودية</option>
+                <option value="Dubai,UAE">دبي، الإمارات</option>
+                <option value="Amman,Jordan">عمّان، الأردن</option>
+                <option value="Khartoum,Sudan">الخرطوم، السودان</option>
+                <option value="Casablanca,Morocco">الدار البيضاء، المغرب</option>
+                <option value="Istanbul,Turkey">إسطنبول، تركيا</option>
+            </select>
+            <button id="detect-location" title="الموقع الحالي"><i class="fas fa-location-crosshairs"></i></button>
+        </div>
+        
+        <div id="prayer-times-list">
+            <!-- سيتم ملؤها بالجافاسكريبت -->
+            <div class="prayer-item">
+                <span class="prayer-name">الفجر</span>
+                <span class="prayer-time loading">--:--</span>
+            </div>
+            <div class="prayer-item current-next">
+                <span class="prayer-name">الظهر</span>
+                <span class="prayer-time loading">--:--</span>
+            </div>
+            <div class="prayer-item">
+                <span class="prayer-name">العصر</span>
+                <span class="prayer-time loading">--:--</span>
+            </div>
+            <div class="prayer-item">
+                <span class="prayer-name">المغرب</span>
+                <span class="prayer-time loading">--:--</span>
+            </div>
+            <div class="prayer-item">
+                <span class="prayer-name">العشاء</span>
+                <span class="prayer-time loading">--:--</span>
+            </div>
+        </div>
+        
+        <div class="prayer-footer">
+            <div id="next-prayer">
+                <i class="fas fa-bell"></i>
+                <span>القادمة: <strong id="next-name">الظهر</strong> بعد <strong id="next-countdown">--:--</strong></span>
+            </div>
+            <p class="hijri-date" id="hijri-date">جاري التحميل...</p>
+        </div>
+    </div>
+</aside>
 
     <!-- الهيدر الرئيسي -->
     <header class="main-header">
@@ -397,5 +446,6 @@
 </body>
 
 </html>
+
 
 
