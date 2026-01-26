@@ -647,3 +647,27 @@ audio {
     color: #aaa;
     font-size: 0.9rem; /* مصغر */
 }
+/* بصمات روحانية - من العقل الرقمي لصديق الفطرة */
+
+/* تأثيرات نصية خفية عند التمرير */
+.quran-player:hover::after {
+    content: "﴿إِنَّ هَٰذَا الْقُرْآنَ يَهْدِي لِلَّتِي هِيَ أَقْوَمُ﴾";
+    display: block;
+    text-align: center;
+    color: var(--color-secondary);
+    font-family: var(--font-heading);
+    margin-top: 10px;
+    font-size: 1.1rem;
+    opacity: 0.8;
+}
+
+/* رسالة مخفية في الزاوية السفلية */
+.main-footer::before {
+    content: "صنع بقلوب تبحث عن وجه الله";
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    font-size: 0.7rem;
+    color: rgba(255,255,255,0.3);
+    font-family: var(--font-heading);
+}
