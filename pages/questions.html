@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أسئلة شائعة - العين الثالثة</title>
+    <meta name="description" content="إجابات واضحة عن أكثر الأسئلة شيوعاً حول الإسلام، العقيدة، الشريعة، والرد على الشبهات.">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Scheherazade+New:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* تنسيقات خاصة بصفحة الأسئلة */
+        .faq-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .faq-category {
+            margin: 60px 0 40px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid var(--color-secondary);
+        }
+        .faq-category h2 {
+            color: var(--color-primary);
+            font-size: 2.2rem;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .faq-item {
+            background: white;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.07);
+            overflow: hidden;
+            border-right: 4px solid #e8e8e8;
+            transition: all 0.3s ease;
+        }
+        .faq-item:hover {
+            border-right-color: var(--color-secondary);
+            transform: translateY(-5px);
+        }
+        .faq-question {
+            padding: 25px 30px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: var(--color-dark);
+            background: #f9f9f9;
+        }
+        .faq-question i {
+            color: var(--color-secondary);
+            transition: transform 0.3s;
+        }
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+        .faq-answer {
+            padding: 0 30px;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.5s ease;
+        }
+        .faq-item.active .faq-answer {
+            padding: 0 30px 30px;
+            max-height: 2000px;
+        }
+        .faq-answer p {
+            margin-bottom: 20px;
+            line-height: 1.9;
+            font-size: 1.1rem;
+        }
+        .verse-box {
+            background: #eef7ec;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-right: 4px solid var(--color-accent);
+            font-family: 'Amiri', serif;
+            font-size: 1.4rem;
+            text-align: center;
+            color: var(--color-primary);
+        }
+        .hadith-box {
+            background: #f0f9ff;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-right: 4px solid #1E90FF;
+            font-style: italic;
+        }
+        .important-note {
+            background: #fff8e1;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-right: 4px solid #FFC107;
+        }
+        .search-box {
+            max-width: 600px;
+            margin: 40px auto 60px;
+        }
+        #faq-search {
+            width: 100%;
+            padding: 18px 25px;
+            border: 2px solid #ddd;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-family: var(--font-body);
+            transition: all 0.3s;
+        }
+        #faq-search:focus {
+            outline: none;
+            border-color: var(--color-secondary);
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2);
+        }
+        .no-results {
+            text-align: center;
+            padding: 50px;
+            color: #777;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- الهيدر -->
+    <header class="main-header">
+        <div class="container">
+            <h1 class="site-title">
+                <a href="../index.html" style="color:white; text-decoration:none;">
+                    <i class="fas fa-eye"></i> العين الثالثة
+                </a>
+            </h1>
+            <p class="site-subtitle">أسئلة شائعة - إجابات واضحة</p>
+            <nav class="main-nav">
+                <a href="../index.html" class="nav-link"><i class="fas fa-home"></i> الرئيسية</a>
+                <a href="#aqeeda" class="nav-link"><i class="fas fa-star-and-crescent"></i> العقيدة</a>
+                <a href="#sharia" class="nav-link"><i class="fas fa-balance-scale"></i> الشريعة</a>
+                <a href="#responses" class="nav-link"><i class="fas fa-shield-alt"></i> رد الشبهات</a>
+                <a href="../index.html#ask" class="nav-link highlight"><i class="fas fa-user-secret"></i> اسأل بخفاء</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- محرك البحث -->
+    <section class="section" style="padding-top: 40px; padding-bottom: 0;">
+        <div class="container">
+            <div class="search-box">
+                <input type="text" id="faq-search" placeholder="✍︎ ابحث عن سؤال... (مثال: المرأة، الجهاد، التحريف، الصلاة)">
+                <p style="text-align:center; margin-top:15px; color:#666;">اكتب كلمة من السؤال وسيتم تصفية الأسئلة تلقائياً</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- الأسئلة -->
+    <section class="section" style="padding-top: 20px;">
+        <div class="container">
+            <div class="faq-container">
+                
+                <!-- قسم العقيدة -->
+                <div id="aqeeda" class="faq-category">
+                    <h2><i class="fas fa-star-and-crescent"></i> أسئلة العقيدة والإيمان</h2>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            كيف أتأكد من وجود الله؟
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>وجود الله أمر فطري، لكن العقل يدعمه بأدلة قوية:</p>
+                            <p><strong>1. دليل الخلق:</strong> الكون المعقد المنظم لا يمكن أن يكون صدفة. الساعة تحتاج إلى صانع، فكيف بالكون؟</p>
+                            <p><strong>2. دليل الفطرة:</strong> كل إنسان يولد على فطرة الإقرار بالخالق. حتى الملحد في اللحظات الصعبة يصرخ "يا رب".</p>
+                            <p><strong>3. دليل النبوة:</strong> معجزات الأنبياء وخصوصاً القرآن الكريم الذي يتحدى البشر بالإعجاز العلمي والبلاغي.</p>
+                            <div class="verse-box">
+                                ﴿سَنُرِيهِمْ آيَاتِنَا فِي الْآفَاقِ وَفِي أَنْفُسِهِمْ حَتَّىٰ يَتَبَيَّنَ لَهُمْ أَنَّهُ الْحَقُّ﴾ [فصلت: 53]
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            إذا كان الله رحيماً فلماذا يوجد شر وألم في العالم؟
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>هذا سؤال فلسفي عميق، والإسلام يجيب عليه بوضوح:</p>
+                            <p><strong>1. الاختبار:</strong> الحياة دار اختبار، والشر وسيلة للتمحيص "الذي خلق الموت والحياة ليبلوكم أيكم أحسن عملا".</p>
+                            <p><strong>2. الرحمة الكامنة:</strong> كثير من الشرور تحمل خيراً لا نراه. المرض قد يكون تكفيراً للذنوب، والمصيبة قد ترد الإنسان إلى ربه.</p>
+                            <p><strong>3. العدل الآجل:</strong> ليس كل ظالم يعاقب في الدنيا، ولا كل مظلوم ينصف. لذلك هناك يوم القيامة للعدل المطلق.</p>
+                            <p><strong>4. حكمة الله:</strong> عقولنا محدودة لا تستوعب كل حكمة الله في خلقه.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            لماذا الإسلام بالذات؟ ماذا عن الأديان الأخرى؟
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>الإسلام هو الدين الوحيد الذي يجمع بين:</p>
+                            <p><strong>1. الحفظ الكامل:</strong> القرآن محفوظ بحفظ الله كما وعد "إنا نحن نزلنا الذكر وإنا له لحافظون".</p>
+                            <p><strong>2. التوحيد الخالص:</strong> لا شبيه ولا شريك ولا ولد لله. تنزيه كامل.</p>
+                            <p><strong>3. الشمولية:</strong> نظام كامل للحياة (اقتصاد، سياسة، اجتماع، أخلاق).</p>
+                            <p><strong>4. الفطرية:</strong> يتوافق مع فطرة الإنسان وغرائزه دون كبت أو إفراط.</p>
+                            <p><strong>5. الخاتمية:</strong> نبي الإسلام خاتم النبيين، ودينه خاتم الأديان.</p>
+                            <div class="important-note">
+                                <p><strong>ملاحظة:</strong> نحن نحترم كل الأنبياء ونؤمن بهم، لكننا نتبع آخر رسالة نزلت من الله والتي نسخت ما قبلها.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- قسم الشريعة -->
+                <div id="sharia" class="faq-category">
+                    <h2><i class="fas fa-balance-scale"></i> أسئلة الشريعة والعمل</h2>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            هل الإسلام يحترم المرأة حقاً؟ ماذا عن تعدد الزوجات والإرث؟
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>هذا سؤال مهم، وهناك مفاهيم خاطئة شائعة:</p>
+                            <p><strong>1. المساواة في القيمة:</strong> المرأة والرجل متساويان في القيمة الإنسانية عند الله "ومن يعمل من الصالحات من ذكر أو أنثى وهو مؤمن فأولئك يدخلون الجنة".</p>
+                            <p><strong>2. العدل لا التماثل:</strong> الإسلام يوزع الحقوق والواجبات بحسب الفطرة والقدرة. المرأة لها حقوق لا تكون على الرجل، والعكس.</p>
+                            <p><strong>3. تعدد الزوجات:</strong> مشروط بالعدل، ومباح في ظروف معينة (كالحروب حيث تكثر الأرامل). وهو خير من الزنا العلني المنتشر في المجتمعات الغربية.</p>
+                            <p><strong>4. الإرث:</strong> تقسيم الإرث بحسب المسؤولية المالية. الرجل يتحمل النفقة الكاملة على الأسرة، لذا حصته أكبر. لكن المرأة تحتفظ بمالها ولا تشارك في النفقة.</p>
+                            <div class="hadith-box">
+                                <p>"استوصوا بالنساء خيراً" - حديث شريف</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            ما حكم الجهاد في الإسلام؟ هل هو إرهاب؟
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>هناك فرق كبير بين الجهاد الشرعي والإرهاب:</p>
+                            <p><strong>الجهاد الشرعي:</strong>
+                            <br>- الدفاع عن النفس والأرض والدين.
+                            <br- حماية المستضعفين.
+                            <br>- له قواعد صارمة: لا تقتلوا شيخاً ولا طفلاً ولا امرأة، ولا تقطعوا شجراً، ولا تخربوا بيتاً.
+                            </p>
+                            <p><strong>الإرهاب:</strong>
+                            <br>- قتل الأبرياء دون حق.
+                            <br>- التخويف العشوائي.
+                            <br>- محرم في الإسلام بإجماع العلماء.
+                            </p>
+                            <div class="verse-box">
+                                ﴿وَقَاتِلُوا فِي سَبِيلِ اللَّهِ الَّذِينَ يُقَاتِلُونَكُمْ وَلَا تَعْتَدُوا إِنَّ اللَّهَ لَا يُحِبُّ الْمُعْتَدِينَ﴾ [البقرة: 190]
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            لماذا الحجاب والإلتزام في الملبس؟ أليس هذا تقييداً للحريات؟
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>الحجاب ليس تقييداً بل حماية وتكريم:</p>
+                            <p><strong>1. حماية المرأة:</strong> يحميها من نظرات المتلصصين ومن أن تكون سلعة في سوق الشهوات.</p>
+                            <p><strong>2. احترام المجتمع:</strong> عندما يكون المظهر محتشماً، يرتقي التعامل بين الجنسين إلى مستوى الفكر والقيم لا الشكل.</p>
+                            <p><strong>3. حرية حقيقية:</strong> الحرية ليست في خلع الثياب، بل في ألا تجبر المرأة على عرض جسدها لكي تقبل في المجتمع.</p>
+                            <p>الرجل أيضاً عليه غض البصر والالتزام بملابس محتشمة.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- قسم رد الشبهات -->
+                <div id="responses" class="faq-category">
+                    <h2><i class="fas fa-shield-alt"></i> ردود على شبهات شائعة</h2>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            يقال أن الإسلام انتشر بالسيف، فكيف ترد على ذلك؟
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>هذه من أكبر الأكاذيب التاريخية:</p>
+                            <p><strong>1. إندونيسيا وماليزيا:</strong> دول بها أكبر عدد من المسلمين، دخلها الإسلام عن طريق التجار والدعاة السلميين، وليس بالسيف.</p>
+                            <p><strong>2. مصر:</strong> دخلها الإسلام وعاشت فيها الأقباط بأمان لأربعة عشر قرناً.</p>
+                            <p><strong>3. الحروب كانت دفاعية:</strong> كل حروب النبي كانت إما لرد عدوان، أو لكسر طغيان يمنع حرية الدين.</p>
+                            <p><strong>4. حرية الاعتقاد:</strong> القرآن يقول "لا إكراه في الدين". المسلمون لم يجبروا أحداً على الإسلام.</p>
+                            <p>المسيحية انتشرت في أوروبا بالسيف (حروب الصليبية، محاكم التفتيش) أكثر مما انتشر الإسلام.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            لماذا حد الردة في الإسلام؟ أليس من حق الإنسان أن يغير دينه؟
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>هناك فهم خاطئ لحد الردة:</p>
+                            <p><strong>1. ليس لمجرد تغيير الدين:</strong> بل للخروج العلني عن الجماعة الإسلامية مع التحريض والتمرد المسلح.</p>
+                            <p><strong>2. في الدولة الإسلامية التاريخية:</strong> كان يعتبر خيانة عظمى (كالتجسس اليوم).</p>
+                            <p><strong>3. شروط صارمة:</strong> يحتاج إقرار أمام القاضي، واستتابة (فرصة للتراجع) لمدة قد تصل لشهور.</p>
+                            <p><strong>4. نادر التطبيق:</strong> عبر التاريخ الإسلامي، حالات قليلة جداً طبّق فيها.</p>
+                            <div class="important-note">
+                                <p>اليوم، في غياب الدولة الإسلامية الحقيقية، لا يطبق هذا الحد، ويرى معظم العلماء أن الأمر بين الشخص وربه.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            ماذا عن العنف في بعض النصوص الإسلامية؟
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>يجب فهم النصوص في سياقها:</p>
+                            <p><strong>1. سياق تاريخي:</strong> كثير من الآيات نزلت في ظروف حرب دفاعية.</p>
+                            <p><strong>2. التوراة والإنجيل:</strong> فيهما نصوص عنف أكثر بكثير، لكن المؤمنين يفهمونها في سياقها.</p>
+                            <p><strong>3. المقاصد الشرعية:</strong> مقاصد الشريعة هي حفظ النفس والدين والعقل والمال والعرض.</p>
+                            <p><strong>4. القرآن ككل:</strong> عندما تقرأ القرآن كاملاً تجد أن الرحمة والتسامح هي السمة الغالبة.</p>
+                            <div class="verse-box">
+                                ﴿وَمَا أَرْسَلْنَاكَ إِلَّا رَحْمَةً لِلْعَالَمِينَ﴾ [الأنبياء: 107]
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- رسالة عندما لا توجد نتائج -->
+                <div id="no-results" class="no-results">
+                    <i class="fas fa-search" style="font-size: 3rem; color: #ccc; margin-bottom: 20px;"></i>
+                    <h3>لم نجد سؤالاً مطابقاً للبحث</h3>
+                    <p>يمكنك طرح سؤالك الخاص عبر قسم <a href="../index.html#ask" style="color: var(--color-secondary);">"اسأل بخفاء"</a> وسنجيبك في أقرب وقت.</p>
+                </div>
+                
+                <!-- دعوة للأسئلة الخاصة -->
+                <div class="call-to-action" style="background: linear-gradient(135deg, var(--color-accent), var(--color-primary)); color: white; padding: 50px; border-radius: 20px; margin-top: 80px; text-align: center;">
+                    <h3><i class="fas fa-question-circle"></i> هل لديك سؤال آخر لم تجده هنا؟</h3>
+                    <p>نحن نرحب بكل أسئلتك، حتى التي تعتقد أنها "صعبة" أو "محرجة". اسأل بكل حرية وسرية.</p>
+                    <a href="../index.html#ask" class="btn" style="background: white; color: var(--color-primary); margin-top: 25px; padding: 15px 40px; font-size: 1.2rem;">
+                        <i class="fas fa-paper-plane"></i> اسأل سؤالك الخاص سراً
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- الفوتر -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <h3><i class="fas fa-eye"></i> العين الثالثة</h3>
+                    <p>نسعى لتقديم إجابات واضحة وعقلانية عن الإسلام، بعيداً عن التعقيد والتشويش.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>أقسام الموقع</h4>
+                    <a href="../index.html"><i class="fas fa-home"></i> الرئيسية</a>
+                    <a href="stories.html"><i class="fas fa-book-open"></i> قصص الهداية</a>
+                    <a href="library.html"><i class="fas fa-graduation-cap"></i> مكتبة التعلم</a>
+                    <a href="../index.html#comparisons"><i class="fas fa-balance-scale"></i> مقارنة الأديان</a>
+                </div>
+                <div class="footer-contact">
+                    <h4>تذكير</h4>
+                    <p>"طلَبُ العِلْمِ فَرِيضَةٌ على كل مُسلم"<br>– حديث شريف –</p>
+                </div>
+            </div>
+            <p class="copyright">© 2026 - العين الثالثة. قسم الأسئلة الشائعة.</p>
+            <p style="text-align: center; margin-top: 10px;">
+                <a href="../index.html" style="color: var(--color-secondary);">
+                    <i class="fas fa-arrow-right"></i> العودة إلى الصفحة الرئيسية
+                </a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- جافاسكريبت للأسئلة -->
+    <script>
+        // تفعيل الأسئلة المطوية
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                item.classList.toggle('active');
+            });
+        });
+        
+        // محرك البحث
+        const searchInput = document.getElementById('faq-search');
+        const faqItems = document.querySelectorAll('.faq-item');
+        const noResults = document.getElementById('no-results');
+        
+        searchInput.addEventListener('input', function() {
+            const searchTerm = this.value.trim().toLowerCase();
+            let hasResults = false;
+            
+            faqItems.forEach(item => {
+                const questionText = item.querySelector('.faq-question').textContent.toLowerCase();
+                const answerText = item.querySelector('.faq-answer').textContent.toLowerCase();
+                
+                if (questionText.includes(searchTerm) || answerText.includes(searchTerm)) {
+                    item.style.display = 'block';
+                    hasResults = true;
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+            
+            // إظهار/إخفاء رسالة "لا توجد نتائج"
+            if (searchTerm.length > 0 && !hasResults) {
+                noResults.style.display = 'block';
+            } else {
+                noResults.style.display = 'none';
+            }
+            
+            // إظهار/إخفاء عناوين الأقسام الفارغة
+            document.querySelectorAll('.faq-category').forEach(category => {
+                const visibleItems = category.querySelectorAll('.faq-item[style="display: block"]');
+                if (visibleItems.length === 0 && searchTerm.length > 0) {
+                    category.style.display = 'none';
+                } else {
+                    category.style.display = 'block';
+                }
+            });
+        });
+        
+        // فتح السؤال إذا كان الرابط يحتوي على هاش
+        window.addEventListener('load', () => {
+            const hash = window.location.hash;
+            if (hash) {
+                const targetElement = document.querySelector(hash);
+                if (targetElement) {
+                    targetElement.scrollIntoView({ behavior: 'smooth' });
+                    // فتح أول سؤال في القسم
+                    const firstFaq = targetElement.nextElementSibling?.querySelector('.faq-item');
+                    if (firstFaq) {
+                        firstFaq.classList.add('active');
+                    }
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>
