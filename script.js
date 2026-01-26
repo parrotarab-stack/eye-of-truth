@@ -130,4 +130,86 @@ document.querySelectorAll('.question-card, .story-card').forEach(card => {
     observer.observe(card);
 });
 
+
 console.log("مرحباً بك في منارة 'العين الثالثة'. تم تحميل جميع التفاعلات بنجاح.");
+// ===== 7. تفعيل فلتر مقارنات الأديان =====
+const filterButtons = document.querySelectorAll('.filter-btn');
+const comparisonRows = document.querySelectorAll('.comparison-row');
+
+if (filterButtons.length > 0) {
+    filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // إزالة النشاط من كل الأزرار
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            // إضافة النشاط للزر المختار
+            this.classList.add('active');
+            
+            const category = this.getAttribute('data-category');
+            
+            // تصفية الصفوف
+            comparisonRows.forEach(row => {
+                if (category === 'all' || row.getAttribute('data-category') === category) {
+                    row.classList.remove('hidden');
+                    setTimeout(() => {
+                        row.style.opacity = '1';
+                        row.style.transform = 'translateX(0)';
+                    }, 50);
+                } else {
+                    row.style.opacity = '0';
+                    row.style.transform = 'translateX(20px)';
+                    setTimeout(() => {
+                        row.classList.add('hidden');
+                    }, 300);
+                }
+            });
+        });
+    });
+}
+
+// ===== 8. زر إظهار المزيد من المقارنات =====
+const showMoreBtn = document.getElementById('showMoreComparisons');
+if (showMoreBtn) {
+    showMoreBtn.addEventListener('click', function() {
+        // هذا مثال لمقارنة إضافية يمكن إضافتها ديناميكياً
+        const newComparison = `
+        <tr class="comparison-row" data-category="text">
+            <td class="point-title">
+                <strong>النسخ والتحريف</strong>
+                <div class="point-desc">هل اعترفت الكتب بوجود تحريف؟</div>
+            </td>
+            <td>
+                <div class="text-box torah">
+                    <p>"يد يهوه عليهم للتحريف" (سفر عزرا)</p>
+                    <div class="analysis">نصوص تشير إلى تحريف سابق، مما يضعف ثقة القارئ بالنص الحالي.</div>
+                </div>
+            </td>
+            <td>
+                <div class="text-box gospel">
+                    <p>"إن كان أحد يزيد على هذا يزيد الله عليه الضربات" (رؤيا 22:18)</p>
+                    <div class="analysis">تحذير من الزيادة يدل على إمكانية التحريف.</div>
+                </div>
+            </td>
+            <td>
+                <div class="text-box quran highlight">
+                    <p>﴿وَإِنَّهُ لَكِتَابٌ عَزِيزٌ * لَا يَأْتِيهِ الْبَاطِلُ مِنْ بَيْنِ يَدَيْهِ وَلَا مِنْ خَلْفِهِ﴾ [فصلت: 41-42]</p>
+                    <div class="analysis">تحدي بعدم القدرة على تحريفه، وقد تحقق عبر 14 قرناً.</div>
+                    <span class="verdict">مناعة ضد التحريف</span>
+                </div>
+            </td>
+        </tr>
+        `;
+        
+        // إضافة المقارنة الجديدة إلى الجدول
+        const tbody = document.querySelector('.comparison-table tbody');
+        if (tbody) {
+            tbody.insertAdjacentHTML('beforeend', newComparison);
+            this.innerHTML = '<i class="fas fa-check"></i> تمت إضافة مقارنة جديدة';
+            this.disabled = true;
+            this.style.backgroundColor = '#e8f5e9';
+            
+            // إعادة ربط حدث الفلتر للصف الجديد
+            const newRow = tbody.lastElementChild;
+            comparisonRows.push(newRow); // إضافة للصفيف (لنعمل بشكل مبسط)
+        }
+    });
+}
