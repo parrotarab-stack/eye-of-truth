@@ -28,11 +28,46 @@ setInterval(showReminder, 300000);
 let currentCity = "Cairo,Egypt";
 let prayerTimesData = null;
 
-async function fetchPrayerTimes(city = currentCity) {
-    const [cityName, country] = city.split(',');
-    const url = `https://api.aladhan.com/v1/timingsByCity?city=${cityName.trim()}&country=${country.trim()}&method=5&school=0`;
+// ===== 2. نظام مواقيت الصلاة الكامل مع تحديد الموقع التلقائي =====
+let currentCity = "auto";
+let prayerTimesData = null;
+let userLocation = null;
+
+// دالة للحصول على اسم المدينة من الإحداثيات (Geocoding)
+async function getCityNameFromCoords(lat, lon) {
+    try {
+        const response = await fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}&accept-language=ar`);
+        const data = await response.json();
+        
+        if (data.address) {
+            const city = data.address.city || data.address.town || data.address.village || data.address.state;
+            const country = data.address.country;
+            return { city, country, fullName: `${city}, ${country}` };
+        }
+        return null;
+    } catch (error) {
+        console.error("خطأ في جلب اسم المدينة:", error);
+        return null;
+    }
+}
+
+// دالة جلب مواقيت الصلاة الرئيسية
+async function fetchPrayerTimes(location = currentCity) {
+    let url;
     
     try {
+        if (location === "auto" && userLocation) {
+            // استخدام الموقع التلقائي
+            url = `https://api.aladhan.com/v1/timings?latitude=${userLocation.latitude}&longitude=${userLocation.longitude}&method=5&school=0`;
+        } else if (location === "auto") {
+            // إذا لم يتم تحديد موقع بعد، استخدم القاهرة افتراضياً
+            url = `https://api.aladhan.com/v1/timingsByCity?city=Cairo&country=Egypt&method=5&school=0`;
+        } else {
+            // استخدام مدينة محددة
+            const [cityName, country] = location.split(',');
+            url = `https://api.aladhan.com/v1/timingsByCity?city=${cityName.trim()}&country=${country.trim()}&method=5&school=0`;
+        }
+        
         const response = await fetch(url);
         const data = await response.json();
         
@@ -47,22 +82,19 @@ async function fetchPrayerTimes(city = currentCity) {
         }
     } catch (error) {
         console.error("خطأ في جلب مواقيت الصلاة:", error);
-        document.getElementById('prayer-times-list').innerHTML = `
-            <div class="prayer-item">
-                <span class="prayer-name">خطأ</span>
-                <span class="prayer-time">تحديث</span>
-            </div>
-        `;
+        showPrayerError();
         return false;
     }
 }
 
+// دالة تحديث واجهة المواقيت
 function updatePrayerTimesUI() {
     if (!prayerTimesData) return;
     
     const timings = prayerTimesData.timings;
     const prayers = [
         { key: "Fajr", name: "الفجر" },
+        { key: "Sunrise", name: "الشروق" },
         { key: "Dhuhr", name: "الظهر" },
         { key: "Asr", name: "العصر" },
         { key: "Maghrib", name: "المغرب" },
@@ -107,130 +139,105 @@ function updatePrayerTimesUI() {
     // تحديث التاريخ الهجري
     const hijri = prayerTimesData.date.hijri;
     document.getElementById('hijri-date').textContent = 
-        `${hijri.day} ${hijri.month.ar} ${hijri.year} هـ`;
+        `${hijri.day} ${hijri.month.ar} ${hijri.year} هـ - ${hijri.weekday.ar}`;
+    
+    // تحديث اسم المدينة في الواجهة
+    updateLocationName();
 }
 
-function updateNextPrayer() {
-    if (!prayerTimesData) return;
-    
-    const timings = prayerTimesData.timings;
-    const prayers = [
-        { key: "Fajr", name: "الفجر" },
-        { key: "Dhuhr", name: "الظهر" },
-        { key: "Asr", name: "العصر" },
-        { key: "Maghrib", name: "المغرب" },
-        { key: "Isha", name: "العشاء" }
-    ];
-    
-    const now = new Date();
-    const currentHour = now.getHours();
-    const currentMinute = now.getMinutes();
-    let nextPrayer = prayers[1]; // افتراضي الظهر
-    let found = false;
-    
-    for (const prayer of prayers) {
-        const [prayerHour, prayerMinute] = timings[prayer.key].split(':').map(Number);
-        if (currentHour < prayerHour || (currentHour === prayerHour && currentMinute < prayerMinute)) {
-            nextPrayer = prayer;
-            found = true;
-            break;
-        }
+// دالة تحديث اسم المدينة المعروضة
+function updateLocationName() {
+    const locationName = document.getElementById('city-name');
+    if (currentCity === "auto" && userLocation) {
+        locationName.textContent = "موقعك الحالي";
+    } else if (currentCity === "auto") {
+        locationName.textContent = "جاري التعرف على الموقع...";
+    } else {
+        const cityParts = currentCity.split(',');
+        locationName.textContent = cityParts[0].trim();
     }
-    
-    if (!found) {
-        // إذا كانت كل الصلوات مضت، التالية هي فجر اليوم التالي
-        nextPrayer = prayers[0];
-    }
-    
-    document.getElementById('next-name').textContent = nextPrayer.name;
-    document.getElementById('next-countdown').textContent = 'حساب...';
-    
-    return nextPrayer;
 }
 
-function startCountdown() {
-    setInterval(() => {
-        if (!prayerTimesData) return;
-        
-        const nextPrayer = updateNextPrayer();
-        const now = new Date();
-        const [nextHour, nextMinute] = prayerTimesData.timings[nextPrayer.key].split(':').map(Number);
-        
-        let nextPrayerTime = new Date();
-        nextPrayerTime.setHours(nextHour, nextMinute, 0);
-        
-        // إذا كانت الصلاة التالية هي فجر الغد
-        if (nextPrayer.key === "Fajr" && now.getHours() > 12) {
-            nextPrayerTime.setDate(nextPrayerTime.getDate() + 1);
+// دالة تحديد الموقع التلقائي
+function detectUserLocation() {
+    return new Promise((resolve, reject) => {
+        if (!navigator.geolocation) {
+            reject('المتصفح لا يدعم تحديد الموقع');
+            return;
         }
         
-        const diffMs = nextPrayerTime - now;
+        const detectBtn = document.getElementById('detect-location');
+        const originalHTML = detectBtn.innerHTML;
+        detectBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
         
-        if (diffMs > 0) {
-            const diffHours = Math.floor(diffMs / (1000 * 60 * 60));
-            const diffMinutes = Math.floor((diffMs % (1000 * 60 * 60)) / (1000 * 60));
-            
-            document.getElementById('next-countdown').textContent = 
-                `${diffHours.toString().padStart(2, '0')}:${diffMinutes.toString().padStart(2, '0')}`;
-        } else {
-            document.getElementById('next-countdown').textContent = 'الآن!';
-        }
-    }, 1000);
-}
-
-// تفعيل عناصر التحكم
-document.addEventListener('DOMContentLoaded', function() {
-    // تحديث عند تغيير المدينة
-    const citySelect = document.getElementById('city-select');
-    if (citySelect) {
-        citySelect.addEventListener('change', function() {
-            currentCity = this.value;
-            fetchPrayerTimes(currentCity);
-        });
-    }
-    
-    // زر تحديث
-    const refreshBtn = document.getElementById('refresh-prayer');
-    if (refreshBtn) {
-        refreshBtn.addEventListener('click', function() {
-            this.classList.add('loading');
-            fetchPrayerTimes().then(() => {
+        navigator.geolocation.getCurrentPosition(
+            async (position) => {
+                userLocation = {
+                    latitude: position.coords.latitude,
+                    longitude: position.coords.longitude
+                };
+                
+                // الحصول على اسم المدينة
+                const cityInfo = await getCityNameFromCoords(userLocation.latitude, userLocation.longitude);
+                
+                detectBtn.innerHTML = '<i class="fas fa-check"></i>';
                 setTimeout(() => {
-                    this.classList.remove('loading');
-                }, 500);
-            });
-        });
-    }
-    
-    // زر تصغير
-    const minimizeBtn = document.getElementById('minimize-prayer');
-    if (minimizeBtn) {
-        minimizeBtn.addEventListener('click', function() {
-            const widget = document.getElementById('prayer-times-widget');
-            widget.classList.toggle('minimized');
-            this.innerHTML = widget.classList.contains('minimized') ? 
-                '<i class="fas fa-plus"></i>' : '<i class="fas fa-minus"></i>';
-        });
-    }
-    
-    // زر الموقع الحالي
-    const detectBtn = document.getElementById('detect-location');
-    if (detectBtn) {
-        detectBtn.addEventListener('click', function() {
-            if (navigator.geolocation) {
-                this.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
-                navigator.geolocation.getCurrentPosition(async (position) => {
-                    const { latitude, longitude } = position.coords;
-                    // يمكن إضافة API للعكس الجغرافي هنا
-                    this.innerHTML = '<i class="fas fa-location-crosshairs"></i>';
-                    alert('تم تحديد موقعك! سيتم إضافة هذه الميزة قريباً.');
-                });
-            } else {
-                alert('المتصفح لا يدعم تحديد الموقع');
+                    detectBtn.innerHTML = originalHTML;
+                }, 2000);
+                
+                // تحديث القائمة لتظهر المدينة المكتشفة
+                if (cityInfo) {
+                    const citySelect = document.getElementById('city-select');
+                    const autoOption = citySelect.querySelector('option[value="auto"]');
+                    autoOption.textContent = `📍 ${cityInfo.fullName}`;
+                }
+                
+                // جلب مواقيت الصلاة للموقع الجديد
+                await fetchPrayerTimes("auto");
+                resolve(userLocation);
+            },
+            (error) => {
+                detectBtn.innerHTML = '<i class="fas fa-times"></i>';
+                setTimeout(() => {
+                    detectBtn.innerHTML = originalHTML;
+                }, 2000);
+                
+                let errorMessage = "تعذر تحديد الموقع";
+                switch(error.code) {
+                    case error.PERMISSION_DENIED:
+                        errorMessage = "تم رفض الإذن. يرجى السماح بالموقع في إعدادات المتصفح.";
+                        break;
+                    case error.POSITION_UNAVAILABLE:
+                        errorMessage = "معلومات الموقع غير متاحة.";
+                        break;
+                    case error.TIMEOUT:
+                        errorMessage = "انتهت مهلة طلب الموقع.";
+                        break;
+                }
+                
+                alert(`⚠️ ${errorMessage}\nسيتم استخدام القاهرة افتراضياً.`);
+                resolve(null);
+            },
+            {
+                enableHighAccuracy: true,
+                timeout: 10000,
+                maximumAge: 0
             }
-        });
-    }
-    
+        );
+    });
+}
+
+// دالة عرض الخطأ
+function showPrayerError() {
+    document.getElementById('prayer-times-list').innerHTML = `
+        <div class="prayer-item" style="color: #d32f2f;">
+            <span class="prayer-name">⚠️ خطأ في التحميل</span>
+            <button onclick="fetchPrayerTimes()" style="background: var(--color-secondary); color: white; border: none; padding: 5px 15px; border-radius: 5px; cursor: pointer;">
+                إعادة تحميل
+            </button>
+        </div>
+    `;
+}   
     // التحميل الأولي
     fetchPrayerTimes();
 });
@@ -384,4 +391,5 @@ if (showMoreBtn) {
         }
     });
 }
+
 
