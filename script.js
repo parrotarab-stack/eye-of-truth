@@ -395,6 +395,78 @@ if (showMoreBtn) {
         }
     });
 }
+// تفعيل عناصر التحكم
+document.addEventListener('DOMContentLoaded', function() {
+    // تحديث عند تغيير المدينة
+    const citySelect = document.getElementById('city-select');
+    if (citySelect) {
+        citySelect.addEventListener('change', function() {
+            currentCity = this.value;
+            
+            if (currentCity === "auto") {
+                // محاولة تحديد الموقع تلقائياً
+                detectUserLocation().then(() => {
+                    fetchPrayerTimes("auto");
+                });
+            } else {
+                fetchPrayerTimes(currentCity);
+            }
+        });
+    }
+    
+    // زر تحديث
+    const refreshBtn = document.getElementById('refresh-prayer');
+    if (refreshBtn) {
+        refreshBtn.addEventListener('click', function() {
+            this.classList.add('loading');
+            fetchPrayerTimes(currentCity).then(() => {
+                setTimeout(() => {
+                    this.classList.remove('loading');
+                }, 500);
+            });
+        });
+    }
+    
+    // زر تصغير
+    const minimizeBtn = document.getElementById('minimize-prayer');
+    if (minimizeBtn) {
+        minimizeBtn.addEventListener('click', function() {
+            const widget = document.getElementById('prayer-times-widget');
+            widget.classList.toggle('minimized');
+            this.innerHTML = widget.classList.contains('minimized') ? 
+                '<i class="fas fa-plus"></i>' : '<i class="fas fa-minus"></i>';
+        });
+    }
+    
+    // زر الموقع الحالي
+    const detectBtn = document.getElementById('detect-location');
+    if (detectBtn) {
+        detectBtn.addEventListener('click', function() {
+            detectUserLocation().then((location) => {
+                if (location) {
+                    // تحديث القائمة لتحديد "الموقع التلقائي"
+                    citySelect.value = "auto";
+                    currentCity = "auto";
+                }
+            });
+        });
+    }
+    
+    // التحميل الأولي - محاولة تحديد الموقع تلقائياً
+    const citySelectElement = document.getElementById('city-select');
+    if (citySelectElement) {
+        // حاول تحديد الموقع تلقائياً عند التحميل
+        detectUserLocation().then((location) => {
+            if (location) {
+                citySelectElement.value = "auto";
+                currentCity = "auto";
+            }
+            fetchPrayerTimes(currentCity);
+        }).catch(() => {
+            fetchPrayerTimes("Cairo,Egypt"); // افتراضي إذا فشل
+        });
+    }
+});
 
 
 
