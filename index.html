@@ -302,36 +302,34 @@
     </section>
 
     <!-- قسم "اسأل بخفاء" -->
-    <section id="ask" class="section dark-section">
-        <div class="container">
-            <h2 class="section-title"><i class="fas fa-user-secret"></i> اسأل بخفاء</h2>
-            <p class="section-subtitle">لا تخف. اسأل أي سؤال في قلبك، وسنجيبك بكل صدق وخصوصية تامة. لا نطلب اسمك.</p>
-            <div class="ask-container">
-                <form id="secret-question-form" class="ask-form" action="https://formspree.io/f/mpqdkwpz" method="POST">
-                    <textarea name="question" id="question-input" placeholder="اكتب سؤالك هنا بكل أمان... مثلاً: كيف أتأكد من وجود الله؟ ماذا عن الإسلام والإرهاب؟ كيف أصلي؟" required rows="5"></textarea>
-                    <div class="form-info">
-                        <p><i class="fas fa-lock"></i> سري تماماً. سيتم إرسال الرد إلى بريدك الإلكتروني فقط.</p>
-                    </div>
-                    <input type="email" name="email" id="user-email" placeholder="بريدك الإلكتروني (لنرسل لك الرد)" required>
-                    <input type="hidden" name="_subject" value="سؤال جديد من موقع العين الثالثة">
-                    <input type="hidden" name="_language" value="ar">
-                    <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i> أرسل سؤالي سراً</button>
-                </form>
-                <div class="ask-info">
-                    <h3><i class="fas fa-hands-helping"></i> لماذا هذا القسم؟</h3>
-                    <p>لأن بعض الأسئلة تكون حساسة جداً في القلب. هنا مساحتك الآمنة. نحن نعدك بالرد بكل حب واحترام، ودون أي حكم. الهدف هو إزالة الحواجز بينك وبين الحق.</p>
-                    <div class="faq-preview">
-                        <h4>أسئلة متكررة:</h4>
-                        <ul>
-                            <li><a href="pages/questions.html#aqeeda">هل الإسلام يحترم المرأة حقاً؟</a></li>
-                            <li><a href="pages/questions.html#sharia">كيف أتخلص من الذنوب الكبيرة وأبدأ من جديد؟</a></li>
-                            <li><a href="pages/questions.html#responses">أشعر بفراغ روحي، ماذا أفعل؟</a></li>
-                        </ul>
-                    </div>
+<section id="ask" class="section dark-section">
+    <div class="container">
+        <h2 class="section-title"><i class="fas fa-user-secret"></i> اسأل بخفاء</h2>
+        <p class="section-subtitle">لا تخف. اسأل أي سؤال في قلبك، وسنجيبك بكل صدق وخصوصية تامة. لا نطلب اسمك.</p>
+        
+        <div class="ask-container">
+            <form id="secret-question-form" class="ask-form" action="https://formspree.io/f/mpdqkxpz" method="POST">
+                <textarea 
+                    name="message" 
+                    id="question-input" 
+                    placeholder="اكتب سؤالك هنا بكل أمان... مثلاً: كيف أثق في وجود الله؟ ماذا عن الإسلام والإرهاب؟ كيف أبدأ الصلاة؟"
+                    required
+                ></textarea>
+                
+                <div class="form-info">
+                    <p><i class="fas fa-lock"></i> سري تماماً. سيتم إرسال الرد إلى بريدك الإلكتروني فقط</p>
                 </div>
-            </div>
+                
+                <!-- لا تضع حقل email هنا. نريد إرسالاً بدون بريد -->
+                <input type="hidden" name="_subject" value="سؤال جديد من موقع العين الثالثة">
+                <input type="hidden" name="_language" value="ar">
+                <button type="submit" class="btn btn-primary">
+                    <i class="fas fa-paper-plane"></i> أرسل سؤالك الآمن
+                </button>
+            </form>
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- الفوتر -->
     <footer class="main-footer">
@@ -361,6 +359,7 @@
     <script src="script.js"></script>
 </body>
 </html>
+
 
 
 
