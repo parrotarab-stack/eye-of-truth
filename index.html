@@ -7,210 +7,63 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Scheherazade+New&display=swap" rel="stylesheet">
     <style>
-        /* ===== أنماط موقع العين الثالثة ===== */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: 'Amiri', serif;
             background: linear-gradient(135deg, #0c1e3e 0%, #1a3a5f 100%);
-            color: #f0f0f0;
-            line-height: 1.8;
-            min-height: 100vh;
-            padding: 10px;
+            color: #f0f0f0; line-height: 1.8; min-height: 100vh; padding: 10px;
         }
         .container {
-            max-width: 1100px;
-            margin: 20px auto;
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(10px);
-            border-radius: 24px;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            padding: 40px;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            max-width: 1100px; margin: 20px auto; background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px); border-radius: 24px; border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 40px; box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
         }
-        header {
-            text-align: center;
-            margin-bottom: 50px;
-            padding-bottom: 30px;
-            border-bottom: 2px solid rgba(240, 214, 138, 0.3);
-        }
-        h1 {
-            color: #f0d68a;
-            font-size: 3.8rem;
-            margin-bottom: 15px;
-            font-family: 'Scheherazade New', serif;
-            text-shadow: 0 2px 10px rgba(240, 214, 138, 0.4);
-        }
-        .tagline {
-            color: #a3c4e0;
-            font-size: 1.5rem;
-            font-style: italic;
-        }
-        .salah-nabi {
-            color: #2ecc71;
-            margin-top: 20px;
-            font-size: 1.3rem;
-        }
-        .section {
-            margin-bottom: 60px;
-            padding: 30px;
-            background: rgba(255, 255, 255, 0.04);
-            border-radius: 20px;
-            border-right: 6px solid #8ab4f8;
-        }
-        .section-title {
-            color: #f0d68a;
-            font-size: 2.2rem;
-            margin-bottom: 25px;
-            border-bottom: 2px dashed rgba(240, 214, 138, 0.3);
-            padding-bottom: 10px;
-        }
+        header { text-align: center; margin-bottom: 50px; padding-bottom: 30px; border-bottom: 2px solid rgba(240, 214, 138, 0.3); }
+        h1 { color: #f0d68a; font-size: 3.8rem; margin-bottom: 15px; font-family: 'Scheherazade New', serif; text-shadow: 0 2px 10px rgba(240, 214, 138, 0.4); }
+        .tagline { color: #a3c4e0; font-size: 1.5rem; font-style: italic; }
+        .salah-nabi { color: #2ecc71; margin-top: 20px; font-size: 1.3rem; }
+        .section { margin-bottom: 60px; padding: 30px; background: rgba(255, 255, 255, 0.04); border-radius: 20px; border-right: 6px solid #8ab4f8; }
+        .section-title { color: #f0d68a; font-size: 2.2rem; margin-bottom: 25px; border-bottom: 2px dashed rgba(240, 214, 138, 0.3); padding-bottom: 10px; }
         .section-subtitle { color: #c9d7e6; margin-bottom: 25px; font-size: 1.2rem; }
         ul { padding-right: 25px; margin-bottom: 20px; }
         li { margin-bottom: 12px; color: #e6e6e6; font-size: 1.15rem; }
-        .quran-player {
-            background: rgba(138, 180, 248, 0.1);
-            padding: 25px;
-            border-radius: 16px;
-            text-align: center;
-            margin-top: 25px;
-        }
+        .quran-player { background: rgba(138, 180, 248, 0.1); padding: 25px; border-radius: 16px; text-align: center; margin-top: 25px; }
         .quran-player a {
-            display: inline-block;
-            background: linear-gradient(135deg, #2d5a96, #1a3a5f);
-            color: white;
-            padding: 15px 30px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            margin-top: 15px;
-            transition: 0.3s;
+            display: inline-block; background: linear-gradient(135deg, #2d5a96, #1a3a5f); color: white; padding: 15px 30px;
+            border-radius: 50px; text-decoration: none; font-weight: bold; margin-top: 15px; transition: 0.3s;
         }
         .quran-player a:hover { background: linear-gradient(135deg, #3a6bb8, #2a4a75); transform: scale(1.05); }
-
-        /* جدول المقارنة */
-        .comparison-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 25px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 12px;
-            overflow: hidden;
-        }
-        .comparison-table th, .comparison-table td {
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 18px 15px;
-            text-align: right;
-            vertical-align: top;
-        }
-        .comparison-table th {
-            background: rgba(240, 214, 138, 0.2);
-            color: #f0d68a;
-            font-size: 1.3rem;
-        }
+        .comparison-table { width: 100%; border-collapse: collapse; margin-top: 25px; background: rgba(255, 255, 255, 0.05); border-radius: 12px; overflow: hidden; }
+        .comparison-table th, .comparison-table td { border: 1px solid rgba(255, 255, 255, 0.1); padding: 18px 15px; text-align: right; vertical-align: top; }
+        .comparison-table th { background: rgba(240, 214, 138, 0.2); color: #f0d68a; font-size: 1.3rem; }
         .comparison-table tr:nth-child(even) { background: rgba(255, 255, 255, 0.02); }
         .comparison-table td:first-child { color: #8ab4f8; font-weight: bold; }
         .ayah { color: #2ecc71; font-family: 'Scheherazade New', serif; margin-top: 8px; display: block; }
-
-        /* قسم اسأل بخفاء - الأهم */
-        .dark-section {
-            background: rgba(0, 0, 0, 0.25);
-            border-right-color: #f0d68a;
-        }
-        .ask-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 40px;
-            margin-top: 30px;
-        }
-        .ask-form {
-            flex: 1;
-            min-width: 300px;
-        }
+        .dark-section { background: rgba(0, 0, 0, 0.25); border-right-color: #f0d68a; }
+        .ask-container { display: flex; flex-wrap: wrap; gap: 40px; margin-top: 30px; }
+        .ask-form { flex: 1; min-width: 300px; }
         #question-input {
-            width: 100%;
-            min-height: 200px;
-            padding: 20px;
-            border-radius: 16px;
-            border: 2px solid rgba(240, 214, 138, 0.3);
-            background: rgba(255, 255, 255, 0.07);
-            color: white;
-            font-family: 'Amiri', serif;
-            font-size: 1.2rem;
-            resize: vertical;
-            margin-bottom: 20px;
+            width: 100%; min-height: 200px; padding: 20px; border-radius: 16px; border: 2px solid rgba(240, 214, 138, 0.3);
+            background: rgba(255, 255, 255, 0.07); color: white; font-family: 'Amiri', serif; font-size: 1.2rem; resize: vertical; margin-bottom: 20px;
         }
-        #question-input:focus {
-            outline: none;
-            border-color: #f0d68a;
-            box-shadow: 0 0 15px rgba(240, 214, 138, 0.3);
-        }
-        .form-info {
-            color: #a3c4e0;
-            margin-bottom: 25px;
-            font-size: 1.1rem;
-        }
+        #question-input:focus { outline: none; border-color: #f0d68a; box-shadow: 0 0 15px rgba(240, 214, 138, 0.3); }
+        .form-info { color: #a3c4e0; margin-bottom: 25px; font-size: 1.1rem; }
         .btn-primary {
-            background: linear-gradient(135deg, #f0d68a, #d4b15b);
-            color: #0c1e3e;
-            border: none;
-            padding: 18px 40px;
-            border-radius: 50px;
-            font-family: 'Amiri', serif;
-            font-size: 1.3rem;
-            font-weight: bold;
-            cursor: pointer;
-            display: block;
-            width: 100%;
-            transition: all 0.3s;
+            background: linear-gradient(135deg, #f0d68a, #d4b15b); color: #0c1e3e; border: none; padding: 18px 40px; border-radius: 50px;
+            font-family: 'Amiri', serif; font-size: 1.3rem; font-weight: bold; cursor: pointer; display: block; width: 100%; transition: all 0.3s;
         }
-        .btn-primary:hover {
-            background: linear-gradient(135deg, #ffe6a6, #e6c871);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(240, 214, 138, 0.3);
-        }
-        .ask-info {
-            flex: 1;
-            min-width: 300px;
-            background: rgba(240, 214, 138, 0.08);
-            padding: 30px;
-            border-radius: 20px;
-            border-right: 4px solid #f0d68a;
-        }
+        .btn-primary:hover { background: linear-gradient(135deg, #ffe6a6, #e6c871); transform: translateY(-3px); box-shadow: 0 10px 20px rgba(240, 214, 138, 0.3); }
+        .ask-info { flex: 1; min-width: 300px; background: rgba(240, 214, 138, 0.08); padding: 30px; border-radius: 20px; border-right: 4px solid #f0d68a; }
         .ask-info h3 { color: #f0d68a; margin-bottom: 20px; font-size: 1.8rem; }
         .ask-info p { color: #c9d7e6; font-size: 1.2rem; margin-bottom: 25px; }
         .faq-preview { margin-top: 30px; }
         .faq-preview h4 { color: #8ab4f8; margin-bottom: 15px; font-size: 1.4rem; }
         .faq-preview ul { list-style: none; padding: 0; }
-        .faq-preview li {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 15px;
-            margin-bottom: 12px;
-            border-radius: 10px;
-            border-right: 3px solid #8ab4f8;
-        }
-
-        /* قصص الهداية */
-        .story-card {
-            background: rgba(46, 204, 113, 0.1);
-            padding: 25px;
-            border-radius: 18px;
-            margin-bottom: 25px;
-            border-right: 5px solid #2ecc71;
-        }
+        .faq-preview li { background: rgba(255, 255, 255, 0.05); padding: 15px; margin-bottom: 12px; border-radius: 10px; border-right: 3px solid #8ab4f8; }
+        .story-card { background: rgba(46, 204, 113, 0.1); padding: 25px; border-radius: 18px; margin-bottom: 25px; border-right: 5px solid #2ecc71; }
         .story-card h4 { color: #2ecc71; margin-bottom: 15px; font-size: 1.5rem; }
         .story-card p { color: #c9d7e6; font-size: 1.15rem; }
-
-        /* التذييل */
-        footer {
-            text-align: center;
-            margin-top: 60px;
-            padding-top: 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: #8ab4f8;
-            font-size: 1.1rem;
-        }
-
-        /* تصميم متجاوب */
+        footer { text-align: center; margin-top: 60px; padding-top: 30px; border-top: 1px solid rgba(255, 255, 255, 0.1); color: #8ab4f8; font-size: 1.1rem; }
         @media (max-width: 768px) {
             .container { padding: 25px 20px; }
             h1 { font-size: 2.8rem; }
@@ -220,7 +73,6 @@
             .ask-container { flex-direction: column; }
         }
     </style>
-    <!-- كود إحصائيات Vercel - سيفعّل عند تفعيل Analytics -->
     <script>
         window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
     </script>
@@ -258,7 +110,6 @@
             <section class="section">
                 <h2 class="section-title"><i class="fas fa-balance-scale"></i> مقارنة واضحة: القرآن والكتب الأخرى</h2>
                 <p class="section-subtitle">نعرض نفس الموضوع من الكتب الثلاثة، ونترك لك الحكم بنفسك. "فماذا بعد الحق إلا الضلال" [يونس: 32]</p>
-                
                 <table class="comparison-table">
                     <thead>
                         <tr>
@@ -299,7 +150,6 @@
                         </tr>
                     </tbody>
                 </table>
-                
                 <div style="margin-top:40px; padding:25px; background:rgba(240,214,138,0.1); border-radius:16px;">
                     <h3 style="color:#f0d68a;"><i class="fas fa-conclusion"></i> ما الذي نستنتجه من هذه المقارنة؟</h3>
                     <ul style="color:#e6e6e6;">
@@ -317,62 +167,43 @@
             <section class="section">
                 <h2 class="section-title"><i class="fas fa-heart"></i> قصص الهداية: نور على نور</h2>
                 <p class="section-subtitle">أناس كانوا في ظلام الشك، فمنَّ الله عليهم بنور اليقين</p>
-                
                 <div class="story-card">
                     <h4><i class="fas fa-atom"></i> من الإلحاد إلى السجود</h4>
                     <p>"كنت أرى الكون مادة صماء... حتى قرأت عن الإعجاز العلمي في خلق الجنين في القرآن. كيف لرجل أمي قبل 1400 عام أن يصف هذا؟ كانت الصفعة التي أيقظت فطرتي." <span style="color:#2ecc71;">#العلم_يدعو_للايمان</span></p>
                 </div>
-                
                 <div class="story-card">
                     <h4><i class="fas fa-cross"></i> من المسيحية إلى الإسلام</h4>
                     <p>"حيرني عقيدة التثليث طوال عمري. عندما سمعت سورة الإخلاص لأول مرة بكيت: 'لم يلد ولم يولد'. وجدت الله الواحد الأحد الذي كنت أبحث عنه في أعماقي." <span style="color:#2ecc71;">#الفطرة_والتوحيد</span></p>
                 </div>
-                
                 <div class="story-card">
                     <h4><i class="fas fa-search"></i> من الشك إلى اليقين</h4>
                     <p>"كنت أقول 'لا أدري'.. حتى مرض والدي ورأيت الموت بعيني. بدأت أبحث عن معنى للحياة، فوجدت الإسلام يتوافق مع كل أسئلتي الفطرية." <span style="color:#2ecc71;">#البحث_عن_المعنى</span></p>
                 </div>
             </section>
 
-            <!-- قسم "اسأل بخفاء" - مصحح وجاهز -->
+            <!-- قسم "اسأل بخفاء" مع رابط الفورم الجديد xvzreaae -->
             <section id="ask" class="section dark-section">
                 <div class="container">
                     <h2 class="section-title"><i class="fas fa-user-secret"></i> اسأل بخفاء</h2>
                     <p class="section-subtitle">لا تخف. اسأل أي سؤال في قلبك، وسنجيبك بكل صدق وخصوصية تامة. لا نطلب اسمك.</p>
-                    
                     <div class="ask-container">
-                       <form id="secret-question-form" class="ask-form" action="https://formspree.io/f/xvzreaae" method="POST">
-    <textarea 
-        name="message" 
-        id="question-input" 
-        placeholder="اكتب سؤالك هنا بكل أمان..."
-        required
-    ></textarea>
-    
-    <!-- هذا الحقل ضروري للإصدار المجاني من Formspree -->
-    <input 
-        type="email" 
-        name="_replyto" 
-        placeholder="بريدك الإلكتروني (اختياري - لو تريد رداً مباشراً)"
-        style="margin-bottom: 15px; width: 100%; padding: 12px; border-radius: 8px; border: 1px solid rgba(240,214,138,0.3); background: rgba(255,255,255,0.07); color: white;"
-    >
-    
-    <div class="form-info">
-        <p><i class="fas fa-lock"></i> سري تماماً. البريد اختياري فقط لو تريد رداً مباشراً.</p>
-    </div>
-    
-    <input type="hidden" name="_subject" value="سؤال من العين الثالثة">
-    <input type="hidden" name="_language" value="ar">
-    
-    <button type="submit" class="btn btn-primary">
-        <i class="fas fa-paper-plane"></i> أرسل سؤالك
-    </button>
-</form>
-                        
+                        <!-- 🔧 رابط Formspree تم تحديثه إلى: xvzreaae -->
+                        <form id="secret-question-form" class="ask-form" action="https://formspree.io/f/xvzreaae" method="POST">
+                            <textarea name="message" id="question-input" placeholder="اكتب سؤالك هنا بكل أمان... مثلاً: كيف أثق في وجود الله؟ ماذا عن الإسلام؟ كيف أبدأ؟" required></textarea>
+                            <!-- الحقل المطلوب للإصدار المجاني من Formspree، ولكن جعلناه واضحاً أنه اختياري -->
+                            <input type="email" name="_replyto" id="user-email" placeholder="بريدك الإلكتروني (اختياري - إذا أردت رداً مباشراً عليك)" style="margin-bottom: 15px; width: 100%; padding: 12px; border-radius: 8px; border: 1px solid rgba(240,214,138,0.3); background: rgba(255,255,255,0.07); color: white;">
+                            <div class="form-info">
+                                <p><i class="fas fa-lock"></i> سري تماماً. البريد اختياري، يهدف فقط لتوصيل رد مباشر إذا أردت.</p>
+                            </div>
+                            <input type="hidden" name="_subject" value="سؤال من موقع العين الثالثة">
+                            <input type="hidden" name="_language" value="ar">
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-paper-plane"></i> أرسل سؤالك الآمن
+                            </button>
+                        </form>
                         <div class="ask-info">
                             <h3><i class="fas fa-hands-helping"></i> لماذا هذا القسم؟</h3>
                             <p>لأن بعض الأسئلة تكون حساسة جداً في القلب. هنا مساحتك الآمنة. نحن نعدك بالرد بكل احترام، دون أي حكم. الهدف هو إزالة الحواجز بينك وبين الحق.</p>
-                            
                             <div class="faq-preview">
                                 <h4><i class="fas fa-question-circle"></i> أسئلة قد تهمك:</h4>
                                 <ul>
@@ -403,10 +234,9 @@
             const form = this;
             const button = form.querySelector('button[type="submit"]');
             const originalText = button.innerHTML;
-            
             button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> جاري الإرسال...';
             button.disabled = true;
-            
+
             fetch(form.action, {
                 method: 'POST',
                 body: new FormData(form),
@@ -439,6 +269,3 @@
     </script>
 </body>
 </html>
-
-
-
