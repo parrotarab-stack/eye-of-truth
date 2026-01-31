@@ -341,25 +341,33 @@
                     <p class="section-subtitle">لا تخف. اسأل أي سؤال في قلبك، وسنجيبك بكل صدق وخصوصية تامة. لا نطلب اسمك.</p>
                     
                     <div class="ask-container">
-                        <form id="secret-question-form" class="ask-form" action="https://formspree.io/f/mpqdkwpz" method="POST">
-                            <textarea 
-                                name="message" 
-                                id="question-input" 
-                                placeholder="اكتب سؤالك هنا بكل أمان... مثلاً: كيف أثق في وجود الله؟ ماذا عن الإسلام؟ كيف أبدأ؟"
-                                required
-                            ></textarea>
-                            
-                            <div class="form-info">
-                                <p><i class="fas fa-lock"></i> سري تماماً. سيتم إرسال السؤال إلى صاحب الموقع للرد.</p>
-                            </div>
-                            
-                            <input type="hidden" name="_subject" value="سؤال من العين الثالثة">
-                            <input type="hidden" name="_language" value="ar">
-                            
-                            <button type="submit" class="btn btn-primary">
-                                <i class="fas fa-paper-plane"></i> أرسل سؤالك الآمن
-                            </button>
-                        </form>
+                       <form id="secret-question-form" class="ask-form" action="https://formspree.io/f/mpdqkxpz" method="POST">
+    <textarea 
+        name="message" 
+        id="question-input" 
+        placeholder="اكتب سؤالك هنا بكل أمان..."
+        required
+    ></textarea>
+    
+    <!-- هذا الحقل ضروري للإصدار المجاني من Formspree -->
+    <input 
+        type="email" 
+        name="_replyto" 
+        placeholder="بريدك الإلكتروني (اختياري - لو تريد رداً مباشراً)"
+        style="margin-bottom: 15px; width: 100%; padding: 12px; border-radius: 8px; border: 1px solid rgba(240,214,138,0.3); background: rgba(255,255,255,0.07); color: white;"
+    >
+    
+    <div class="form-info">
+        <p><i class="fas fa-lock"></i> سري تماماً. البريد اختياري فقط لو تريد رداً مباشراً.</p>
+    </div>
+    
+    <input type="hidden" name="_subject" value="سؤال من العين الثالثة">
+    <input type="hidden" name="_language" value="ar">
+    
+    <button type="submit" class="btn btn-primary">
+        <i class="fas fa-paper-plane"></i> أرسل سؤالك
+    </button>
+</form>
                         
                         <div class="ask-info">
                             <h3><i class="fas fa-hands-helping"></i> لماذا هذا القسم؟</h3>
@@ -431,4 +439,5 @@
     </script>
 </body>
 </html>
+
 
